@@ -2,24 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class locationData : MonoBehaviour
+[CreateAssetMenu(fileName = "Location Data", menuName = "Trucker's Atlas/Location Data")]
+public class locationData : ScriptableObject
 {
-    public struct locationVariables
-    {
-        public string locationName;
-        public List<GameObject> connectedLocations;
+    public string cityName;
+    public List<locationData> adjacentCities;
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
