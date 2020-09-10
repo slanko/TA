@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class dashboardScript : MonoBehaviour
 {
     [SerializeField] AudioSource aud;
-    [SerializeField] Slider timeSlider;
+    public Slider timeSlider;
     void Start()
     {
 

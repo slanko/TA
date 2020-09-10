@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bcd3f152dd8611449e3525b32a3f7dd, type: 3}
-  m_Name: lignum
+  m_Name: cooltown
   m_EditorClassIdentifier: 
-  cityName: lignum
+  cityName: cooltown
   adjacentCities: []

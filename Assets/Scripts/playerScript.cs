@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class playerScript : MonoBehaviour
 {
@@ -15,8 +16,13 @@ public class playerScript : MonoBehaviour
     [SerializeField] LayerMask mapRayLayerMask;
     [SerializeField] List<GameObject> destinationList;
     [SerializeField] playerState currentState = playerState.STOPPED;
+    [SerializeField, Header("Map Stuff")] Text cityNameText;
+    [SerializeField] GameObject cityNameTextParent, arrivalPopup;
+    [SerializeField] Slider timeSlider;
+    
     NavMeshAgent nav;
     cityScript currentCity;
+
     //placeholder
     [SerializeField] Camera mapCam;
     // Start is called before the first frame update
@@ -41,33 +47,41 @@ public class playerScript : MonoBehaviour
                 }
             }
 
-            //route selection stuff
-            Ray ray = mapCam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit rayHit;
+        //route selection stuff
+        Ray ray = mapCam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit rayHit;
 
-            if (Input.GetMouseButtonDown(0))
+        Debug.DrawRay(ray.origin, ray.direction, Color.red);
+        if (Physics.Raycast(ray, out rayHit, Mathf.Infinity, mapRayLayerMask))
+        {
+            if(rayHit.collider.gameObject.tag == "City")
             {
-                Debug.Log("fired ray");
-                Debug.DrawRay(ray.origin, ray.direction, Color.red);
-                if (Physics.Raycast(ray, out rayHit, Mathf.Infinity, mapRayLayerMask))
+                currentCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
+                cityNameTextParent.gameObject.transform.position = ray.origin;
+                cityNameText.text = currentCity.cityLD.cityName;
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (rayHit.collider.gameObject.tag == "City")
-                    {
-                        currentCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
-                        destinationList.Add(currentCity.gameObject);
-                    }
-                    else
-                    {
-                        currentCity = null;
-                    }
+                    destinationList.Add(currentCity.gameObject);
+                    Debug.Log("added " + currentCity.cityLD.cityName + " to the travel plan");
                 }
             }
-
-        //am i in city check
-        var distanceToDestination = nav.remainingDistance;
-        if (distanceToDestination < 1f)
+        }
+        else
         {
-            reachedDestination();
+            cityNameText.text = "";
+        }
+        //am i in city check
+    }
+
+    private void FixedUpdate()
+    {
+        if(destinationList.Count > 0)
+        {
+            var distanceToDestination = Vector3.Distance(transform.position, destinationList[0].transform.position);
+            if (distanceToDestination < 1f && distanceToDestination > 0.01f && currentState == playerState.TRAVELLING)
+            {
+                reachedDestination();
+            }
         }
     }
 
@@ -75,7 +89,6 @@ public class playerScript : MonoBehaviour
     {
         nav.SetDestination(destinationList[0].gameObject.transform.position);
         currentState = playerState.TRAVELLING;
-
     }
 
     public void clearRoute()
@@ -87,17 +100,23 @@ public class playerScript : MonoBehaviour
     {
         if (currentState == playerState.TRAVELLING)
         {
-            Debug.Log("destination reached!!");
+            Debug.Log("destination reached: " + destinationList[0].GetComponent<cityScript>().cityLD.cityName);
             destinationList.Remove(destinationList[0]);
-            if (destinationList.Count != 0)
-            {
-                startTravelling();
-            }
-            else
-            {
-                currentState = playerState.STOPPED;
-            }
+            Time.timeScale = 0;
+            arrivalPopup.SetActive(true);
+            currentState = playerState.STOPPED;
         }
 
+    }
+
+    public void closePopup(GameObject popup)
+    {
+        popup.SetActive(false);
+        Time.timeScale = timeSlider.value;
+        if(destinationList.Count > 0)
+        {
+            currentState = playerState.TRAVELLING;
+            startTravelling();
+        }
     }
 }
