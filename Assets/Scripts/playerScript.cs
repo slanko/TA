@@ -26,16 +26,9 @@ public class playerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update()    {
         //map opening stuff
-        if (Input.GetKeyDown(openAtlasKey) && mapCam.gameObject.activeSelf)
-        {
-            mapCam.gameObject.SetActive(false);
-        }
 
-        if(currentState == playerState.STOPPED)
-        {
             if (Input.GetKeyDown(openAtlasKey))
             {
                 if (mapCam.gameObject.activeSelf)
@@ -69,11 +62,10 @@ public class playerScript : MonoBehaviour
                     }
                 }
             }
-        }
 
         //am i in city check
         var distanceToDestination = nav.remainingDistance;
-        if (distanceToDestination < 2f)
+        if (distanceToDestination < 1f)
         {
             reachedDestination();
         }
