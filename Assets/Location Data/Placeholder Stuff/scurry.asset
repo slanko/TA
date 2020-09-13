@@ -14,3 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityName: scurry
   adjacentCities: []
+  backgroundSprite: {fileID: 21300000, guid: 78eb4f86e9a10fd4289b3184042a5d59, type: 3}
+  cityDescription: 'of all the places you''ve been, scurry sure is.... one of them.
+
+
+    what a town!! if you can even call it that.
+
+    being here makes you feel like you should be scurrying away soon yourself.
+
+
+    while you''re here though, you can amuse yourself with the trade centre, or maybe
+    try the Factory Bar if you need a rest.
+
+
+    sadly enough that''s all there is to it.'
+  cityActivitiesDescription: 'there''s not much to do in scurry.
+
+
+    there is a trading post and a bar you can stay at if you need to.'
+  cityActivities: []

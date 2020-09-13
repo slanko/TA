@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityName: cooltown
   adjacentCities: []
+  backgroundImage: {fileID: 0}
+  cityDescription: upon entering cooltown you feel out of place. it takes you a while
+    but you eventually notice everyone here is wearing sunglasses.

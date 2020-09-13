@@ -14,7 +14,7 @@ public class playerScript : MonoBehaviour
     //probably needed
     [SerializeField] KeyCode openAtlasKey;
     [SerializeField] LayerMask mapRayLayerMask;
-    [SerializeField] List<GameObject> destinationList;
+    public List<cityScript> destinationList;
     [SerializeField] playerState currentState = playerState.STOPPED;
     [SerializeField, Header("Map Stuff")] Text cityNameText;
     [SerializeField] GameObject cityNameTextParent, arrivalPopup;
@@ -23,12 +23,16 @@ public class playerScript : MonoBehaviour
     NavMeshAgent nav;
     cityScript currentCity;
 
+    cityDataPassthrough cDP;
+    godScript GOD;
+
     //placeholder
     [SerializeField] Camera mapCam;
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        cDP = GameObject.Find("GOD").GetComponent<cityDataPassthrough>();
     }
 
     // Update is called once per frame
@@ -61,7 +65,7 @@ public class playerScript : MonoBehaviour
                 cityNameText.text = currentCity.cityLD.cityName;
                 if (Input.GetMouseButtonDown(0))
                 {
-                    destinationList.Add(currentCity.gameObject);
+                    destinationList.Add(currentCity);
                     Debug.Log("added " + currentCity.cityLD.cityName + " to the travel plan");
                 }
             }
@@ -77,7 +81,7 @@ public class playerScript : MonoBehaviour
     {
         if(destinationList.Count > 0)
         {
-            var distanceToDestination = Vector3.Distance(transform.position, destinationList[0].transform.position);
+            var distanceToDestination = Vector3.Distance(transform.position, destinationList[0].gameObject.transform.position);
             if (distanceToDestination < 1f && distanceToDestination > 0.01f && currentState == playerState.TRAVELLING)
             {
                 reachedDestination();
@@ -88,6 +92,7 @@ public class playerScript : MonoBehaviour
     public void startTravelling()
     {
         nav.SetDestination(destinationList[0].gameObject.transform.position);
+        cDP.currentCity = destinationList[0];
         currentState = playerState.TRAVELLING;
     }
 
@@ -100,7 +105,7 @@ public class playerScript : MonoBehaviour
     {
         if (currentState == playerState.TRAVELLING)
         {
-            Debug.Log("destination reached: " + destinationList[0].GetComponent<cityScript>().cityLD.cityName);
+            Debug.Log("destination reached: " + destinationList[0].cityLD.cityName);
             destinationList.Remove(destinationList[0]);
             Time.timeScale = 0;
             arrivalPopup.SetActive(true);

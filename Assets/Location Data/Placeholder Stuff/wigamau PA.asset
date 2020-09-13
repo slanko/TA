@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityName: wigamau PA
   adjacentCities: []
+  backgroundImage: {fileID: 0}
+  cityDescription: you remember a violent altercation you had with a friend here a
+    long time ago. your neck still aches with vengeance at the thought.
