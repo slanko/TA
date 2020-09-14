@@ -6,23 +6,12 @@ using UnityEngine.UI;
 public class cityDataPassthrough : MonoBehaviour
 {
     [SerializeField] playerScript pS;
-    [SerializeField] GameObject cityCanvas; 
+    [SerializeField] GameObject cityCanvas, activityHolder; 
     [SerializeField] Text cityName1, cityName2, cityDesc, cityActivitiesDesc;
     [SerializeField] Image cityBG;
     [System.NonSerialized] public cityScript currentCity;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void populateCityScreen()
     {
         cityCanvas.SetActive(true);
@@ -31,5 +20,13 @@ public class cityDataPassthrough : MonoBehaviour
         cityDesc.text = currentCity.cityLD.cityDescription;
         cityActivitiesDesc.text = currentCity.cityLD.cityActivitiesDescription;
         cityBG.sprite = currentCity.cityLD.backgroundSprite;
+        foreach (Transform child in activityHolder.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (GameObject activity in currentCity.cityLD.cityActivities)
+        {
+            Instantiate(activity, activityHolder.transform);
+        }
     }
 }

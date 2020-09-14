@@ -19,6 +19,8 @@ public class playerScript : MonoBehaviour
     [SerializeField, Header("Map Stuff")] Text cityNameText;
     [SerializeField] GameObject cityNameTextParent, arrivalPopup;
     [SerializeField] Slider timeSlider;
+    [SerializeField, Header("Route Planner")] GameObject routePlannerText;
+    [SerializeField] GameObject routePlannerTextHolder;
     
     NavMeshAgent nav;
     cityScript currentCity;
@@ -66,6 +68,7 @@ public class playerScript : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     destinationList.Add(currentCity);
+                    populateRoutePlanner();
                     Debug.Log("added " + currentCity.cityLD.cityName + " to the travel plan");
                 }
             }
@@ -99,6 +102,7 @@ public class playerScript : MonoBehaviour
     public void clearRoute()
     {
         destinationList.Clear();
+        populateRoutePlanner();
     }
 
     void reachedDestination()
@@ -122,6 +126,19 @@ public class playerScript : MonoBehaviour
         {
             currentState = playerState.TRAVELLING;
             startTravelling();
+        }
+    }
+
+    public void populateRoutePlanner()
+    {
+        foreach (Transform child in routePlannerTextHolder.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        foreach (cityScript cS in destinationList)
+        {
+            var currentText = Instantiate(routePlannerText, routePlannerTextHolder.transform);
+            currentText.GetComponent<Text>().text = cS.cityLD.cityName;
         }
     }
 }

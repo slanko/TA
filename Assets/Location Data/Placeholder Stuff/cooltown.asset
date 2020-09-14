@@ -14,6 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityName: cooltown
   adjacentCities: []
-  backgroundImage: {fileID: 0}
-  cityDescription: upon entering cooltown you feel out of place. it takes you a while
-    but you eventually notice everyone here is wearing sunglasses.
+  backgroundSprite: {fileID: 21300000, guid: 1bd18d868c51aa847970730405e791f4, type: 3}
+  cityDescription: "upon entering cooltown you feel out of place. \n\nit takes you
+    a while but you eventually notice everyone here is wearing sunglasses.\n\nif you're
+    feeling cool enough, you can get repairs at the auto shop or sleep in a wrecked
+    car."
+  cityActivitiesDescription: 'cooltown really isn''t as cool as it seems.
+
+
+    in fact, it''s just an auto repair yard.'
+  cityActivities:
+  - {fileID: 7145350822238157349, guid: e4b05e1703c021d438f359328200915a, type: 3}
+  - {fileID: 7145350822238157349, guid: d2762e7c03a6ed8409838c70071cf8a3, type: 3}
