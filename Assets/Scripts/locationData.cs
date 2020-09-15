@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class locationData : ScriptableObject
 {
     public string cityName;
-    public List<locationData> adjacentCities;
     public Sprite backgroundSprite;
     [TextArea(0, 20)]
     public string cityDescription, cityActivitiesDescription;

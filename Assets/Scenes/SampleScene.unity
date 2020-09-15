@@ -364,6 +364,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 762684278}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &27691714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1243,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 4161977357324515681, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Name
-      value: City Placeholder (4)
+      value: Mozambique
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -1302,10 +1313,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
+      propertyPath: adjacentCities.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
       propertyPath: cityLD
       value: 
       objectReference: {fileID: 11400000, guid: be0b4b8ce86c600439f2a41b341c562e,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[0]
+      value: 
+      objectReference: {fileID: 1113584740}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[1]
+      value: 
+      objectReference: {fileID: 339782637}
     - target: {fileID: 4161977356394504453, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: targetObject
@@ -1638,6 +1664,18 @@ MonoBehaviour:
   camLerpSpeed: 0.5
   camRotateSpeed: 3
   targetPosition: {fileID: 2012718096}
+--- !u!114 &339782637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4161977357051427512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5654f5ed884d6914bb32f6545bff5f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &352202396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1992,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503102122}
   m_CullTransparentMesh: 0
+--- !u!114 &513291623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003858043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5654f5ed884d6914bb32f6545bff5f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535547181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,7 +2431,7 @@ PrefabInstance:
     - target: {fileID: 4161977357324515681, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Name
-      value: City Placeholder (3)
+      value: Ballstown
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -2440,10 +2490,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
+      propertyPath: adjacentCities.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
       propertyPath: cityLD
       value: 
       objectReference: {fileID: 11400000, guid: cdb7f1329e16e3742a2f013c2553176f,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[0]
+      value: 
+      objectReference: {fileID: 1657015071}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[1]
+      value: 
+      objectReference: {fileID: 658816544}
     - target: {fileID: 4161977356394504453, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: targetObject
@@ -2462,6 +2527,18 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010347ce606a6e24aacfb2f227627ab4, type: 3}
+--- !u!114 &658816544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 139876074}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5654f5ed884d6914bb32f6545bff5f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,7 +2890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfe523f83fdb624fbd13de680f35135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!20 &762684280
 Camera:
   m_ObjectHideFlags: 0
@@ -3436,7 +3512,7 @@ PrefabInstance:
     - target: {fileID: 4161977357324515681, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Name
-      value: City Placeholder (1)
+      value: Scurry
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -3495,10 +3571,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
+      propertyPath: adjacentCities.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
       propertyPath: cityLD
       value: 
       objectReference: {fileID: 11400000, guid: d136c16d5d5006a469aa201976e2a232,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[0]
+      value: 
+      objectReference: {fileID: 339782637}
     - target: {fileID: 4161977356394504453, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: targetObject
@@ -4148,6 +4234,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100985365}
   m_CullTransparentMesh: 0
+--- !u!114 &1113584740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 608240479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5654f5ed884d6914bb32f6545bff5f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1120169563
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,7 +4677,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276896786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1990383854}
@@ -4587,7 +4685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -74.5}
+  m_AnchoredPosition: {x: 0, y: -42.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276896788
@@ -5876,6 +5974,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1657015071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983021256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5654f5ed884d6914bb32f6545bff5f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1673843684
 GameObject:
   m_ObjectHideFlags: 0
@@ -6704,7 +6814,7 @@ PrefabInstance:
     - target: {fileID: 4161977357324515681, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Name
-      value: City Placeholder (2)
+      value: Cooltown
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -6763,10 +6873,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
+      propertyPath: adjacentCities.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
       propertyPath: cityLD
       value: 
       objectReference: {fileID: 11400000, guid: b3daa02bd48e6c44d86f563f1fc72307,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[0]
+      value: 
+      objectReference: {fileID: 339782637}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[1]
+      value: 
+      objectReference: {fileID: 1113584740}
     - target: {fileID: 4161977356394504453, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: targetObject
@@ -7093,6 +7218,8 @@ MonoBehaviour:
   routePlannerText: {fileID: 4572616764840479557, guid: ec58916f65feb2e4ebc959ac94e7f8cb,
     type: 3}
   routePlannerTextHolder: {fileID: 352202396}
+  routeLineRenderer: {fileID: 4631649058998368519, guid: a37304122fe3557419847faaf3a574aa,
+    type: 3}
   mapCam: {fileID: 762684280}
 --- !u!195 &2012718098
 NavMeshAgent:
@@ -7228,7 +7355,7 @@ PrefabInstance:
     - target: {fileID: 4161977357324515681, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Name
-      value: City Placeholder
+      value: Wigamau
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -7285,6 +7412,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[0]
+      value: 
+      objectReference: {fileID: 513291623}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[1]
+      value: 
+      objectReference: {fileID: 1657015071}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: adjacentCities.Array.data[2]
+      value: 
+      objectReference: {fileID: 658816544}
     - target: {fileID: 4161977356394504453, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: targetObject
@@ -7303,3 +7450,72 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010347ce606a6e24aacfb2f227627ab4, type: 3}
+--- !u!1001 &4631649060626355319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4631649058998368519, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_Name
+      value: Route Line Renderer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631649058998368517, guid: a37304122fe3557419847faaf3a574aa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a37304122fe3557419847faaf3a574aa, type: 3}

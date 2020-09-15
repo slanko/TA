@@ -20,7 +20,8 @@ public class playerScript : MonoBehaviour
     [SerializeField] GameObject cityNameTextParent, arrivalPopup;
     [SerializeField] Slider timeSlider;
     [SerializeField, Header("Route Planner")] GameObject routePlannerText;
-    [SerializeField] GameObject routePlannerTextHolder;
+    [SerializeField] GameObject routePlannerTextHolder, routeLineRenderer;
+    List<GameObject> lineRendererList=new List<GameObject>();
     
     NavMeshAgent nav;
     cityScript currentCity;
@@ -38,7 +39,8 @@ public class playerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()    {
+    void Update()    
+    {
         //map opening stuff
 
             if (Input.GetKeyDown(openAtlasKey))
@@ -65,6 +67,16 @@ public class playerScript : MonoBehaviour
                 currentCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
                 cityNameTextParent.gameObject.transform.position = ray.origin;
                 cityNameText.text = currentCity.cityLD.cityName;
+                if(destinationList.Count > 0)
+                {
+                    foreach (cityScript adjCit in destinationList[destinationList.Count - 1].adjacentCities)
+                    {
+                        LineRenderer lineRend = Instantiate(routeLineRenderer, currentCity.gameObject.transform.position, gameObject.transform.rotation, currentCity.transform).GetComponent<LineRenderer>();
+                        lineRend.SetPosition(0, currentCity.gameObject.transform.position);
+                        lineRend.SetPosition(1, adjCit.gameObject.transform.position);
+                        lineRendererList.Add(lineRend.gameObject);
+                    }
+                }
                 if (Input.GetMouseButtonDown(0))
                 {
                     destinationList.Add(currentCity);
@@ -76,8 +88,14 @@ public class playerScript : MonoBehaviour
         else
         {
             cityNameText.text = "";
+            if (lineRendererList.Count > 0)
+            {
+                foreach (GameObject objectToDelete in lineRendererList)
+                {
+                    Destroy(objectToDelete);
+                }
+            }
         }
-        //am i in city check
     }
 
     private void FixedUpdate()

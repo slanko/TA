@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: wigamau PA
   m_EditorClassIdentifier: 
   cityName: wigamau PA
-  adjacentCities: []
-  backgroundImage: {fileID: 0}
-  cityDescription: you remember a violent altercation you had with a friend here a
-    long time ago. your neck still aches with vengeance at the thought.
+  backgroundSprite: {fileID: 21300000, guid: f67647c03134d0a4e9b827f73540108f, type: 3}
+  cityDescription: 'you remember a violent altercation you had with a friend here
+    a long time ago. your neck still aches with vengeance at the thought.
+
+
+    ...but wigamau itself is still nice. one of the more bustling collections of buildings
+    in the outskirts, it sports a trading centre (duh), a rest stop and even a repair
+    shop.'
+  cityActivitiesDescription: "rest, repair and..... rrrrelocation of goods?? \nbad
+    puns aside, this place has everything a trucker like you needs."
+  cityActivities:
+  - {fileID: 7145350822238157349, guid: d2762e7c03a6ed8409838c70071cf8a3, type: 3}
+  - {fileID: 7145350822238157349, guid: e4b05e1703c021d438f359328200915a, type: 3}
+  - {fileID: 7145350822238157349, guid: 04005f2330b38f145a0bba323501ee83, type: 3}
