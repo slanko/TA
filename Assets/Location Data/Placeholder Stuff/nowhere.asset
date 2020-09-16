@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bcd3f152dd8611449e3525b32a3f7dd, type: 3}
+  m_Name: nowhere
+  m_EditorClassIdentifier: 
+  cityName: nowhere
+  backgroundSprite: {fileID: 21300000, guid: 472e57fdd739c2241a4a77da3f13b0a8, type: 3}
+  cityDescription: 'they say this place used to have a name, but now whoever runs
+    this place is desperately trying to wipe it off any maps.
+
+
+    nobody comes in, nobody gets out, and that''s just the way it is. a bustling city
+    peeks just over the massive walls, untouched by the outside world.'
+  cityActivitiesDescription: 'you can''t get in.
+
+
+    however, you can scrounge through the trash that''s been thrown over the walls
+    if you''re in dire straits.'
+  cityActivities:
+  - {fileID: 7480398605240492043, guid: 4d3e9453cb2c9834e80d0a809ea30282, type: 3}
