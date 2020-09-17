@@ -1560,6 +1560,8 @@ MonoBehaviour:
   eventList:
   - {fileID: 11400000, guid: 15c2a922bd1ee3a4b8f44b04ff875e56, type: 2}
   - {fileID: 11400000, guid: 7a180ac0d85a0eb4ca84730f8ad16ef2, type: 2}
+  - {fileID: 11400000, guid: 8eaadf911d5e83f41805cb53131f800a, type: 2}
+  - {fileID: 11400000, guid: 3f7dcfbcb57baea409221b677ce2555e, type: 2}
   currentEvent: {fileID: 0}
   randomEventTimeMin: 30
   randomEventTimeMax: 120
