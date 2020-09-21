@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerResources : MonoBehaviour
 {
@@ -22,5 +23,15 @@ public class playerResources : MonoBehaviour
             //game OVERRRRRRRRRRRRR
             Debug.Log("you fricking died");
         }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            playerHealth = 0;
+        }
+    }
+
+    public void loseHealth(float healthLost)
+    {
+        playerHealth = playerHealth - healthLost;
     }
 }

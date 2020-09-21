@@ -23,4 +23,23 @@ MonoBehaviour:
 
       prepare to die and stuff!!!!'
     characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - beatText: okay, have it your way!!
+    characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   eventTitle: KILL
