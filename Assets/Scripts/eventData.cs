@@ -7,7 +7,7 @@ public struct eventStoryBeat
 {
     [Multiline(4)] public string beatText;
     public Sprite characterSprite;
-    public UnityEvent eventEffects;
+    public GameObject[] possibleActions; 
 }
 
 [CreateAssetMenu(fileName = "Event Data", menuName = "Trucker's Atlas/Event Data")]

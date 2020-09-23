@@ -1594,12 +1594,41 @@ MonoBehaviour:
   eventCharacter: {fileID: 455323977}
   eventPopup: {fileID: 315520893}
   eventList:
-  - {fileID: 11400000, guid: 15c2a922bd1ee3a4b8f44b04ff875e56, type: 2}
-  - {fileID: 11400000, guid: 7a180ac0d85a0eb4ca84730f8ad16ef2, type: 2}
-  - {fileID: 11400000, guid: 8eaadf911d5e83f41805cb53131f800a, type: 2}
-  - {fileID: 11400000, guid: c28af3befb803c445b0604219a79af36, type: 2}
-  - {fileID: 11400000, guid: 51cc9e7921a51804ba77a1989d022c9b, type: 2}
-  - {fileID: 11400000, guid: c761084ec0c1c734d9cc1f95752381a2, type: 2}
+  - entryName: Dumb Name Guy
+    eventMaster: {fileID: 11400000, guid: 51cc9e7921a51804ba77a1989d022c9b, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - entryName: Mugging 1
+    eventMaster: {fileID: 11400000, guid: 15c2a922bd1ee3a4b8f44b04ff875e56, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - entryName: Mugging 2
+    eventMaster: {fileID: 11400000, guid: c761084ec0c1c734d9cc1f95752381a2, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - entryName: Hugging :)
+    eventMaster: {fileID: 11400000, guid: 7a180ac0d85a0eb4ca84730f8ad16ef2, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - entryName: Repair Guy
+    eventMaster: {fileID: 11400000, guid: c28af3befb803c445b0604219a79af36, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - entryName: shut up
+    eventMaster: {fileID: 11400000, guid: 3e1e6cf7252d88f48aaac47159d8a619, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
+  - entryName: Weird Happenings
+    eventMaster: {fileID: 11400000, guid: 8eaadf911d5e83f41805cb53131f800a, type: 2}
+    eventEffects:
+      m_PersistentCalls:
+        m_Calls: []
   currentEvent: {fileID: 0}
   randomEventTimeMin: 30
   randomEventTimeMax: 120
@@ -1616,7 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 1000
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2115868332}
 --- !u!1 &143739502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,7 +2660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0.00012207031, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &457639006

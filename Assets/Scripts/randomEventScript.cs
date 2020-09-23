@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
+[System.Serializable]
+public struct eventStruct
+{
+    public string entryName;
+    public eventData eventMaster;
+    public UnityEvent eventEffects;
+}
 
 public class randomEventScript : MonoBehaviour
 {
     [SerializeField] Text eventHeader, eventText;
     [SerializeField] Image eventCharacter;
     [SerializeField] GameObject eventPopup;
-    public List<eventData> eventList;
+    public List<eventStruct> eventList;
     public eventData currentEvent;
     int eventCounter = 0;
 
@@ -36,7 +45,7 @@ public class randomEventScript : MonoBehaviour
         Debug.Log("random event happens uya");
         eventPopup.SetActive(true);
         Time.timeScale = 0;
-        currentEvent = eventList[Random.Range(0, eventList.Count)];
+        currentEvent = eventList[Random.Range(0, eventList.Count)].eventMaster;
         eventHeader.text = currentEvent.eventTitle;
         eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
         eventCounter = 0;
