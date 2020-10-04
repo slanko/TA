@@ -1643,6 +1643,8 @@ MonoBehaviour:
     eventMaster: {fileID: 11400000, guid: 3e1e6cf7252d88f48aaac47159d8a619, type: 2}
   - entryName: Weird Happenings
     eventMaster: {fileID: 11400000, guid: 8eaadf911d5e83f41805cb53131f800a, type: 2}
+  - entryName: bandit faction assassination
+    eventMaster: {fileID: 11400000, guid: 409eaaf678d4e1041a0d1d60c2c376bb, type: 2}
   currentEvent: {fileID: 0}
   currentButtons: []
   randomEventTimeMin: 30
@@ -7813,7 +7815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1678524847
 MonoBehaviour:
   m_ObjectHideFlags: 0

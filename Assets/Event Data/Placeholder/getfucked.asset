@@ -13,7 +13,29 @@ MonoBehaviour:
   m_Name: getfucked
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: 
+  - beatText: 'you fucked up and now i''m here to fuck you up.
+
+
+      nothing personnel
+      kid, etc'
+    characterSprite: {fileID: 21300000, guid: 55fbc661109af684c9daccd6dc7bbe30, type: 3}
+    possibleActions:
+    - buttonName: ah shit
+      varToChange: 0
+      changeAmount: -750
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: ah SHIT
+      varToChange: 0
+      changeAmount: -750
+      endEvent: 0
+      nextBeat: 1
+  - beatText: you were stabbed quite viciously and left for dead.
     characterSprite: {fileID: 0}
-    possibleActions: []
-  eventTitle: 
+    possibleActions:
+    - buttonName: accept
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 1
+      nextBeat: 0
+  eventTitle: assassin
