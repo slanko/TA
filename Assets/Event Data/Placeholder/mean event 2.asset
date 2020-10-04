@@ -19,6 +19,40 @@ MonoBehaviour:
       and i want to share the love!!!!!!!!!!
 
 
-      i love you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+      i
+      love you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
     characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
+    possibleActions:
+    - buttonName: beg for safety
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: stand up for yourself
+      varToChange: 0
+      changeAmount: -100
+      endEvent: 1
+      nextBeat: 0
+  - beatText: 'what''s that????
+
+
+      you don''t love the pipe????????'
+    characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
+    possibleActions:
+    - buttonName: ...
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 2
+  - beatText: 'that''s cool.
+
+
+      love who you wanna love, i guess.'
+    characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
+    possibleActions:
+    - buttonName: ...?
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 1
+      nextBeat: 2
   eventTitle: PIPE GUY

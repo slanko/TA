@@ -18,28 +18,54 @@ MonoBehaviour:
 
       round here''s pretty dangerous...
 
-      and by round here i mean my general vicinity!!!!
+      and
+      by round here i mean my general vicinity!!!!
 
 
       prepare to die and stuff!!!!'
     characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
-    eventEffects:
-      m_PersistentCalls:
-        m_Calls: []
+    possibleActions:
+    - buttonName: stand up for yourself
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: pay up
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 2
   - beatText: okay, have it your way!!
     characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
-    eventEffects:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+    possibleActions:
+    - buttonName: accept your fate
+      varToChange: 0
+      changeAmount: -150
+      endEvent: 1
+      nextBeat: 0
+  - beatText: 'wait, you''re actually cooperating??
+
+
+      this never happens!!
+      i was scared i''d have to stab you like everybody else.
+
+
+      since i don''t
+      have to put in all that effort to stab you i''ll only take a little bit.
+
+
+      what''ll
+      it be?'
+    characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
+    possibleActions:
+    - buttonName: give up some cash
+      varToChange: 2
+      changeAmount: -100
+      endEvent: 1
+      nextBeat: 0
+    - buttonName: give up some life energy
+      varToChange: 0
+      changeAmount: -100
+      endEvent: 1
+      nextBeat: 0
   eventTitle: KILL

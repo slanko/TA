@@ -2,12 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+public enum playerVariables
+{
+    HEALTH,
+    TRUCKHEALTH,
+    CREDIT,
+    LUCK
+}
+
 [System.Serializable]
 public struct eventStoryBeat
 {
     [Multiline(4)] public string beatText;
     public Sprite characterSprite;
-    public GameObject[] possibleActions; 
+    public buttonData[] possibleActions;
+}
+
+[System.Serializable]
+public struct buttonData
+{
+    public string buttonName;
+    public playerVariables varToChange;
+    public float changeAmount;
+    public bool endEvent;
+    public int nextBeat;
 }
 
 [CreateAssetMenu(fileName = "Event Data", menuName = "Trucker's Atlas/Event Data")]

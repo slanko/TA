@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcd3f152dd8611449e3525b32a3f7dd, type: 3}
   m_Name: wigamau PA
   m_EditorClassIdentifier: 
-  cityName: wigamau PA
+  cityName: wigamau
   backgroundSprite: {fileID: 21300000, guid: f67647c03134d0a4e9b827f73540108f, type: 3}
   cityDescription: 'you remember a violent altercation you had with a friend here
     a long time ago. your neck still aches with vengeance at the thought.
 
 
-    ...but wigamau itself is still nice. one of the more bustling collections of buildings
+    ...but
+    wigamau itself is still nice. one of the more bustling collections of buildings
     in the outskirts, it sports a trading centre (duh), a rest stop and even a repair
     shop.'
   cityActivitiesDescription: "rest, repair and..... rrrrelocation of goods?? \nbad

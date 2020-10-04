@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class playerResources : MonoBehaviour
 {
-    public float playerHealth;
+    public float playerHealth, truckHealth, playerCredit, playerLuck;
     [SerializeField] Slider healthBar;
 
     // Update is called once per frame
@@ -22,10 +22,5 @@ public class playerResources : MonoBehaviour
         {
             playerHealth = 0;
         }
-    }
-
-    public void loseHealth(float healthLost)
-    {
-        playerHealth = playerHealth - healthLost;
     }
 }
