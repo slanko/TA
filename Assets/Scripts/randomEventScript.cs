@@ -25,6 +25,7 @@ public class randomEventScript : MonoBehaviour
     [SerializeField] GameObject eventPopup;
     [SerializeField] GameObject randomEventCanvas;
     [SerializeField] playerResources pR;
+    [SerializeField] playerScript pS;
     [SerializeField] Slider timeScaleSlider;
     public List<eventStruct> eventList;
     public eventData currentEvent;
@@ -47,6 +48,14 @@ public class randomEventScript : MonoBehaviour
         randomEventFunction();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            randomEventFunction();
+        }
+    }
+
     private void Start()
     {
         StartCoroutine(randomEvent(Random.Range(randomEventTimeMin, randomEventTimeMax)));
@@ -54,17 +63,24 @@ public class randomEventScript : MonoBehaviour
 
     void randomEventFunction()
     {
-        Debug.Log("random event happens uya");
-        eventPopup.SetActive(true);
-        Time.timeScale = 0;
-        var ev = eventList [Random.Range(0, eventList.Count)];
-        currentEvent = ev.eventMaster;
-        eventHeader.text = currentEvent.eventTitle;
-        eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
-        eventCounter = 0;
-        eventText.text = currentEvent.eventBeatList[eventCounter].beatText;
-        StartCoroutine(randomEvent(Random.Range(randomEventTimeMin, randomEventTimeMax)));
-        populateButtons(0);
+        if(pS.currentState == playerScript.playerState.TRAVELLING)
+        {
+            Debug.Log("random event happens uya");
+            eventPopup.SetActive(true);
+            Time.timeScale = 0;
+            var ev = eventList[Random.Range(0, eventList.Count)];
+            currentEvent = ev.eventMaster;
+            eventHeader.text = currentEvent.eventTitle;
+            eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
+            eventCounter = 0;
+            eventText.text = currentEvent.eventBeatList[eventCounter].beatText;
+            StartCoroutine(randomEvent(Random.Range(randomEventTimeMin, randomEventTimeMax)));
+            populateButtons(0);
+        }
+        else
+        {
+            Debug.Log("random event failed due to player state yahoo");
+        }
     }
 
 
@@ -86,6 +102,28 @@ public class randomEventScript : MonoBehaviour
             {
                 button.onClick.AddListener(delegate { changeBeat(effect.nextBeat); });
             }
+
+            if (effect.changeAmount != 0)
+            {
+                switch (effect.varToChange)
+                {
+                    case playerVariables.HEALTH:
+                        button.onClick.AddListener(delegate { changeHealth(effect.changeAmount); }); 
+                        break;
+
+                    case playerVariables.CREDIT:
+                        button.onClick.AddListener(delegate { changeCredits(effect.changeAmount); });
+                        break;
+
+                    case playerVariables.LUCK:
+                        button.onClick.AddListener(delegate { changeLuck(effect.changeAmount); });
+                        break;
+
+                    case playerVariables.TRUCKHEALTH:
+                        button.onClick.AddListener(delegate { changeTruckHealth(effect.changeAmount); });
+                        break;
+                }
+            }
         }
     }
 
@@ -103,7 +141,22 @@ public class randomEventScript : MonoBehaviour
 
     public void changeHealth(float changeAmount)
     {
+        pR.playerHealth = pR.playerHealth + changeAmount;
+    }
 
+    public void changeCredits(float changeAmount)
+    {
+        pR.playerCredit = pR.playerCredit + changeAmount;
+    }
+
+    public void changeLuck(float changeAmount)
+    {
+        pR.playerLuck = pR.playerLuck + changeAmount;
+    }
+
+    public void changeTruckHealth(float changeAmount)
+    {
+        pR.truckHealth = pR.truckHealth + changeAmount;
     }
 
     public void endEvent()

@@ -8,4 +8,10 @@ public class gameRestartScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void goBackToMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("menuScene");
+    }
 }

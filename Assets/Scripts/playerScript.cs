@@ -15,14 +15,16 @@ public class playerScript : MonoBehaviour
     [SerializeField] KeyCode openAtlasKey;
     [SerializeField] LayerMask mapRayLayerMask;
     public List<cityScript> destinationList;
-    [SerializeField] playerState currentState = playerState.STOPPED;
+    public playerState currentState = playerState.STOPPED;
     [SerializeField, Header("Map Stuff")] Text cityNameText;
     [SerializeField] GameObject cityNameTextParent, arrivalPopup;
     [SerializeField] Slider timeSlider;
     [SerializeField, Header("Route Planner")] GameObject routePlannerText;
     [SerializeField] GameObject routePlannerTextHolder, routeLineRenderer;
     List<GameObject> lineRendererList=new List<GameObject>();
-    
+    [SerializeField] Text stateText;
+
+
     NavMeshAgent nav;
     cityScript currentCity;
 
@@ -41,6 +43,7 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()    
     {
+        stateText.text = "STATE: " + currentState.ToString();
         //map opening stuff
 
             if (Input.GetKeyDown(openAtlasKey))
