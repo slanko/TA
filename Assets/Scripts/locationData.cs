@@ -8,6 +8,7 @@ public class locationData : ScriptableObject
 {
     public string cityName;
     public Sprite backgroundSprite;
+    public shopData tradeArea;
     [TextArea(0, 20)]
     public string cityDescription, cityActivitiesDescription;
     public GameObject[] cityActivities;
