@@ -111,6 +111,10 @@ public class randomEventScript : MonoBehaviour
                         button.onClick.AddListener(delegate { changeHealth(effect.changeAmount); }); 
                         break;
 
+                    case playerVariables.HEALTHPERCENTAGE:
+                        button.onClick.AddListener(delegate { changeHealthPercent(effect.changeAmount); });
+                        break;
+
                     case playerVariables.CREDIT:
                         button.onClick.AddListener(delegate { changeCredits(effect.changeAmount); });
                         break;
@@ -122,6 +126,7 @@ public class randomEventScript : MonoBehaviour
                     case playerVariables.TRUCKHEALTH:
                         button.onClick.AddListener(delegate { changeTruckHealth(effect.changeAmount); });
                         break;
+
                 }
             }
         }
@@ -142,6 +147,11 @@ public class randomEventScript : MonoBehaviour
     public void changeHealth(float changeAmount)
     {
         pR.playerHealth = pR.playerHealth + changeAmount;
+    }
+
+    public void changeHealthPercent(float changeAmount)
+    {
+        pR.playerHealth = pR.playerHealth * changeAmount;
     }
 
     public void changeCredits(float changeAmount)

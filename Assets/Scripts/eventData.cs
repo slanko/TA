@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public enum playerVariables
 {
     HEALTH,
+    HEALTHPERCENTAGE,
     TRUCKHEALTH,
     CREDIT,
     LUCK
