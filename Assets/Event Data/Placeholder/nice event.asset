@@ -19,7 +19,7 @@ MonoBehaviour:
     characterSprite: {fileID: 21300000, guid: 7a15352a490b15e4d8880cb8eb222c0b, type: 3}
     possibleActions:
     - buttonName: trade
-      varToChange: 2
+      varToChange: 3
       changeAmount: 100
       endEvent: 1
       nextBeat: 0
