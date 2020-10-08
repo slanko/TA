@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class tradeItemScript : MonoBehaviour
 {
-
-    [SerializeField] Slider valueSlider;
+    public Slider valueSlider;
     [SerializeField] Text valueText;
+    public Text itemName;
 
     // Update is called once per frame
     void Update()

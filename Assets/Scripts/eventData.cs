@@ -12,6 +12,8 @@ public enum playerVariables
     LUCK
 }
 
+
+
 [System.Serializable]
 public struct eventStoryBeat
 {
