@@ -5,6 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Global Value Data", menuName = "Trucker's Atlas/Global Value Data")]
 public class globalValuesData : ScriptableObject
 {
+    public enum factionType
+    {
+        BANDIT,
+        FREETRADE,
+        CORPORATION,
+        FACTIONLESS
+    }
+
     public enum itemType
     {
         STUFF,

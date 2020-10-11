@@ -14,6 +14,7 @@ public struct stockItem
 [CreateAssetMenu(fileName = "Shop Data", menuName = "Trucker's Atlas/Shop Data")]
 public class shopData : ScriptableObject
 {
+    public globalValuesData.factionType faction;
     public string shopOwnerName;
     [Multiline(4)]
     public string shopDescription, shopFlavourText;

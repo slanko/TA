@@ -8,6 +8,7 @@ public class tradeItemScript : MonoBehaviour
     public Slider valueSlider;
     [SerializeField] Text valueText, minAmountText, maxAmountText;
     public Text itemName;
+    public globalValuesData.itemType myType;
 
     // Update is called once per frame
     void Update()

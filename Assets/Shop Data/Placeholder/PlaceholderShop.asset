@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98937bb244e39748bf2c7dde88ddbee, type: 3}
   m_Name: PlaceholderShop
   m_EditorClassIdentifier: 
+  faction: 1
   shopOwnerName: shopmin
   shopDescription: 'this place sells stuff.
 

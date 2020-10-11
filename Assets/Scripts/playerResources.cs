@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class playerResources : MonoBehaviour
 {
     public float playerHealth, truckHealth, playerCredit, playerLuck;
+
+    //FACTION REP
+    public float banditRep, freeTradeRep, corporationRep, globalRep;
+
+
     [SerializeField] Slider healthBar;
     bool playerIsAlive = true;
     [SerializeField] Animator deathScreen;
@@ -70,5 +75,40 @@ public class playerResources : MonoBehaviour
         {
             playerInventory.Add(new InventoryEntry { entryType = type, amountHeld = amount });
         }
+    }
+
+    public void reputationChange(float changeAmount, globalValuesData.factionType faction)
+    {
+        switch (faction)
+        {
+            case globalValuesData.factionType.BANDIT:
+                banditRep = banditRep + changeAmount;
+                freeTradeRep = freeTradeRep - (changeAmount * 0.3f);
+                corporationRep = corporationRep - (changeAmount * 0.35f);
+                break;
+
+            case globalValuesData.factionType.FREETRADE:
+                freeTradeRep = freeTradeRep + changeAmount;
+                banditRep = banditRep - (changeAmount * 0.2f);
+                corporationRep = corporationRep - (changeAmount * 0.5f);
+
+                break;
+
+            case globalValuesData.factionType.CORPORATION:
+                corporationRep = corporationRep + changeAmount;
+                banditRep = banditRep - (changeAmount * 0.5f);
+                freeTradeRep = freeTradeRep - (changeAmount * 0.5f);
+
+                break;
+
+            case globalValuesData.factionType.FACTIONLESS:
+                globalRep = globalRep + changeAmount;
+                corporationRep = corporationRep + (changeAmount * 0.1f);
+                freeTradeRep = freeTradeRep + (changeAmount * 0.3f);
+                banditRep = banditRep + (changeAmount * 0.5f);
+
+                break;
+        }
+
     }
 }

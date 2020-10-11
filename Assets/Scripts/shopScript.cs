@@ -14,6 +14,10 @@ public class shopScript : MonoBehaviour
 
     [SerializeField] GameObject shopItemEntry, playerStuffZone, shopStuffZone;
     [SerializeField] List<GameObject> entryList;
+    [SerializeField] Slider repSlider;
+
+    //list value checking stuff
+    public List<tradeItemScript> giveTISList, receiveTISList;
 
     private void Update()
     {
@@ -47,9 +51,11 @@ public class shopScript : MonoBehaviour
         {
             var tIS = Instantiate(shopItemEntry, playerStuffZone.transform).GetComponent<tradeItemScript>();
             tIS.itemName.text = entry.entryType.ToString();
+            tIS.myType = entry.entryType;
             tIS.valueSlider.minValue = 0;
             tIS.valueSlider.maxValue = entry.amountHeld;
             entryList.Add(tIS.gameObject);
+            giveTISList.Add(tIS);
         }
 
         foreach(stockItem stock in currentShop.shopStock)
@@ -58,17 +64,54 @@ public class shopScript : MonoBehaviour
             {
                 var tIS = Instantiate(shopItemEntry, shopStuffZone.transform).GetComponent<tradeItemScript>();
                 tIS.itemName.text = stock.stockType.ToString();
+                tIS.myType = stock.stockType;
                 tIS.valueSlider.minValue = 0;
                 tIS.valueSlider.maxValue = stock.stockAmount;
                 entryList.Add(tIS.gameObject);
+                receiveTISList.Add(tIS);
             }
         }
 
+        calculateValues(false);
 
     }
+
+    public void calculateValues(bool trade)
+    {
+        float giveValue = 0, receiveValue = 0, repChange = 0;
+
+        foreach(tradeItemScript tIS in giveTISList)
+        {
+            giveValue = giveValue + tIS.valueSlider.value;
+            if(trade == true)
+            {
+                pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
+                tIS.valueSlider.value = 0;
+            }
+        }
+        foreach(tradeItemScript tIS in receiveTISList)
+        {
+            receiveValue = receiveValue + tIS.valueSlider.value;
+            if(trade == true)
+            {
+                pR.giveItem(tIS.myType, tIS.valueSlider.value);
+                tIS.valueSlider.value = 0;
+            }
+        }
+
+        repChange = giveValue - receiveValue;
+        
+        if(trade == true)
+        {
+            pR.reputationChange(repChange, currentShop.faction);
+            populateShopScreen();
+        }
+    }
+
 
     public void vendorChat()
     {
         shopDescription.text = currentShop.shopTalk[Random.Range(0, currentShop.shopTalk.Length)];
     }
+
 }
