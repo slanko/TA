@@ -13,6 +13,7 @@ public class shopScript : MonoBehaviour
     [SerializeField] Image vendorSprite;
 
     [SerializeField] GameObject shopItemEntry, playerStuffZone, shopStuffZone;
+    [SerializeField] List<GameObject> entryList;
 
     private void Update()
     {
@@ -32,16 +33,37 @@ public class shopScript : MonoBehaviour
         vendorSprite.sprite = currentShop.vendorSprite;
 
         //BUTTON STUFF OH GOD
-       
+
         //player stuff section
+        if(entryList.Count != 0)
+        {
+            foreach(GameObject entry in entryList)
+            {
+                Destroy(entry);
+            }
+            entryList.Clear();
+        }
         foreach(playerResources.InventoryEntry entry in pR.playerInventory)
         {
-            var newButton = Instantiate(shopItemEntry, playerStuffZone.transform);
-            tradeItemScript tIS = newButton.GetComponent<tradeItemScript>();
+            var tIS = Instantiate(shopItemEntry, playerStuffZone.transform).GetComponent<tradeItemScript>();
             tIS.itemName.text = entry.entryType.ToString();
             tIS.valueSlider.minValue = 0;
             tIS.valueSlider.maxValue = entry.amountHeld;
+            entryList.Add(tIS.gameObject);
         }
+
+        foreach(stockItem stock in currentShop.shopStock)
+        {
+            if(stock.stockAmount != 0)
+            {
+                var tIS = Instantiate(shopItemEntry, shopStuffZone.transform).GetComponent<tradeItemScript>();
+                tIS.itemName.text = stock.stockType.ToString();
+                tIS.valueSlider.minValue = 0;
+                tIS.valueSlider.maxValue = stock.stockAmount;
+                entryList.Add(tIS.gameObject);
+            }
+        }
+
 
     }
 

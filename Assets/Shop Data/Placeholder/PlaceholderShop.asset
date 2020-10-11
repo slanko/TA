@@ -49,3 +49,13 @@ MonoBehaviour:
     idiot. I will shit fury all over you and you will drown in it.\r\n\r\nYou\u2019re
     fucking dead, kiddo."
   - shut up and buy something already
+  shopStock:
+  - stockType: 0
+    stockAmount: 3
+    stockValueMult: 1
+  - stockType: 1
+    stockAmount: 0
+    stockValueMult: 1
+  - stockType: 2
+    stockAmount: 5
+    stockValueMult: 1
