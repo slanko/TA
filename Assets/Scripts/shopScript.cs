@@ -15,6 +15,7 @@ public class shopScript : MonoBehaviour
     [SerializeField] GameObject shopItemEntry, playerStuffZone, shopStuffZone;
     [SerializeField] List<GameObject> entryList;
     [SerializeField] Slider repSlider;
+    [SerializeField] Text repChangeText, currentRepText;
 
     //list value checking stuff
     public List<tradeItemScript> giveTISList, receiveTISList;
@@ -24,6 +25,10 @@ public class shopScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             populateShopScreen();
+        }
+        if(currentShop != null)
+        {
+            calculateValues(false);
         }
     }
 
@@ -46,6 +51,14 @@ public class shopScript : MonoBehaviour
                 Destroy(entry);
             }
             entryList.Clear();
+        }
+        if(giveTISList.Count != 0)
+        {
+            giveTISList.Clear();
+        }
+        if(receiveTISList.Count != 0)
+        {
+            receiveTISList.Clear();
         }
         foreach(playerResources.InventoryEntry entry in pR.playerInventory)
         {
@@ -71,9 +84,6 @@ public class shopScript : MonoBehaviour
                 receiveTISList.Add(tIS);
             }
         }
-
-        calculateValues(false);
-
     }
 
     public void calculateValues(bool trade)
@@ -100,7 +110,37 @@ public class shopScript : MonoBehaviour
         }
 
         repChange = giveValue - receiveValue;
-        
+        //set slider to correct faction amount, + or - rep change
+        switch (currentShop.faction)
+        {
+            case globalValuesData.factionType.BANDIT:
+                repSlider.value = pR.banditRep + repChange;
+                currentRepText.text = pR.banditRep.ToString();
+                break;
+
+            case globalValuesData.factionType.FREETRADE:
+                repSlider.value = pR.freeTradeRep + repChange;
+                currentRepText.text = pR.freeTradeRep.ToString();
+                break;
+
+            case globalValuesData.factionType.CORPORATION:
+                repSlider.value = pR.corporationRep + repChange;
+                currentRepText.text = pR.corporationRep.ToString();
+                break;
+
+            case globalValuesData.factionType.FACTIONLESS:
+                repSlider.value = pR.globalRep + repChange;
+                currentRepText.text = pR.globalRep.ToString();
+                break;
+        }
+        if(repChange > 0)
+        {
+            repChangeText.text = "+" + repChange.ToString();
+        }
+        else
+        {
+            repChangeText.text = repChange.ToString();
+        }
         if(trade == true)
         {
             pR.reputationChange(repChange, currentShop.faction);

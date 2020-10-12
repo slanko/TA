@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98937bb244e39748bf2c7dde88ddbee, type: 3}
+  m_Name: Wigamau Shop
+  m_EditorClassIdentifier: 
+  faction: 0
+  shopOwnerName: trademin
+  shopDescription: 'upon entering wigamau''s remarkably bustling tradehouse, you
+    are greeted with a boisterous "WAHEY" from across the room.
+
+
+    "you look like
+    someone desperate enough to actually buy something!" says trademin, who appears
+    to be the proprietor of the place.
+
+    "please god, everyone just comes in here
+    to talk to me. you''ve gotta at least make some kind of transaction!! i''m BEGGING
+    you!!!"'
+  shopFlavourText: he looks really desperate.
+  vendorSprite: {fileID: 21300000, guid: 1210a4b2014fcb24387620f9da3f4d5f, type: 3}
+  shopTalk:
+  - 'trademin slams his hands on the desk desperately.
+
+
+    "PLEASE god, i will
+    sell you ANYTHING!! i will sell you the CLOTHES off my BACK, as long as it''s
+    SOMETHING!!!"
+
+'
+  - 'trademin appears to be freaking out a little bit.
+
+
+    "everyone in this town
+    likes me too much, man!! you''re the first outsider i''ve spoken to in ages!"
+
+
+    he
+    leans in a bit, almost as if inspecting you.
+
+
+    "you do uh, buy things, right?"'
+  shopStock:
+  - stockType: 0
+    stockAmount: 5
+    stockValueMult: 1
+  - stockType: 1
+    stockAmount: 3
+    stockValueMult: 1
+  - stockType: 2
+    stockAmount: 10
+    stockValueMult: 2
