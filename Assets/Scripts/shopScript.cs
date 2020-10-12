@@ -88,11 +88,11 @@ public class shopScript : MonoBehaviour
 
     public void calculateValues(bool trade)
     {
-        float giveValue = 0, receiveValue = 0, repChange = 0;
+        int giveValue = 0, receiveValue = 0, repChange = 0;
 
         foreach(tradeItemScript tIS in giveTISList)
         {
-            giveValue = giveValue + tIS.valueSlider.value;
+            giveValue = giveValue + (int)tIS.valueSlider.value;
             if(trade == true)
             {
                 pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
@@ -101,7 +101,7 @@ public class shopScript : MonoBehaviour
         }
         foreach(tradeItemScript tIS in receiveTISList)
         {
-            receiveValue = receiveValue + tIS.valueSlider.value;
+            receiveValue = receiveValue + (int)tIS.valueSlider.value;
             if(trade == true)
             {
                 pR.giveItem(tIS.myType, tIS.valueSlider.value);
@@ -147,7 +147,6 @@ public class shopScript : MonoBehaviour
             populateShopScreen();
         }
     }
-
 
     public void vendorChat()
     {

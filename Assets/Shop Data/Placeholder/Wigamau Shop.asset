@@ -22,9 +22,10 @@ MonoBehaviour:
     someone desperate enough to actually buy something!" says trademin, who appears
     to be the proprietor of the place.
 
-    "please god, everyone just comes in here
-    to talk to me. you''ve gotta at least make some kind of transaction!! i''m BEGGING
-    you!!!"'
+
+    "please god, everyone just comes in
+    here to talk to me. you''ve gotta at least make some kind of transaction!! i''m
+    BEGGING you!!!"'
   shopFlavourText: he looks really desperate.
   vendorSprite: {fileID: 21300000, guid: 1210a4b2014fcb24387620f9da3f4d5f, type: 3}
   shopTalk:
@@ -47,7 +48,8 @@ MonoBehaviour:
     leans in a bit, almost as if inspecting you.
 
 
-    "you do uh, buy things, right?"'
+    "you do uh, have stuff to
+    trade, right?"'
   shopStock:
   - stockType: 0
     stockAmount: 5

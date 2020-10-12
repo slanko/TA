@@ -9,7 +9,7 @@ public class playerResources : MonoBehaviour
     public float playerHealth, truckHealth, playerCredit, playerLuck;
 
     //FACTION REP
-    public float banditRep, freeTradeRep, corporationRep, globalRep;
+    public int banditRep, freeTradeRep, corporationRep, globalRep;
 
 
     [SerializeField] Slider healthBar;
@@ -62,50 +62,53 @@ public class playerResources : MonoBehaviour
 
     public void giveItem(globalValuesData.itemType type, float amount)
     {
-        bool foundItemType = false;
-        for(int i = 0; i < playerInventory.Count; i++)
+        if(amount > 0)
         {
-            if(playerInventory[i].entryType == type)
+            bool foundItemType = false;
+            for (int i = 0; i < playerInventory.Count; i++)
             {
-                foundItemType = true;
-                playerInventory[i] = new InventoryEntry { entryType = type, amountHeld = playerInventory[i].amountHeld + amount };
+                if (playerInventory[i].entryType == type)
+                {
+                    foundItemType = true;
+                    playerInventory[i] = new InventoryEntry { entryType = type, amountHeld = playerInventory[i].amountHeld + amount };
+                }
             }
-        }
-        if(foundItemType == false)
-        {
-            playerInventory.Add(new InventoryEntry { entryType = type, amountHeld = amount });
+            if (foundItemType == false)
+            {
+                playerInventory.Add(new InventoryEntry { entryType = type, amountHeld = amount });
+            }
         }
     }
 
-    public void reputationChange(float changeAmount, globalValuesData.factionType faction)
+    public void reputationChange(int changeAmount, globalValuesData.factionType faction)
     {
         switch (faction)
         {
             case globalValuesData.factionType.BANDIT:
                 banditRep = banditRep + changeAmount;
-                freeTradeRep = freeTradeRep - (changeAmount * 0.3f);
-                corporationRep = corporationRep - (changeAmount * 0.35f);
+                freeTradeRep = freeTradeRep - (int)(changeAmount * 0.3f);
+                corporationRep = corporationRep - (int)(changeAmount * 0.35f);
                 break;
 
             case globalValuesData.factionType.FREETRADE:
                 freeTradeRep = freeTradeRep + changeAmount;
-                banditRep = banditRep - (changeAmount * 0.2f);
-                corporationRep = corporationRep - (changeAmount * 0.5f);
+                banditRep = banditRep - (int)(changeAmount * 0.2f);
+                corporationRep = corporationRep - (int)(changeAmount * 0.5f);
 
                 break;
 
             case globalValuesData.factionType.CORPORATION:
                 corporationRep = corporationRep + changeAmount;
-                banditRep = banditRep - (changeAmount * 0.5f);
-                freeTradeRep = freeTradeRep - (changeAmount * 0.5f);
+                banditRep = banditRep - (int)(changeAmount * 0.5f);
+                freeTradeRep = freeTradeRep - (int)(changeAmount * 0.5f);
 
                 break;
 
             case globalValuesData.factionType.FACTIONLESS:
                 globalRep = globalRep + changeAmount;
-                corporationRep = corporationRep + (changeAmount * 0.1f);
-                freeTradeRep = freeTradeRep + (changeAmount * 0.3f);
-                banditRep = banditRep + (changeAmount * 0.5f);
+                corporationRep = corporationRep + (int)(changeAmount * 0.1f);
+                freeTradeRep = freeTradeRep + (int)(changeAmount * 0.3f);
+                banditRep = banditRep + (int)(changeAmount * 0.5f);
 
                 break;
         }
