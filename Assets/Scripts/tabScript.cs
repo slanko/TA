@@ -10,12 +10,14 @@ struct repDescription
     [Multiline (3)] public string repDesc;
 }
 
-public class inventoryTabScript : MonoBehaviour
+public class tabScript : MonoBehaviour
 {
     [SerializeField] Slider banditRepSlider, freeTradeRepSlider, corpRepSlider;
     [SerializeField] Text banditRepText, freeTradeRepText, corpRepText;
     [SerializeField] repDescription[] banditRepDescriptions, freeTradeRepDescriptions, corpRepDescriptions;
     [SerializeField] Text banditRepDescText, freeTradeRepDescText, corpRepDescText;
+    [SerializeField] GameObject inventoryItemEntry, inventoryZone;
+    public List<GameObject> entryList;
     playerResources pR;
     GameObject GOD;
 
@@ -35,7 +37,21 @@ public class inventoryTabScript : MonoBehaviour
 
         corpRepSlider.value = pR.corporationRep;
         corpRepText.text = pR.corporationRep.ToString();
-
     }
 
+    public void populateInventoryTab()
+    {
+        foreach(GameObject objectToKill in entryList)
+        {
+            Destroy(objectToKill);
+        }
+        entryList.Clear();
+        foreach (playerResources.InventoryEntry entry in pR.playerInventory)
+        {
+            var iIS = Instantiate(inventoryItemEntry, inventoryZone.transform).GetComponent<inventoryItemScript>();
+            iIS.entryName.text = entry.entryType.ToString();
+            iIS.entryAmount.text = entry.amountHeld.ToString();
+            entryList.Add(iIS.gameObject);
+        }
+    }
 }

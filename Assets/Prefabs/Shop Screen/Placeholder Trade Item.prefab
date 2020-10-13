@@ -216,6 +216,7 @@ MonoBehaviour:
   minAmountText: {fileID: 3875797814056389444}
   maxAmountText: {fileID: 2751095761715106720}
   itemName: {fileID: 3085774645254224627}
+  myType: 0
 --- !u!1 &3085774644547587450
 GameObject:
   m_ObjectHideFlags: 0

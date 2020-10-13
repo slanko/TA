@@ -23,7 +23,7 @@ public class globalValuesData : ScriptableObject
     public struct valueDataEntry
     {
         public itemType item;
-        public float itemValue;
+        public int itemValue;
     }
      
     public valueDataEntry[] globalValues;

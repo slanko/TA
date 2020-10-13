@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class shopScript : MonoBehaviour
 {
     shopData currentShop;
+    [SerializeField] globalValuesData globalValueFile;
     [SerializeField] cityDataPassthrough cDP;
     [SerializeField] playerResources pR;
 
@@ -69,7 +70,7 @@ public class shopScript : MonoBehaviour
             tIS.valueSlider.maxValue = entry.amountHeld;
             entryList.Add(tIS.gameObject);
             giveTISList.Add(tIS);
-        }
+        } 
 
         foreach(stockItem stock in currentShop.shopStock)
         {
@@ -92,16 +93,35 @@ public class shopScript : MonoBehaviour
 
         foreach(tradeItemScript tIS in giveTISList)
         {
-            giveValue = giveValue + (int)tIS.valueSlider.value;
+            int globalItemValue;
+            //grab associated value
+            for(int i = 0; i < globalValueFile.globalValues.Length; i++)
+            {
+                if(globalValueFile.globalValues[i].item == tIS.myType)
+                {
+                    globalItemValue = globalValueFile.globalValues[i].itemValue;
+                    giveValue = giveValue + ((int)tIS.valueSlider.value * (int)globalItemValue);
+                }
+            }
+
             if(trade == true)
             {
                 pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
                 tIS.valueSlider.value = 0;
             }
         }
-        foreach(tradeItemScript tIS in receiveTISList)
+        foreach (tradeItemScript tIS in receiveTISList)
         {
-            receiveValue = receiveValue + (int)tIS.valueSlider.value;
+            int globalItemValue;
+            for (int i = 0; i < globalValueFile.globalValues.Length; i++)
+            {
+                if ((globalValueFile.globalValues[i].item == tIS.myType))
+                {
+                    globalItemValue = globalValueFile.globalValues[i].itemValue;
+                    receiveValue = receiveValue + ((int)tIS.valueSlider.value * (int)globalItemValue);
+                }
+            }
+
             if(trade == true)
             {
                 pR.giveItem(tIS.myType, tIS.valueSlider.value);
