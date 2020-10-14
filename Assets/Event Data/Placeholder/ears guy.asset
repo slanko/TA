@@ -25,8 +25,8 @@ MonoBehaviour:
       endEvent: 1
       nextBeat: 0
     - buttonName: okay
-      varToChange: 0
-      changeAmount: -1000
+      varToChange: 1
+      changeAmount: 0
       endEvent: 1
       nextBeat: 0
   eventTitle: BASTARD

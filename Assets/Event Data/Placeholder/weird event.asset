@@ -13,20 +13,79 @@ MonoBehaviour:
   m_Name: weird event
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: 'bro something weird is happening and that is why i am here
+  - beatText: 'a strange looking man waves down your truck.
 
 
-      ooooOOoOoooooOOOOooOOOooo'
+      strangely, it
+      looks like he has no vehicle of his own, despite being out in the middle of
+      nowhere.
+
+
+      "you look desperate. fortunately, i am not. what do you need?"
+
+
+      he
+      puts a briefcase on the ground in front of him.'
     characterSprite: {fileID: 21300000, guid: 32572d596bb43f84588df5b4e3ecd3e1, type: 3}
     possibleActions:
-    - buttonName: trade luck
+    - buttonName: i need health
+      varToChange: 0
+      changeAmount: 350
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: i need money
       varToChange: 3
-      changeAmount: -10
+      changeAmount: 500
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: my truck is broken down
+      varToChange: 2
+      changeAmount: 350
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: i don't need anything
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 2
+  - beatText: 'you pick up the briefcase.
+
+
+      tentatively, you click it open
+      and find exactly what you asked for within.
+
+
+      "no need to pay me back."
+      he says, almost offhandedly. "karma will pay for this deed."
+
+
+      you hand
+      him back the now empty suitcase and he walks off into the tundra.
+
+
+      you
+      feel a sinking feeling in your stomach.'
+    characterSprite: {fileID: 0}
+    possibleActions:
+    - buttonName: accept
+      varToChange: 4
+      changeAmount: -250
       endEvent: 1
       nextBeat: 0
-    - buttonName: bid farewell
+  - beatText: 'he leans up against the side of your truck and looks you up and down.
+
+
+      "i
+      wouldn''t have said the same... but then again, only you can make that decision."
+
+
+      he
+      picks his briefcase up and walks out, into the tundra.'
+    characterSprite: {fileID: 21300000, guid: 32572d596bb43f84588df5b4e3ecd3e1, type: 3}
+    possibleActions:
+    - buttonName: accept
       varToChange: 0
       changeAmount: 0
       endEvent: 1
       nextBeat: 0
-  eventTitle: WEIRD GUY
+  eventTitle: STRANGE MAN

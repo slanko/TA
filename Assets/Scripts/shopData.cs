@@ -16,12 +16,12 @@ public class shopData : ScriptableObject
 {
     public globalValuesData.factionType faction;
     public string shopOwnerName;
-    [Multiline(4)]
+    [TextArea]
     public string shopDescription, shopFlavourText;
 
     public Sprite vendorSprite;
 
-    [Multiline(3)]
+    [TextArea]
     public string[] shopTalk;
 
     public List<stockItem> shopStock;

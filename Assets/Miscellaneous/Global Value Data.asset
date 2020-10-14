@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e30603cbc996b4d8fdba4ffde978ea, type: 3}
   m_Name: Global Value Data
   m_EditorClassIdentifier: 
+  globalRepMult: 0.3
   globalValues:
   - item: 0
     itemValue: 3

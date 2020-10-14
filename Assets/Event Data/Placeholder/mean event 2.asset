@@ -29,8 +29,8 @@ MonoBehaviour:
       endEvent: 0
       nextBeat: 1
     - buttonName: stand up for yourself
-      varToChange: 0
-      changeAmount: -100
+      varToChange: 1
+      changeAmount: 0.7
       endEvent: 1
       nextBeat: 0
   - beatText: 'what''s that????

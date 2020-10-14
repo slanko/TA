@@ -38,6 +38,10 @@ public class playerResources : MonoBehaviour
             deathScreen.SetTrigger("die");
             playerIsAlive = false;
         }
+        if(playerHealth > 1000)
+        {
+            playerHealth = 1000;
+        }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -62,7 +66,7 @@ public class playerResources : MonoBehaviour
 
     public void giveItem(globalValuesData.itemType type, float amount)
     {
-        if(amount > 0)
+        if(amount != 0)
         {
             bool foundItemType = false;
             for (int i = 0; i < playerInventory.Count; i++)

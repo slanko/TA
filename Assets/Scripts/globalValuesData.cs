@@ -25,6 +25,8 @@ public class globalValuesData : ScriptableObject
         public itemType item;
         public int itemValue;
     }
-     
+
+    public float globalRepMult;
+    
     public valueDataEntry[] globalValues;
 }

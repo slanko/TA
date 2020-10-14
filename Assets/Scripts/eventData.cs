@@ -17,7 +17,7 @@ public enum playerVariables
 [System.Serializable]
 public struct eventStoryBeat
 {
-    [Multiline(4)] public string beatText;
+    [TextArea(10, 5)] public string beatText;
     public Sprite characterSprite;
     public buttonData[] possibleActions;
 }

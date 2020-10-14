@@ -24,7 +24,7 @@ MonoBehaviour:
     characterSprite: {fileID: 21300000, guid: 35dfb9a23dc5b684fab514c094b12c4e, type: 3}
     possibleActions:
     - buttonName: accept repairs
-      varToChange: 1
+      varToChange: 2
       changeAmount: 20
       endEvent: 1
       nextBeat: 0

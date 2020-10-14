@@ -63,18 +63,21 @@ public class shopScript : MonoBehaviour
         }
         foreach(playerResources.InventoryEntry entry in pR.playerInventory)
         {
-            var tIS = Instantiate(shopItemEntry, playerStuffZone.transform).GetComponent<tradeItemScript>();
-            tIS.itemName.text = entry.entryType.ToString();
-            tIS.myType = entry.entryType;
-            tIS.valueSlider.minValue = 0;
-            tIS.valueSlider.maxValue = entry.amountHeld;
-            entryList.Add(tIS.gameObject);
-            giveTISList.Add(tIS);
+            if(entry.amountHeld > 0)
+            {
+                var tIS = Instantiate(shopItemEntry, playerStuffZone.transform).GetComponent<tradeItemScript>();
+                tIS.itemName.text = entry.entryType.ToString();
+                tIS.myType = entry.entryType;
+                tIS.valueSlider.minValue = 0;
+                tIS.valueSlider.maxValue = entry.amountHeld;
+                entryList.Add(tIS.gameObject);
+                giveTISList.Add(tIS);
+            }
         } 
 
         foreach(stockItem stock in currentShop.shopStock)
         {
-            if(stock.stockAmount != 0)
+            if(stock.stockAmount > 0)
             {
                 var tIS = Instantiate(shopItemEntry, shopStuffZone.transform).GetComponent<tradeItemScript>();
                 tIS.itemName.text = stock.stockType.ToString();
@@ -89,7 +92,7 @@ public class shopScript : MonoBehaviour
 
     public void calculateValues(bool trade)
     {
-        int giveValue = 0, receiveValue = 0, repChange = 0;
+        float giveValue = 0, receiveValue = 0, repChange = 0;
 
         foreach(tradeItemScript tIS in giveTISList)
         {
@@ -129,7 +132,8 @@ public class shopScript : MonoBehaviour
             }
         }
 
-        repChange = giveValue - receiveValue;
+        repChange = (giveValue - receiveValue) * globalValueFile.globalRepMult;
+        repChange = (int)repChange;
         //set slider to correct faction amount, + or - rep change
         switch (currentShop.faction)
         {
@@ -163,7 +167,7 @@ public class shopScript : MonoBehaviour
         }
         if(trade == true)
         {
-            pR.reputationChange(repChange, currentShop.faction);
+            pR.reputationChange((int)repChange, currentShop.faction);
             populateShopScreen();
         }
     }
