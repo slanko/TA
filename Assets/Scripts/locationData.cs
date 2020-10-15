@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class locationData : ScriptableObject
 {
     public string cityName;
+    public globalValuesData.factionType affiliation;
     public Sprite backgroundSprite;
     public shopData tradeArea;
     [TextArea(0, 20)]

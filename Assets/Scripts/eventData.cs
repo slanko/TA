@@ -9,7 +9,8 @@ public enum playerVariables
     HEALTHPERCENTAGE,
     TRUCKHEALTH,
     CREDIT,
-    LUCK
+    LUCK,
+    JUNK
 }
 
 
@@ -17,7 +18,7 @@ public enum playerVariables
 [System.Serializable]
 public struct eventStoryBeat
 {
-    [TextArea(10, 5)] public string beatText;
+    [TextArea(20, 5)] public string beatText;
     public Sprite characterSprite;
     public buttonData[] possibleActions;
 }

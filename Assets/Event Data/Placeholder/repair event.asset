@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: repair event
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: 'hypothetically speaking could i repair your truck??
-
-
-      ahahahahahahah
-      noooooo..... just kidding...........
-
-
-      unless...........???'
+  - beatText: "your route takes you past a temporary repair shop.\nthe fella that
+      you assume is the proprietor waves you down.\n\n\"hypothetically speaking...
+      could i repair your truck??\" he says as he twiddles his thumbs, eyeing up
+      your truck the whole time.\n\n\"ahahahahahahah noooooo..... just kidding...........\"
+      \n\n\"unless...........???\""
     characterSprite: {fileID: 21300000, guid: 35dfb9a23dc5b684fab514c094b12c4e, type: 3}
     possibleActions:
     - buttonName: accept repairs
@@ -29,7 +26,7 @@ MonoBehaviour:
       endEvent: 1
       nextBeat: 0
     - buttonName: decline repairs
-      varToChange: 1
+      varToChange: 2
       changeAmount: 0
       endEvent: 1
       nextBeat: 0

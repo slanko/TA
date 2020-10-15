@@ -13,20 +13,51 @@ MonoBehaviour:
   m_Name: ears guy
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: 'look at me i''m in the game
-
-
-      prepare for fucking die!!!!!!!!!!!!!!!'
+  - beatText: "you are stopped by a man standing in the middle of the road. \nas
+      you stop he clambers up to your window to speak with you.\n\n\"hey there friend!
+      i couldn't help but notice you have something on your shirt!\""
     characterSprite: {fileID: 21300000, guid: deae3e78d28ec5e46af5a9359b6214a5, type: 3}
     possibleActions:
-    - buttonName: nah
+    - buttonName: no i don't
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: where?
+      varToChange: 1
+      changeAmount: 0
+      endEvent: 0
+      nextBeat: 2
+  - beatText: 'he jumps back off your truck, shouting "DAMMIT!!!!
+
+      nobody ever
+      falls for that joke anymore!! comedy is a dead art form!!!"
+
+
+      he proceeds
+      to sprint full speed away from you. you watch him fade into the distance.'
+    characterSprite: {fileID: 21300000, guid: deae3e78d28ec5e46af5a9359b6214a5, type: 3}
+    possibleActions:
+    - buttonName: accept
       varToChange: 0
       changeAmount: 0
       endEvent: 1
       nextBeat: 0
-    - buttonName: okay
-      varToChange: 1
-      changeAmount: 0
+  - beatText: 'he points to your shirt, just above your nametag.
+
+
+      as you look
+      down to see what he is pointing at, he flicks his finger up into your face,
+      obliterating your skull and tearing asunder the roof of your truck.
+
+
+      you
+      are immediately vaporised.'
+    characterSprite: {fileID: 21300000, guid: deae3e78d28ec5e46af5a9359b6214a5, type: 3}
+    possibleActions:
+    - buttonName: sweet
+      varToChange: 0
+      changeAmount: -3000
       endEvent: 1
       nextBeat: 0
   eventTitle: BASTARD

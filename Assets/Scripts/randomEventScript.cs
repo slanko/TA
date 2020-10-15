@@ -127,6 +127,10 @@ public class randomEventScript : MonoBehaviour
                         button.onClick.AddListener(delegate { changeTruckHealth(effect.changeAmount); });
                         break;
 
+                    case playerVariables.JUNK:
+                        button.onClick.AddListener(delegate { changeJunkAmount(effect.changeAmount); });
+                        break;
+
                 }
             }
         }
@@ -167,6 +171,12 @@ public class randomEventScript : MonoBehaviour
     public void changeTruckHealth(float changeAmount)
     {
         pR.truckHealth = pR.truckHealth + changeAmount;
+    }
+
+    //item values
+    public void changeJunkAmount(float changeAmount)
+    {
+        pR.giveItem(globalValuesData.itemType.JUNK, changeAmount);
     }
 
     public void endEvent()

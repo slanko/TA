@@ -58,6 +58,14 @@ public class playerScript : MonoBehaviour
                 }
             }
 
+            if(nav.destination != null)
+            {
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                nav.nextPosition = nav.destination;
+                }
+            }
+
         //route selection stuff
         Ray ray = mapCam.ScreenPointToRay(Input.mousePosition);
         RaycastHit rayHit;

@@ -13,21 +13,28 @@ MonoBehaviour:
   m_Name: mean event
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: 'hey there chumbo...
+  - beatText: 'you find a barricade blocking your path. as you try to reverse, someone
+      steps in your way, and you hear a clatter as nails are poured out behind your
+      truck.
 
 
-      round here''s pretty dangerous...
-
-      and
-      by round here i mean my general vicinity!!!!
+      "hey there chumbo!!" you hear them say from behind your truck.
+      looking in the rear view, you can see it''s one of the knife clan bandits.
 
 
-      prepare to die and stuff!!!!'
+      "round
+      here''s pretty dangerous!! and by round here, i mean my general vicinity!!"
+      it''s hard to see but he is flicking a small switchblade knife around in his
+      hands.
+
+
+      "you might want to pay for some protection! lest things take
+      an unfortunate turn..."'
     characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
     possibleActions:
     - buttonName: stand up for yourself
       varToChange: 0
-      changeAmount: 0
+      changeAmount: -200
       endEvent: 0
       nextBeat: 1
     - buttonName: pay up
@@ -35,7 +42,12 @@ MonoBehaviour:
       changeAmount: 0
       endEvent: 0
       nextBeat: 2
-  - beatText: okay, have it your way!!
+  - beatText: 'in your efforts not to lose all your stuff, you gained a lot of stab
+      wounds.
+
+
+      luckily, though, it seems he couldn''t get the back of your
+      truck open, so you still have all your stuff.'
     characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
     possibleActions:
     - buttonName: accept your fate
@@ -43,29 +55,33 @@ MonoBehaviour:
       changeAmount: -150
       endEvent: 1
       nextBeat: 0
-  - beatText: 'wait, you''re actually cooperating??
-
-
-      this never happens!!
-      i was scared i''d have to stab you like everybody else.
-
-
-      since i don''t
-      have to put in all that effort to stab you i''ll only take a little bit.
-
-
-      what''ll
-      it be?'
+  - beatText: "he seems taken aback. \n\n\"wait, you're actually cooperating? i was
+      afraid i'd have to stab you like everyone else.\"\n\nas you open up the back
+      of your truck, he says he'll let you pick what to give up, since you're so
+      nice."
     characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
     possibleActions:
     - buttonName: give up some cash
-      varToChange: 2
+      varToChange: 3
       changeAmount: -100
-      endEvent: 1
-      nextBeat: 0
-    - buttonName: give up some life energy
+      endEvent: 0
+      nextBeat: 3
+    - buttonName: give up some junk
+      varToChange: 5
+      changeAmount: -5
+      endEvent: 0
+      nextBeat: 3
+  - beatText: '"thanks for the stuff, chumbo. you''re free to go."
+
+
+      he opens
+      up the barricade to let you pass, and gives you a friendly wave as you drive
+      through.'
+    characterSprite: {fileID: 21300000, guid: 4878b9434d28b5c438fa82966a003b64, type: 3}
+    possibleActions:
+    - buttonName: nice
       varToChange: 0
-      changeAmount: -100
+      changeAmount: 0
       endEvent: 1
       nextBeat: 0
   eventTitle: KILL

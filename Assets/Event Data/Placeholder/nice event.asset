@@ -13,17 +13,36 @@ MonoBehaviour:
   m_Name: nice event
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: "hoy there!!\n\nif it ain't my favourite customer.\n\nlucky you showed
-      up actually, i've got too much scrap to \nhaul back to the shop on my lonesome.\ni
-      figure you can have what i can't carry, if you've got the space."
+  - beatText: "as you look out over the tundra you see a familiar face. it's gil,
+      from joe's junkapalooza in scurry.\n\n\"hoy there!!\" he says in his usual
+      almost-deadpan fashion.\n\n\"if it ain't my favourite customer.\n\nlucky you
+      showed up actually, i've got too much scrap to \nhaul back to the shop on my
+      lonesome.\ni figure you can have what i can't carry, if you've got the space.\""
     characterSprite: {fileID: 21300000, guid: 7a15352a490b15e4d8880cb8eb222c0b, type: 3}
     possibleActions:
-    - buttonName: trade
-      varToChange: 3
-      changeAmount: 100
+    - buttonName: accept junk
+      varToChange: 5
+      changeAmount: 5
+      endEvent: 0
+      nextBeat: 1
+    - buttonName: no thanks
+      varToChange: 0
+      changeAmount: 0
       endEvent: 1
-      nextBeat: 0
-    - buttonName: bid farewell
+      nextBeat: 2
+  - beatText: 'he leads you to a pile of junk he''s been collecting, about 5 minutes
+      walk from where you left your truck.
+
+
+      "salvage has been good today!"
+      he remarks as you look over the bits and pieces you might have a use for.
+
+
+      you
+      end up taking a modest amount of junk, as it''s quite heavy.'
+    characterSprite: {fileID: 21300000, guid: 7a15352a490b15e4d8880cb8eb222c0b, type: 3}
+    possibleActions:
+    - buttonName: sweet
       varToChange: 0
       changeAmount: 0
       endEvent: 1

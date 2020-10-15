@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: mean event 2
   m_EditorClassIdentifier: 
   eventBeatList:
-  - beatText: 'fuck i love this pipe!!!!
+  - beatText: 'a man runs out in front of your truck, forcing you to swerve.
 
 
-      and i want to share the love!!!!!!!!!!
+      as
+      you attempt to get yourself back on the road, he stands in front of your truck
+      and yells "fuck i love this pipe!!!!"
 
 
-      i
-      love you!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+      as he mounts the front bumper
+      of your truck he then informs you he is going to "share the love" with you.'
     characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
     possibleActions:
     - buttonName: beg for safety
@@ -31,12 +33,16 @@ MonoBehaviour:
     - buttonName: stand up for yourself
       varToChange: 1
       changeAmount: 0.7
-      endEvent: 1
+      endEvent: 0
       nextBeat: 0
-  - beatText: 'what''s that????
+  - beatText: '"what''s that????" he yells over the engine noise.
 
 
-      you don''t love the pipe????????'
+      "you don''t
+      love the pipe????????"
+
+
+      he stops, almost ponderingly, on your bonnet.'
     characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
     possibleActions:
     - buttonName: ...
@@ -44,10 +50,19 @@ MonoBehaviour:
       changeAmount: 0
       endEvent: 0
       nextBeat: 2
-  - beatText: 'that''s cool.
+  - beatText: 'after a moment of contemplation he turns his gaze back to you, with
+      peace seemlingly residing within his heart.
 
 
-      love who you wanna love, i guess.'
+      "that''s cool."
+
+
+      "love
+      who you wanna love, i guess."
+
+
+      he hops off your bonnet, and that is
+      the last you see of him.'
     characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
     possibleActions:
     - buttonName: ...?
@@ -55,4 +70,16 @@ MonoBehaviour:
       changeAmount: 0
       endEvent: 1
       nextBeat: 2
+  - beatText: 'in your attempt to stand up for yourself you bravely took three pipe
+      swings to the head.
+
+
+      you''re really feeling the love now.'
+    characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
+    possibleActions:
+    - buttonName: accept
+      varToChange: 0
+      changeAmount: 0
+      endEvent: 1
+      nextBeat: 0
   eventTitle: PIPE GUY
