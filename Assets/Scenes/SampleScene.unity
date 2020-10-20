@@ -7066,7 +7066,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -9349,7 +9349,7 @@ GameObject:
   - component: {fileID: 1188071441}
   - component: {fileID: 1188071440}
   - component: {fileID: 1188071439}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
