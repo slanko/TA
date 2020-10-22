@@ -9,7 +9,7 @@ public class cityDataPassthrough : MonoBehaviour
     [SerializeField] GameObject cityCanvas, activityHolder; 
     [SerializeField] Text cityName1, cityName2, cityDesc, cityActivitiesDesc;
     [SerializeField] Image cityBG;
-    [System.NonSerialized] public cityScript currentCity;
+    public cityScript currentCity;
 
     // Start is called before the first frame update
     public void populateCityScreen()

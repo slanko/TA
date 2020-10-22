@@ -26,18 +26,22 @@ public class playerScript : MonoBehaviour
 
 
     NavMeshAgent nav;
-    cityScript currentCity;
+    [SerializeField] cityScript currentCity;
+    cityScript selectedCity;
 
     cityDataPassthrough cDP;
-    godScript GOD;
+    GameObject GOD;
+    roadListScript rLS;
 
     //placeholder
     [SerializeField] Camera mapCam;
     // Start is called before the first frame update
     void Start()
     {
+        GOD = GameObject.Find("GOD");
         nav = GetComponent<NavMeshAgent>();
-        cDP = GameObject.Find("GOD").GetComponent<cityDataPassthrough>();
+        cDP = GOD.GetComponent<cityDataPassthrough>();
+        rLS = GOD.GetComponent<roadListScript>();
     }
 
     // Update is called once per frame
@@ -75,24 +79,24 @@ public class playerScript : MonoBehaviour
         {
             if(rayHit.collider.gameObject.tag == "City")
             {
-                currentCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
+                selectedCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
                 cityNameTextParent.gameObject.transform.position = ray.origin;
-                cityNameText.text = currentCity.cityLD.cityName;
+                cityNameText.text = selectedCity.cityLD.cityName;
                 if(destinationList.Count > 0)
                 {
                     foreach (cityScript adjCit in destinationList[destinationList.Count - 1].adjacentCities)
                     {
-                        LineRenderer lineRend = Instantiate(routeLineRenderer, currentCity.gameObject.transform.position, gameObject.transform.rotation, currentCity.transform).GetComponent<LineRenderer>();
-                        lineRend.SetPosition(0, currentCity.gameObject.transform.position);
+                        LineRenderer lineRend = Instantiate(routeLineRenderer, selectedCity.gameObject.transform.position, gameObject.transform.rotation, selectedCity.transform).GetComponent<LineRenderer>();
+                        lineRend.SetPosition(0, selectedCity.gameObject.transform.position);
                         lineRend.SetPosition(1, adjCit.gameObject.transform.position);
                         lineRendererList.Add(lineRend.gameObject);
                     }
                 }
                 if (Input.GetMouseButtonDown(0))
                 {
-                    destinationList.Add(currentCity);
+                    destinationList.Add(selectedCity);
                     populateRoutePlanner();
-                    Debug.Log("added " + currentCity.cityLD.cityName + " to the travel plan");
+                    Debug.Log("added " + selectedCity.cityLD.cityName + " to the travel plan");
                 }
             }
         }
@@ -116,16 +120,52 @@ public class playerScript : MonoBehaviour
             var distanceToDestination = Vector3.Distance(transform.position, destinationList[0].gameObject.transform.position);
             if (distanceToDestination < 1f && distanceToDestination > 0.01f && currentState == playerState.TRAVELLING)
             {
-                reachedDestination();
+                //reachedDestination();
             }
         }
     }
 
     public void startTravelling()
     {
-        nav.SetDestination(destinationList[0].gameObject.transform.position);
-        cDP.currentCity = destinationList[0];
         currentState = playerState.TRAVELLING;
+        if(destinationList.Count > 0)
+        {
+            for (int i = 0; i < rLS.allRoads.Length; i++)
+            {
+                roadListScript.roadStruct requiredRoad;
+                if (rLS.allRoads[i].Location1 == currentCity && rLS.allRoads[i].Location2 == destinationList[0] ||
+                    rLS.allRoads[i].Location2 == currentCity && rLS.allRoads[i].Location1 == destinationList[0])
+                {
+                    requiredRoad = rLS.allRoads[i];
+                    Vector3[] reqRoadPositions = new Vector3[requiredRoad.LR.positionCount];
+                    requiredRoad.LR.GetPositions(reqRoadPositions);
+                    travelRoad(reqRoadPositions);
+                    Debug.Log("ding!");
+                }
+                else
+                {
+                    Debug.Log("not this one: " + rLS.allRoads[i].LR.name);
+                }
+            }
+        }
+
+
+    }
+
+    void travelRoad(Vector3[] roadPositions)
+    {
+        for(int i = 0; i < roadPositions.Length; i++)
+        {
+            if(i != roadPositions.Length - 1)
+            {
+                nav.SetDestination(roadPositions[i]);
+            }
+            else
+            {
+                nav.SetDestination(destinationList[0].transform.position);
+                reachedDestination();
+            }
+        }
     }
 
     public void clearRoute()
@@ -138,6 +178,7 @@ public class playerScript : MonoBehaviour
     {
         if (currentState == playerState.TRAVELLING)
         {
+            currentCity = destinationList[0];
             Debug.Log("destination reached: " + destinationList[0].cityLD.cityName);
             destinationList.Remove(destinationList[0]);
             Time.timeScale = 0;
