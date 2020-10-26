@@ -22,8 +22,11 @@ public class playerScript : MonoBehaviour
     [SerializeField, Header("Route Planner")] GameObject routePlannerText;
     [SerializeField] GameObject routePlannerTextHolder, routeLineRenderer;
     List<GameObject> lineRendererList=new List<GameObject>();
-    [SerializeField] Text stateText;
+    [SerializeField] Text stateText, arrivedAtCityText;
 
+    int roadInt;
+    Vector3[] roadPosArray;
+    [SerializeField] bool traverseRoadForward;
 
     NavMeshAgent nav;
     [SerializeField] cityScript currentCity;
@@ -115,12 +118,39 @@ public class playerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(destinationList.Count > 0 && currentState == playerState.TRAVELLING)
+        {
+            var distanceToDestination = Vector3.Distance(transform.position, nav.destination);
+            if (traverseRoadForward)
+            {
+                if (distanceToDestination < 1f && currentState == playerState.TRAVELLING && roadInt <= roadPosArray.Length - 1)
+                {
+                    nextRoadStep();
+                    roadInt++;
+                }
+                if (distanceToDestination < 1f && currentState == playerState.TRAVELLING && roadInt == roadPosArray.Length)
+                {
+                    nav.SetDestination(destinationList[0].transform.position);
+                }
+            }
+            if (!traverseRoadForward)
+            {
+                if (distanceToDestination < 1f &&  currentState == playerState.TRAVELLING && roadInt >= 1)
+                {
+                    nextRoadStep();
+                    roadInt--;
+                }
+                if (distanceToDestination < 1f &&  currentState == playerState.TRAVELLING && roadInt == 0)
+                {
+                    nav.SetDestination(destinationList[0].transform.position);
+                }
+            }
+        }
         if(destinationList.Count > 0)
         {
-            var distanceToDestination = Vector3.Distance(transform.position, destinationList[0].gameObject.transform.position);
-            if (distanceToDestination < 1f && distanceToDestination > 0.01f && currentState == playerState.TRAVELLING)
+            if (Vector3.Distance(transform.position, destinationList[0].transform.position) < 1f)
             {
-                //reachedDestination();
+                reachedDestination();
             }
         }
     }
@@ -137,10 +167,27 @@ public class playerScript : MonoBehaviour
                     rLS.allRoads[i].Location2 == currentCity && rLS.allRoads[i].Location1 == destinationList[0])
                 {
                     requiredRoad = rLS.allRoads[i];
-                    Vector3[] reqRoadPositions = new Vector3[requiredRoad.LR.positionCount];
-                    requiredRoad.LR.GetPositions(reqRoadPositions);
-                    travelRoad(reqRoadPositions);
-                    Debug.Log("ding!");
+                    roadPosArray = new Vector3[requiredRoad.LR.positionCount];
+                    requiredRoad.LR.GetPositions(roadPosArray);
+                    if(currentCity == rLS.allRoads[i].Location1)
+                    {
+                        traverseRoadForward = true;
+                    }
+                    if(currentCity == rLS.allRoads[i].Location2)
+                    {
+                        traverseRoadForward = false;
+                    }
+                    if (traverseRoadForward)
+                    {
+                        nav.SetDestination(roadPosArray[0]);
+                        roadInt = 1;
+                    }
+                    if(!traverseRoadForward)
+                    {
+                        nav.SetDestination(roadPosArray[roadPosArray.Length - 1]);
+                        roadInt = roadPosArray.Length - 2;
+                    }
+                    Debug.Log("set destination to: " + rLS.allRoads[i].LR.name + " " + nav.destination);
                 }
                 else
                 {
@@ -148,24 +195,17 @@ public class playerScript : MonoBehaviour
                 }
             }
         }
-
-
     }
 
-    void travelRoad(Vector3[] roadPositions)
+    void resumeTravelling()
     {
-        for(int i = 0; i < roadPositions.Length; i++)
-        {
-            if(i != roadPositions.Length - 1)
-            {
-                nav.SetDestination(roadPositions[i]);
-            }
-            else
-            {
-                nav.SetDestination(destinationList[0].transform.position);
-                reachedDestination();
-            }
-        }
+        currentState = playerState.TRAVELLING;
+    }
+
+    void nextRoadStep()
+    {
+        nav.SetDestination(roadPosArray[roadInt]);
+        //Debug.Log("destination set: " + roadPosArray[roadInt]);
     }
 
     public void clearRoute()
@@ -179,7 +219,9 @@ public class playerScript : MonoBehaviour
         if (currentState == playerState.TRAVELLING)
         {
             currentCity = destinationList[0];
+            cDP.currentCity = currentCity;
             Debug.Log("destination reached: " + destinationList[0].cityLD.cityName);
+            arrivedAtCityText.text = "You have arrived at " + destinationList[0].cityLD.cityName + ". Would you like to stop here?";
             destinationList.Remove(destinationList[0]);
             Time.timeScale = 0;
             arrivalPopup.SetActive(true);
@@ -195,7 +237,7 @@ public class playerScript : MonoBehaviour
         if(destinationList.Count > 0)
         {
             currentState = playerState.TRAVELLING;
-            startTravelling();
+            resumeTravelling();
         }
     }
 
