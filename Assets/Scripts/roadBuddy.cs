@@ -5,6 +5,7 @@ public class roadBuddy : MonoBehaviour
 {
     LineRenderer LR;
     [SerializeField] LayerMask raycastMask;
+    [SerializeField] LineRenderer mapBuddy;
 
     public void alignLinesToTerrain()
     {
@@ -25,5 +26,19 @@ public class roadBuddy : MonoBehaviour
         LR.SetPositions(positionStorageList.ToArray());
 
         transform.position = (positionStorageList[0] + positionStorageList[positionStorageList.Count - 1]) / 2;
+    }
+
+    public void lineUpMapBuddy()
+    {
+        LR = GetComponent<LineRenderer>();
+        Vector3[] linePositions = new Vector3[LR.positionCount];
+        LR.GetPositions(linePositions);
+        List<Vector3> positionStorageList = new List<Vector3>();
+        foreach(Vector3 positionVector in linePositions)
+        {
+            positionStorageList.Add(new Vector3(positionVector.x, -1f, positionVector.z));
+        }
+        mapBuddy.positionCount = positionStorageList.Count;
+        mapBuddy.SetPositions(positionStorageList.ToArray());
     }
 }

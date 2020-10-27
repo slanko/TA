@@ -14,6 +14,15 @@ public class roadBuddyExtension : Editor
         {
             roadB.alignLinesToTerrain();
         }
+        if(GUILayout.Button("align map line!!!!"))
+        {
+            roadB.lineUpMapBuddy();
+        }
+        if(GUILayout.Button("do it all!!!!"))
+        {
+            roadB.alignLinesToTerrain();
+            roadB.lineUpMapBuddy();
+        }
     }
 
     void OnEnable()
