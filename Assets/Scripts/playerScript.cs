@@ -191,15 +191,14 @@ public class playerScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("not this one: " + rLS.allRoads[i].LR.name);
                 }
             }
         }
-    }
-
-    void resumeTravelling()
-    {
-        currentState = playerState.TRAVELLING;
+        else
+        {
+            Debug.Log("no destinations no travel");
+            currentState = playerState.STOPPED;
+        }
     }
 
     void nextRoadStep()
@@ -237,7 +236,6 @@ public class playerScript : MonoBehaviour
         if(destinationList.Count > 0)
         {
             currentState = playerState.TRAVELLING;
-            resumeTravelling();
         }
     }
 

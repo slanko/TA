@@ -65,11 +65,11 @@ public class randomEventScript : MonoBehaviour
     {
         if(pS.currentState == playerScript.playerState.TRAVELLING)
         {
-            Debug.Log("random event happens uya");
             eventPopup.SetActive(true);
             Time.timeScale = 0;
             var ev = eventList[Random.Range(0, eventList.Count)];
             currentEvent = ev.eventMaster;
+            Debug.Log("random event happens: " + currentEvent);
             eventHeader.text = currentEvent.eventTitle;
             eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
             eventCounter = 0;
@@ -79,7 +79,7 @@ public class randomEventScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("random event failed due to player state yahoo");
+            Debug.Log("random event failed due to player state: " + pS.currentState);
         }
     }
 
