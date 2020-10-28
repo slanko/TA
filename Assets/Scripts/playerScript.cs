@@ -27,6 +27,7 @@ public class playerScript : MonoBehaviour
     int roadInt;
     Vector3[] roadPosArray;
     [SerializeField] bool traverseRoadForward;
+    [SerializeField] float destinationDistanceCheck;
 
     NavMeshAgent nav;
     [SerializeField] cityScript currentCity;
@@ -123,24 +124,24 @@ public class playerScript : MonoBehaviour
             var distanceToDestination = Vector3.Distance(transform.position, nav.destination);
             if (traverseRoadForward)
             {
-                if (distanceToDestination < 1f && currentState == playerState.TRAVELLING && roadInt <= roadPosArray.Length - 1)
+                if (distanceToDestination < destinationDistanceCheck && currentState == playerState.TRAVELLING && roadInt <= roadPosArray.Length - 1)
                 {
                     nextRoadStep();
                     roadInt++;
                 }
-                if (distanceToDestination < 1f && currentState == playerState.TRAVELLING && roadInt == roadPosArray.Length)
+                if (distanceToDestination < destinationDistanceCheck && currentState == playerState.TRAVELLING && roadInt == roadPosArray.Length)
                 {
                     nav.SetDestination(destinationList[0].transform.position);
                 }
             }
             if (!traverseRoadForward)
             {
-                if (distanceToDestination < 1f &&  currentState == playerState.TRAVELLING && roadInt >= 1)
+                if (distanceToDestination < destinationDistanceCheck &&  currentState == playerState.TRAVELLING && roadInt >= 1)
                 {
                     nextRoadStep();
                     roadInt--;
                 }
-                if (distanceToDestination < 1f &&  currentState == playerState.TRAVELLING && roadInt == 0)
+                if (distanceToDestination < destinationDistanceCheck &&  currentState == playerState.TRAVELLING && roadInt == 0)
                 {
                     nav.SetDestination(destinationList[0].transform.position);
                 }
@@ -188,9 +189,6 @@ public class playerScript : MonoBehaviour
                         roadInt = roadPosArray.Length - 2;
                     }
                     Debug.Log("set destination to: " + rLS.allRoads[i].LR.name + " " + nav.destination);
-                }
-                else
-                {
                 }
             }
         }

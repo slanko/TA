@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class lookAt : MonoBehaviour
 {
-    public GameObject targetObject;
-    // Update is called once per frame
+    [SerializeField] GameObject GOD;
+    godPointToThing gPTT;
+
+    void Start()
+    {
+        GOD = GameObject.Find("GOD");
+        gPTT = GOD.GetComponent<godPointToThing>();
+    }
+
     void Update()
     {
-        transform.LookAt(targetObject.transform.position);
+        transform.LookAt(gPTT.gameCamera.transform.position);
     }
 }
