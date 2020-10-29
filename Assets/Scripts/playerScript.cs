@@ -86,16 +86,6 @@ public class playerScript : MonoBehaviour
                 selectedCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
                 cityNameTextParent.gameObject.transform.position = ray.origin;
                 cityNameText.text = selectedCity.cityLD.cityName;
-                if(destinationList.Count > 0)
-                {
-                    foreach (cityScript adjCit in destinationList[destinationList.Count - 1].adjacentCities)
-                    {
-                        LineRenderer lineRend = Instantiate(routeLineRenderer, selectedCity.gameObject.transform.position, gameObject.transform.rotation, selectedCity.transform).GetComponent<LineRenderer>();
-                        lineRend.SetPosition(0, selectedCity.gameObject.transform.position);
-                        lineRend.SetPosition(1, adjCit.gameObject.transform.position);
-                        lineRendererList.Add(lineRend.gameObject);
-                    }
-                }
                 if (Input.GetMouseButtonDown(0))
                 {
                     destinationList.Add(selectedCity);
@@ -233,8 +223,13 @@ public class playerScript : MonoBehaviour
         Time.timeScale = timeSlider.value;
         if(destinationList.Count > 0)
         {
-            currentState = playerState.TRAVELLING;
+            startTravelling();
         }
+    }
+    public void closePopupNoTravel(GameObject popup)
+    {
+        popup.SetActive(false);
+        Time.timeScale = timeSlider.value;
     }
 
     public void populateRoutePlanner()
