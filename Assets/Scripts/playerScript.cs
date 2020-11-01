@@ -11,18 +11,22 @@ public class playerScript : MonoBehaviour
         TRAVELLING,
         STOPPED
     }
-    //probably needed
+    //PLAYER VARIABLES
     [SerializeField] KeyCode openAtlasKey;
-    [SerializeField] LayerMask mapRayLayerMask;
     public List<cityScript> destinationList;
     public playerState currentState = playerState.STOPPED;
     [SerializeField, Header("Map Stuff")] Text cityNameText;
+    [SerializeField] LayerMask mapRayLayerMask;
     [SerializeField] GameObject cityNameTextParent, arrivalPopup;
     [SerializeField] Slider timeSlider;
+
+    //ROUTE PLANNER
     [SerializeField, Header("Route Planner")] GameObject routePlannerText;
     [SerializeField] GameObject routePlannerTextHolder, routeLineRenderer;
     List<GameObject> lineRendererList=new List<GameObject>();
     [SerializeField] Text stateText, arrivedAtCityText;
+    cityScript currentPlannerCity;
+    [SerializeField] List<roadListScript.roadStruct> connectedRoads;
 
     int roadInt;
     Vector3[] roadPosArray;
@@ -35,6 +39,7 @@ public class playerScript : MonoBehaviour
 
     cityDataPassthrough cDP;
     GameObject GOD;
+    godPointToThing gPTT;
     roadListScript rLS;
 
     //placeholder
@@ -43,6 +48,7 @@ public class playerScript : MonoBehaviour
     void Start()
     {
         GOD = GameObject.Find("GOD");
+        gPTT = GOD.GetComponent<godPointToThing>();
         nav = GetComponent<NavMeshAgent>();
         cDP = GOD.GetComponent<cityDataPassthrough>();
         rLS = GOD.GetComponent<roadListScript>();
@@ -83,12 +89,19 @@ public class playerScript : MonoBehaviour
         {
             if(rayHit.collider.gameObject.tag == "City")
             {
+                //this is what happens when you hover over a city
                 selectedCity = rayHit.collider.gameObject.GetComponentInParent<cityScript>();
                 cityNameTextParent.gameObject.transform.position = ray.origin;
                 cityNameText.text = selectedCity.cityLD.cityName;
+
+                //okay so this is what happens when you pick a city and it is eligible
                 if (Input.GetMouseButtonDown(0))
                 {
+                    clearRoadColours();
                     destinationList.Add(selectedCity);
+                    currentPlannerCity = selectedCity;
+                    //get all current planner city's selected roads so uh let's make a new function
+                    getCityConnectedRoads(selectedCity, true);
                     populateRoutePlanner();
                     Debug.Log("added " + selectedCity.cityLD.cityName + " to the travel plan");
                 }
@@ -97,13 +110,57 @@ public class playerScript : MonoBehaviour
         else
         {
             cityNameText.text = "";
+            //this part might be unnessecary (definitely i think)
             if (lineRendererList.Count > 0)
             {
                 foreach (GameObject objectToDelete in lineRendererList)
                 {
-                    Destroy(objectToDelete);
+                    //Destroy(objectToDelete);
                 }
             }
+        }
+    }
+
+    void getCityConnectedRoads(cityScript city, bool highlightRoads)
+    {
+        roadListScript roadList = GOD.GetComponent<roadListScript>();
+        foreach (roadListScript.roadStruct road in roadList.allRoads)
+        {
+            if(road.Location1 == city || road.Location2 == city)
+            {
+                connectedRoads.Add(road);
+                //this sucks
+                LineRenderer LRBuddy = road.LR.gameObject.transform.Find("Map Buddy").GetComponent<LineRenderer>();
+                if(highlightRoads == true)
+                {
+                    LRBuddy.startColor = gPTT.mapLineAvailableColour;
+                    LRBuddy.endColor = gPTT.mapLineAvailableColour;
+                }
+            }
+            if(road.Location1 != city && road.Location2 == city)
+            {
+                road.Location1.markerRenderer.material = gPTT.mapMarkerAvailableColour;
+                Debug.Log("ding");
+            }
+            if (road.Location1 == city && road.Location2 != city)
+            {
+                road.Location2.markerRenderer.material = gPTT.mapMarkerAvailableColour;
+                Debug.Log("ding");
+            }
+            city.markerRenderer.material = gPTT.mapMarkerSelectedColor;
+        }
+    }
+
+    public void clearRoadColours()
+    {
+        roadListScript roadList = GOD.GetComponent<roadListScript>();
+        foreach(roadListScript.roadStruct road in connectedRoads)
+        {
+            LineRenderer LRBuddy = road.LR.gameObject.transform.Find("Map Buddy").GetComponent<LineRenderer>();
+            LRBuddy.startColor = gPTT.mapLineUnselectedColour;
+            LRBuddy.endColor = gPTT.mapLineUnselectedColour;
+            road.Location1.markerRenderer.material = gPTT.mapMarkerUnselectedColour;
+            road.Location2.markerRenderer.material = gPTT.mapMarkerUnselectedColour;
         }
     }
 

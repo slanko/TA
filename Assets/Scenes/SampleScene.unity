@@ -376,6 +376,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2012718097}
+        m_TargetAssemblyTypeName: playerScript, Assembly-CSharp
+        m_MethodName: clearRoadColours
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &16672411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,6 +1882,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 963194225}
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -1909,6 +1926,11 @@ PrefabInstance:
       propertyPath: adjacentCities.Array.data[1]
       value: 
       objectReference: {fileID: 339782637}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 1949792454}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2217,6 +2239,15 @@ MonoBehaviour:
   shopCanvas: {fileID: 1680090477}
   winScreenAnim: {fileID: 1162593826}
   gameCamera: {fileID: 963194225}
+  mapLineUnselectedColour: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
+  mapLineSelectedColour: {r: 1, g: 0, b: 0.5034375, a: 1}
+  mapLineAvailableColour: {r: 0, g: 0.7590854, b: 1, a: 1}
+  mapMarkerUnselectedColour: {fileID: 2100000, guid: f489724d8e5c65a4f8821daaaa632d51,
+    type: 2}
+  mapMarkerSelectedColor: {fileID: 2100000, guid: f991dc21990cd4340ad08123bc7375da,
+    type: 2}
+  mapMarkerAvailableColour: {fileID: 2100000, guid: efa8f57bf72efb447be4ac170e20ec4f,
+    type: 2}
 --- !u!114 &140506047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2669,7 +2700,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2745,8 +2776,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3002,7 +3033,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3084,8 +3115,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4062,6 +4093,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395843280}
   m_CullTransparentMesh: 0
+--- !u!1 &396726957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 667930313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400062529
 GameObject:
   m_ObjectHideFlags: 0
@@ -5542,6 +5579,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515681, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Name
@@ -5553,6 +5595,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 88349087dd9f3d64f866ff719025165f,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 1478084324}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5868,6 +5915,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 963194225}
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -5907,6 +5959,11 @@ PrefabInstance:
       propertyPath: adjacentCities.Array.data[1]
       value: 
       objectReference: {fileID: 658816544}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 1790531702}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6038,6 +6095,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 2012718095}
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Text
@@ -6056,6 +6118,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5318337ed57523d44a2b446e47cb6602,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 718916055}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6607,6 +6674,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Text
@@ -6625,6 +6697,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 265407f145483c34da00a29a210236bc,
         type: 2}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 396726957}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7040,7 +7117,7 @@ GameObject:
   - component: {fileID: 705790532}
   - component: {fileID: 705790531}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Person Scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7248,7 +7325,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7326,8 +7403,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -7440,6 +7517,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714599859}
   m_CullTransparentMesh: 0
+--- !u!1 &718916055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 623255146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &728941311
 GameObject:
   m_ObjectHideFlags: 0
@@ -8414,6 +8497,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842287918}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &845321329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4161977357051427512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &849752640
 GameObject:
   m_ObjectHideFlags: 0
@@ -9678,7 +9767,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9747,8 +9836,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9960,6 +10049,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: City
       objectReference: {fileID: 0}
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -9994,25 +10088,30 @@ PrefabInstance:
       propertyPath: adjacentCities.Array.data[0]
       value: 
       objectReference: {fileID: 339782637}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 1183164313}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -282
+      value: -282.00003
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.889
+      value: 0.8890033
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 314
+      value: 314.00006
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -9.3132246e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -10027,12 +10126,12 @@ PrefabInstance:
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000058114523
+      value: 0.0000005960464
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -10048,6 +10147,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010347ce606a6e24aacfb2f227627ab4, type: 3}
@@ -11889,6 +12003,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5654f5ed884d6914bb32f6545bff5f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1183164313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003858043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1188071438
 GameObject:
   m_ObjectHideFlags: 0
@@ -12015,7 +12135,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12081,8 +12201,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -13230,6 +13350,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347353254}
   m_CullTransparentMesh: 0
+--- !u!1 &1352561229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983021256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1355341352
 GameObject:
   m_ObjectHideFlags: 0
@@ -13434,7 +13560,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13495,8 +13621,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -14853,6 +14979,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471542471}
   m_CullTransparentMesh: 0
+--- !u!1 &1478084324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 593677010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1480767267
 GameObject:
   m_ObjectHideFlags: 0
@@ -15607,7 +15739,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15675,8 +15807,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -15723,7 +15855,7 @@ GameObject:
   - component: {fileID: 1586374651}
   - component: {fileID: 1586374650}
   m_Layer: 9
-  m_Name: Cube (1)
+  m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18308,6 +18440,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779756811}
   m_CullTransparentMesh: 0
+--- !u!1 &1790531702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 608240479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815421655
 GameObject:
   m_ObjectHideFlags: 0
@@ -18358,7 +18496,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18433,8 +18571,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -18861,7 +18999,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c93266e6517e3948a18343324c33c73, type: 2}
+  - {fileID: 2100000, guid: a2bc0b2c4c7b38345a117f76afa801cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18936,8 +19074,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+      key1: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -19129,6 +19267,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926951717}
   m_CullTransparentMesh: 0
+--- !u!1 &1949792454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 139876074}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1955182754
 GameObject:
   m_ObjectHideFlags: 0
@@ -19595,6 +19739,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 963194225}
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -19634,6 +19783,11 @@ PrefabInstance:
       propertyPath: adjacentCities.Array.data[1]
       value: 
       objectReference: {fileID: 1113584740}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 1352561229}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20153,12 +20307,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openAtlasKey: 97
-  mapRayLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
   destinationList: []
   currentState: 1
   cityNameText: {fileID: 1276896788}
+  mapRayLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
   cityNameTextParent: {fileID: 1990383853}
   arrivalPopup: {fileID: 54115932}
   timeSlider: {fileID: 1120169565}
@@ -20169,6 +20323,7 @@ MonoBehaviour:
     type: 3}
   stateText: {fileID: 1095317246}
   arrivedAtCityText: {fileID: 555279973}
+  connectedRoads: []
   traverseRoadForward: 0
   destinationDistanceCheck: 3
   currentCity: {fileID: 339782637}
@@ -21454,7 +21609,7 @@ GameObject:
   - component: {fileID: 2146840383}
   - component: {fileID: 2146840382}
   m_Layer: 9
-  m_Name: Cube
+  m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21800,6 +21955,11 @@ PrefabInstance:
       propertyPath: targetObject
       value: 
       objectReference: {fileID: 963194225}
+    - target: {fileID: 4161977356936180507, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Name
+      value: City Marker
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357141501253, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_FontData.m_Font
@@ -21838,6 +21998,11 @@ PrefabInstance:
       propertyPath: adjacentCities.Array.data[2]
       value: 
       objectReference: {fileID: 658816544}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: cityMarker
+      value: 
+      objectReference: {fileID: 845321329}
     - target: {fileID: 4161977357324515684, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Enabled
@@ -21881,7 +22046,7 @@ PrefabInstance:
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}

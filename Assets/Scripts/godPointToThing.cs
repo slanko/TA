@@ -10,4 +10,11 @@ public class godPointToThing : MonoBehaviour
 
     //used to billboard city names
     public GameObject gameCamera;
+
+    //colours for lines on da map
+    public Color mapLineUnselectedColour;
+    public Color mapLineSelectedColour, mapLineAvailableColour;
+
+    //colours for points on da map
+    public Material mapMarkerUnselectedColour, mapMarkerSelectedColor, mapMarkerAvailableColour;
 }
