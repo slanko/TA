@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class godPointToThing : MonoBehaviour
 {
+    //putting player in allcaps because it's IMPORTANT pls no bully
+    public playerScript PLAYER;
+
     //used in button allocation
     public GameObject shopCanvas;
     public Animator winScreenAnim;

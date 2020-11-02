@@ -376,17 +376,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2012718097}
-        m_TargetAssemblyTypeName: playerScript, Assembly-CSharp
+      - m_Target: {fileID: 140506049}
+        m_TargetAssemblyTypeName: mapLinesScript, Assembly-CSharp
         m_MethodName: clearRoadColours
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &16672411
 MonoBehaviour:
@@ -2046,6 +2046,7 @@ GameObject:
   - component: {fileID: 140506041}
   - component: {fileID: 140506040}
   - component: {fileID: 140506046}
+  - component: {fileID: 140506049}
   - component: {fileID: 140506039}
   - component: {fileID: 140506044}
   - component: {fileID: 140506045}
@@ -2236,12 +2237,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49ba7e169f42c0498b47df8ef9ed0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PLAYER: {fileID: 2012718097}
   shopCanvas: {fileID: 1680090477}
   winScreenAnim: {fileID: 1162593826}
   gameCamera: {fileID: 963194225}
   mapLineUnselectedColour: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
-  mapLineSelectedColour: {r: 1, g: 0, b: 0.5034375, a: 1}
-  mapLineAvailableColour: {r: 0, g: 0.7590854, b: 1, a: 1}
+  mapLineSelectedColour: {r: 1, g: 0.011764707, b: 0, a: 1}
+  mapLineAvailableColour: {r: 0.8018868, g: 0.4274208, b: 0.45669577, a: 1}
   mapMarkerUnselectedColour: {fileID: 2100000, guid: f489724d8e5c65a4f8821daaaa632d51,
     type: 2}
   mapMarkerSelectedColor: {fileID: 2100000, guid: f991dc21990cd4340ad08123bc7375da,
@@ -2339,6 +2341,19 @@ MonoBehaviour:
   - LR: {fileID: 1408585801}
     Location1: {fileID: 1657015071}
     Location2: {fileID: 620089696}
+--- !u!114 &140506049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140506038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdac1d21d740ce54697090a8a7fd473a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedRoads: []
 --- !u!1 &143739502
 GameObject:
   m_ObjectHideFlags: 0
@@ -20323,7 +20338,6 @@ MonoBehaviour:
     type: 3}
   stateText: {fileID: 1095317246}
   arrivedAtCityText: {fileID: 555279973}
-  connectedRoads: []
   traverseRoadForward: 0
   destinationDistanceCheck: 3
   currentCity: {fileID: 339782637}
