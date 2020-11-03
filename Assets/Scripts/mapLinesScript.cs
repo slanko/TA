@@ -58,7 +58,7 @@ public class mapLinesScript : MonoBehaviour
         }
     }
 
-    public void clearRoadColours(bool clearHighlights)
+    public void clearRoadColours(bool clearHighlights, bool resetToNormal)
     {
         roadListScript roadList = GOD.GetComponent<roadListScript>();
         foreach (roadListScript.roadStruct road in connectedRoads)
@@ -76,6 +76,10 @@ public class mapLinesScript : MonoBehaviour
                 road.Location1.markerRenderer.material = gPTT.mapMarkerUnselectedColour;
                 road.Location2.markerRenderer.material = gPTT.mapMarkerUnselectedColour;
             }
+        }
+        if(resetToNormal == true)
+        {
+            getCityConnectedRoads(gPTT.PLAYER.currentCity, true);
         }
     }
 }

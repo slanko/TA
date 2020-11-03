@@ -12,10 +12,12 @@ public class playerResources : MonoBehaviour
     public int banditRep, freeTradeRep, corporationRep, globalRep;
 
 
-    [SerializeField] Slider healthBar;
+    [SerializeField] Slider healthBar, foodRationSlider, truckSpeedSlider;
     bool playerIsAlive = true;
     [SerializeField] Animator deathScreen;
-    [SerializeField] Text creditsText;
+    [SerializeField] Text creditsText, foodRationText, truckSpeedText;
+    GameObject GOD;
+    godPointToThing gPTT;
 
     [System.Serializable]
     public struct InventoryEntry
@@ -26,10 +28,45 @@ public class playerResources : MonoBehaviour
 
     public List<InventoryEntry> playerInventory;
 
+    private void Start()
+    {
+        GOD = GameObject.Find("GOD");
+        gPTT = GOD.GetComponent<godPointToThing>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         healthBar.value = playerHealth;
+        float foodRationValue = 1;
+
+        switch (foodRationSlider.value)
+        {
+            case 0:
+                foodRationValue = 3;
+                foodRationText.text = "zero servings";
+                break;
+
+            case 1:
+                foodRationValue = 2;
+                foodRationText.text = "one serving";
+                break;
+
+            case 2:
+                foodRationValue = 1;
+                foodRationText.text = "two servings";
+                break;
+
+            case 3:
+                foodRationValue = 0;
+                foodRationText.text = "three servings";
+                break;
+        }
+
+        if(gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
+        {
+            playerHealth = playerHealth - .25f * Time.deltaTime * foodRationValue;
+        }
 
         if(playerHealth <= 0 && playerIsAlive)
         {

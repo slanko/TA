@@ -32,11 +32,12 @@ public class playerScript : MonoBehaviour
     [SerializeField] float destinationDistanceCheck;
 
     NavMeshAgent nav;
-    [SerializeField] cityScript currentCity;
+    public cityScript currentCity;
     cityScript selectedCity;
 
     cityDataPassthrough cDP;
     GameObject GOD;
+    godPointToThing gPTT;
     roadListScript rLS;
     mapLinesScript mLS;
 
@@ -47,6 +48,7 @@ public class playerScript : MonoBehaviour
     void Start()
     {
         GOD = GameObject.Find("GOD");
+        gPTT = GOD.GetComponent<godPointToThing>();
         mLS = GOD.GetComponent<mapLinesScript>();
         cDP = GOD.GetComponent<cityDataPassthrough>();
         rLS = GOD.GetComponent<roadListScript>();
@@ -95,9 +97,9 @@ public class playerScript : MonoBehaviour
                 cityNameText.text = selectedCity.cityLD.cityName;
 
                 //okay so this is what happens when you pick a city and it is eligible
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && selectedCity.markerRenderer.sharedMaterial == gPTT.mapMarkerAvailableColour) 
                 {
-                    mLS.clearRoadColours(false);
+                    mLS.clearRoadColours(false, false);
                     destinationList.Add(selectedCity);
                     //get all current planner city's selected roads so uh let's make a new function
                     mLS.getCityConnectedRoads(selectedCity, true);
