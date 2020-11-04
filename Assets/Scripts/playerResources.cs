@@ -11,8 +11,12 @@ public class playerResources : MonoBehaviour
     //FACTION REP
     public int banditRep, freeTradeRep, corporationRep, globalRep;
 
+    //munchies
+    public float playerEatRate;
 
-    [SerializeField] Slider healthBar, foodRationSlider, truckSpeedSlider;
+
+    [SerializeField] Slider healthBar, truckSpeedSlider;
+    public Slider foodRationSlider;
     bool playerIsAlive = true;
     [SerializeField] Animator deathScreen;
     [SerializeField] Text creditsText, foodRationText, truckSpeedText;
@@ -32,6 +36,7 @@ public class playerResources : MonoBehaviour
     {
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
+        giveItem(globalValuesData.itemType.FOOD, 20);
     }
 
     // Update is called once per frame
@@ -65,7 +70,15 @@ public class playerResources : MonoBehaviour
 
         if(gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
         {
-            playerHealth = playerHealth - .25f * Time.deltaTime * foodRationValue;
+            if(getItemAmount(globalValuesData.itemType.FOOD) > 0)
+            {
+                playerHealth = playerHealth - .25f * Time.deltaTime * foodRationValue;
+            }
+            else
+            {
+                playerHealth = playerHealth - .25f * Time.deltaTime * 3.5f;
+                foodRationText.text = "no food!!";
+            }
         }
 
         if(playerHealth <= 0 && playerIsAlive)
@@ -121,6 +134,33 @@ public class playerResources : MonoBehaviour
         }
     }
 
+    public float getItemAmount(globalValuesData.itemType type)
+    {
+        float amountToReturn = 0;
+        foreach(InventoryEntry entry in playerInventory)
+        {
+            if(entry.entryType == type)
+            {
+                amountToReturn = entry.amountHeld;
+            }
+        }
+            return amountToReturn;
+    }
+
+    public void setItemAmount(globalValuesData.itemType type, float setAmount)
+    {
+        for (int i = 0; i < playerInventory.Count; i++)
+        {
+            var entry = playerInventory[i];
+            if (entry.entryType == type)
+            {
+                entry = new InventoryEntry { };
+                entry.amountHeld = setAmount;
+                break;
+            }
+        }
+    }
+
     public void reputationChange(int changeAmount, globalValuesData.factionType faction)
     {
         switch (faction)
@@ -154,5 +194,18 @@ public class playerResources : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void eatFood()
+    {
+        if(getItemAmount(globalValuesData.itemType.FOOD) > 0)
+        {
+            giveItem(globalValuesData.itemType.FOOD, gPTT.pR.foodRationSlider.value * gPTT.pR.playerEatRate);
+
+            if (getItemAmount(globalValuesData.itemType.FOOD) < 0)
+            {
+                setItemAmount(globalValuesData.itemType.FOOD, 0);
+            }
+        }
     }
 }

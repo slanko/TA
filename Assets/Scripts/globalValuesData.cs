@@ -17,7 +17,8 @@ public class globalValuesData : ScriptableObject
     {
         STUFF,
         JUNK,
-        TRASH
+        TRASH,
+        FOOD
     }
     [System.Serializable]
     public struct valueDataEntry

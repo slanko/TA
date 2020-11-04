@@ -20,3 +20,5 @@ MonoBehaviour:
     itemValue: 2
   - item: 2
     itemValue: 1
+  - item: 3
+    itemValue: 10

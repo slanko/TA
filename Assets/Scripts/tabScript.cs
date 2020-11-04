@@ -50,7 +50,8 @@ public class tabScript : MonoBehaviour
         {
             var iIS = Instantiate(inventoryItemEntry, inventoryZone.transform).GetComponent<inventoryItemScript>();
             iIS.entryName.text = entry.entryType.ToString();
-            iIS.entryAmount.text = entry.amountHeld.ToString();
+            
+            iIS.entryAmount.text = "" + (int)entry.amountHeld;
             entryList.Add(iIS.gameObject);
         }
     }
