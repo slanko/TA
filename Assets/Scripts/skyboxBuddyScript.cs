@@ -10,15 +10,19 @@ public class skyboxBuddyScript : MonoBehaviour
     [SerializeField] Text dateText;
     [SerializeField] int dayHour;
     [SerializeField] float dayNightAnimSpeed;
+    Animator anim;
 
     //stuff needs to happen on the hour
     GameObject GOD;
     godPointToThing gPTT;
     private void Start()
     {
+        anim = GetComponent<Animator>();
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
         gameObject.GetComponent<Animator>().speed = dayNightAnimSpeed;
+        anim.Play("daynight", 0, 0.2515f);
+        dateText.text = "TIME: 0" + dayHour.ToString() + ":00";
     }
 
 

@@ -82,4 +82,8 @@ public class mapLinesScript : MonoBehaviour
             getCityConnectedRoads(gPTT.PLAYER.currentCity, true);
         }
     }
+    public void hitDepartButtonBecauseUnityEventsSuck()
+    {
+        clearRoadColours(true, true);
+    }
 }

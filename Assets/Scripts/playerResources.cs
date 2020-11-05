@@ -112,6 +112,10 @@ public class playerResources : MonoBehaviour
         {
             giveItem(globalValuesData.itemType.TRASH, 1);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            giveItem(globalValuesData.itemType.FOOD, 1);
+        }
     }
 
     public void giveItem(globalValuesData.itemType type, float amount)
