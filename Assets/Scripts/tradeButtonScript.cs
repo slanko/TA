@@ -29,12 +29,21 @@ public class tradeButtonScript : MonoBehaviour
         {
             shopCanvas = gPTT.shopCanvas;
             sSc = shopCanvas.GetComponent<shopScript>();
-            meButton.onClick.AddListener(delegate { shopCanvas.SetActive(true); });
-            meButton.onClick.AddListener(delegate { sSc.populateShopScreen(); });
+            meButton.onClick.AddListener(delegate { shopCanvas.SetActive(true); sSc.populateShopScreen(); });
         }
         if(type == buttonType.WINGAME)
         {
             meButton.onClick.AddListener(delegate { gPTT.winScreenAnim.SetTrigger("die"); });
+        }
+        if(type == buttonType.REST)
+        {
+            meButton.onClick.AddListener(delegate { 
+                gPTT.restScreen.SetActive(true); 
+                gPTT.cityCanvas.SetActive(false); 
+                gPTT.rSS.populateRestScreen(gPTT.PLAYER.currentCity.rSD);
+                gPTT.popupCanvas.SetActive(false);
+                gPTT.dashBoard.SetActive(false);
+            });
         }
     }
 }

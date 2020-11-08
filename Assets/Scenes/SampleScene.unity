@@ -2272,6 +2272,12 @@ MonoBehaviour:
   mapMarkerAvailableColour: {fileID: 2100000, guid: efa8f57bf72efb447be4ac170e20ec4f,
     type: 2}
   tS: {fileID: 140506047}
+  cityCanvas: {fileID: 1172485806}
+  restScreen: {fileID: 848758706}
+  rSS: {fileID: 848758711}
+  popupCanvas: {fileID: 1222465920}
+  dashBoard: {fileID: 1490977882}
+  arrivedAtCityPopup: {fileID: 54115932}
 --- !u!114 &140506047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10143,6 +10149,7 @@ GameObject:
   - component: {fileID: 848758709}
   - component: {fileID: 848758708}
   - component: {fileID: 848758707}
+  - component: {fileID: 848758711}
   m_Layer: 5
   m_Name: Rest Canvas
   m_TagString: Untagged
@@ -10232,6 +10239,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &848758711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848758706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be478ad837c89ee4299559434b15b7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText1: {fileID: 1199927429}
+  titleText2: {fileID: 885622385}
+  descriptionText: {fileID: 2136850671}
+  sleepySprite: {fileID: 2109710509}
 --- !u!1 &849752640
 GameObject:
   m_ObjectHideFlags: 0
@@ -10643,7 +10666,7 @@ RectTransform:
   m_GameObject: {fileID: 885622383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.23044461, y: 0.23044461, z: 0.23044461}
+  m_LocalScale: {x: 0.19722833, y: 0.19722833, z: 0.19722833}
   m_Children: []
   m_Father: {fileID: 2012698186}
   m_RootOrder: 2
@@ -15309,7 +15332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1290278833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23618,7 +23641,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1974885956}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1863333434}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2012698185}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1974885956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23902,6 +23949,12 @@ PrefabInstance:
       propertyPath: cityMarker
       value: 
       objectReference: {fileID: 1352561229}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: rSD
+      value: 
+      objectReference: {fileID: 11400000, guid: 9dbf455a101a1e4408e09b9332ca241e,
+        type: 2}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24430,7 +24483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2012698186
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25616,7 +25669,55 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2120598312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 848758706}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1172485806}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1222465920}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1490977882}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &2120598312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26718,6 +26819,12 @@ PrefabInstance:
       propertyPath: cityMarker
       value: 
       objectReference: {fileID: 845321329}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: rSD
+      value: 
+      objectReference: {fileID: 11400000, guid: 9dbf455a101a1e4408e09b9332ca241e,
+        type: 2}
     - target: {fileID: 4161977357324515684, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Enabled

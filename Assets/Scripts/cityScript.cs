@@ -10,6 +10,7 @@ public class cityScript : MonoBehaviour
     public List<cityScript> adjacentCities;
     public GameObject cityMarker;
     public MeshRenderer markerRenderer;
+    public restStopData rSD;
     private void Start()
     {
         myText.text = cityLD.cityName;

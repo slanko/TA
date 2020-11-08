@@ -24,4 +24,14 @@ public class godPointToThing : MonoBehaviour
 
     //used for hourly inventory updating
     public tabScript tS;
+
+    //used for rest screen switching stuff
+    public GameObject cityCanvas;
+    public GameObject restScreen;
+    public restScreenScript rSS;
+    public GameObject popupCanvas;
+    public GameObject dashBoard;
+
+    //funny city popup
+    public GameObject arrivedAtCityPopup;
 }
