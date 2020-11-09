@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class godPointToThing : MonoBehaviour
 {
@@ -32,6 +33,17 @@ public class godPointToThing : MonoBehaviour
     public GameObject popupCanvas;
     public GameObject dashBoard;
 
+    //this one's a funny one. this is a list of all the city title text objects so we can enable and disable all of them if we'd like
+    public List<Text> cityNameTextList;
+
     //funny city popup
     public GameObject arrivedAtCityPopup;
+
+    //time stuff
+    [System.Serializable]
+    public struct timeStruct
+    {
+        public int minute, hour, day, month, year;
+    }
+    public timeStruct theTime;
 }

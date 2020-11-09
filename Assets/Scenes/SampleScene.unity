@@ -2060,6 +2060,7 @@ GameObject:
   - component: {fileID: 140506042}
   - component: {fileID: 140506041}
   - component: {fileID: 140506040}
+  - component: {fileID: 140506050}
   - component: {fileID: 140506046}
   - component: {fileID: 140506049}
   - component: {fileID: 140506039}
@@ -2277,7 +2278,14 @@ MonoBehaviour:
   rSS: {fileID: 848758711}
   popupCanvas: {fileID: 1222465920}
   dashBoard: {fileID: 1490977882}
+  cityNameTextList: []
   arrivedAtCityPopup: {fileID: 54115932}
+  theTime:
+    minute: 0
+    hour: 6
+    day: 9
+    month: 6
+    year: 2534
 --- !u!114 &140506047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,6 +2390,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedRoads: []
+--- !u!114 &140506050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140506038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a81e02126e1afe41b13c623a8cf4154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &143739502
 GameObject:
   m_ObjectHideFlags: 0
@@ -9538,8 +9558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -175, y: -87}
-  m_SizeDelta: {x: 319.86963, y: 69.599976}
+  m_AnchoredPosition: {x: 81, y: -85.009}
+  m_SizeDelta: {x: 712.87524, y: 69.599976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769261448
 MonoBehaviour:
@@ -9574,7 +9594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'TIME: 06:00'
+  m_Text: 00:00  |  00/00/0000
 --- !u!222 &769261449
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10251,9 +10271,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be478ad837c89ee4299559434b15b7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gPTT: {fileID: 140506046}
   titleText1: {fileID: 1199927429}
   titleText2: {fileID: 885622385}
   descriptionText: {fileID: 2136850671}
+  sliderText: {fileID: 193809831}
+  dateText1Time: {fileID: 1330925644}
+  dateText1DMY: {fileID: 1031807880}
+  dateText2Time: {fileID: 715997649}
+  dateText2DMY: {fileID: 235200146}
+  sleepySlider: {fileID: 1307648843}
   sleepySprite: {fileID: 2109710509}
 --- !u!1 &849752640
 GameObject:
@@ -11966,7 +11993,6 @@ RectTransform:
   m_Children:
   - {fileID: 769261447}
   - {fileID: 171042157}
-  - {fileID: 1734963337}
   m_Father: {fileID: 1222465924}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21377,85 +21403,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.070007324, y: 0}
   m_SizeDelta: {x: -9.868774, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1734963336
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1734963337}
-  - component: {fileID: 1734963339}
-  - component: {fileID: 1734963338}
-  m_Layer: 5
-  m_Name: Time (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1734963337
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734963336}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 998492026}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 169.8, y: -87}
-  m_SizeDelta: {x: 331.39563, y: 69.599976}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1734963338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734963336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 499a8103136bc5c4ba08209d8beb1c55, type: 3}
-    m_FontSize: 60
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 290
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: 01/01/1111
---- !u!222 &1734963339
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734963336}
-  m_CullTransparentMesh: 0
 --- !u!1 &1737540522
 GameObject:
   m_ObjectHideFlags: 0
@@ -22069,7 +22016,6 @@ MonoBehaviour:
   fogColour: {r: 1, g: 0.9785974, b: 0.8066038, a: 0}
   ambientColour: {r: 1, g: 1, b: 1, a: 0}
   dateText: {fileID: 769261448}
-  dayHour: 6
   dayNightAnimSpeed: 0.25
 --- !u!1 &1779756811
 GameObject:
@@ -25709,6 +25655,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1490977882}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 848758711}
+        m_TargetAssemblyTypeName: restScreenScript, Assembly-CSharp
+        m_MethodName: toggleCityNames
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

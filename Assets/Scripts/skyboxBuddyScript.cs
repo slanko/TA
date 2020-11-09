@@ -8,21 +8,22 @@ public class skyboxBuddyScript : MonoBehaviour
 {
     [SerializeField] Color skyboxColour, fogColour, ambientColour;
     [SerializeField] Text dateText;
-    [SerializeField] int dayHour;
     [SerializeField] float dayNightAnimSpeed;
     Animator anim;
 
     //stuff needs to happen on the hour
     GameObject GOD;
     godPointToThing gPTT;
+    datesAndTimes dAT;
     private void Start()
     {
         anim = GetComponent<Animator>();
         GOD = GameObject.Find("GOD");
+        dAT = GOD.GetComponent<datesAndTimes>();
         gPTT = GOD.GetComponent<godPointToThing>();
         gameObject.GetComponent<Animator>().speed = dayNightAnimSpeed;
         anim.Play("daynight", 0, 0.2515f);
-        dateText.text = "TIME: 0" + dayHour.ToString() + ":00";
+        dateText.text = dAT.getTime() + "  |  " + dAT.getDate();
     }
 
 
@@ -35,21 +36,9 @@ public class skyboxBuddyScript : MonoBehaviour
 
     public void timeAddOneHour()
     {
-        dayHour++;
-        if (dayHour > 24)
-        {
-            dayHour = 0;
-        }
-        if (dayHour < 10)
-        {
-            dateText.text = "TIME: 0" + dayHour.ToString() + ":00";
-        }
-        else
-        {
-            dateText.text = "TIME: " + dayHour.ToString() + ":00";
-        }
+        gPTT.theTime.hour++;
+        dateText.text = dAT.getTime() + "  |  " + dAT.getDate();
         doHourlyThings();
-
     }
 
 
