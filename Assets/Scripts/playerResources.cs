@@ -13,7 +13,8 @@ public class playerResources : MonoBehaviour
 
     //munchies
     public float playerEatRate;
-
+    public float foodRationValue = 1;
+    public bool resting = false;
 
     [SerializeField] Slider healthBar, truckSpeedSlider;
     public Slider foodRationSlider;
@@ -43,30 +44,32 @@ public class playerResources : MonoBehaviour
     void Update()
     {
         healthBar.value = playerHealth;
-        float foodRationValue = 1;
-
-        switch (foodRationSlider.value)
+        if(resting == false)
         {
-            case 0:
-                foodRationValue = 3;
-                foodRationText.text = "zero servings";
-                break;
+            switch (foodRationSlider.value)
+            {
+                case 0:
+                    foodRationValue = 3;
+                    foodRationText.text = "zero servings";
+                    break;
 
-            case 1:
-                foodRationValue = 2;
-                foodRationText.text = "one serving";
-                break;
+                case 1:
+                    foodRationValue = 2;
+                    foodRationText.text = "one serving";
+                    break;
 
-            case 2:
-                foodRationValue = 1;
-                foodRationText.text = "two servings";
-                break;
+                case 2:
+                    foodRationValue = 1;
+                    foodRationText.text = "two servings";
+                    break;
 
-            case 3:
-                foodRationValue = 0;
-                foodRationText.text = "three servings";
-                break;
+                case 3:
+                    foodRationValue = 0;
+                    foodRationText.text = "three servings";
+                    break;
+            }
         }
+
 
         if(gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
         {

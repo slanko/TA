@@ -33,6 +33,9 @@ public class godPointToThing : MonoBehaviour
     public GameObject popupCanvas;
     public GameObject dashBoard;
 
+    //rest screen rest function stuff
+    public skyboxBuddyScript sBS;
+
     //this one's a funny one. this is a list of all the city title text objects so we can enable and disable all of them if we'd like
     public List<Text> cityNameTextList;
 

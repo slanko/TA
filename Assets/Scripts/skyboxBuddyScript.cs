@@ -7,9 +7,12 @@ using UnityEngine.UI;
 public class skyboxBuddyScript : MonoBehaviour
 {
     [SerializeField] Color skyboxColour, fogColour, ambientColour;
+    [SerializeField] float fogDensity;
     [SerializeField] Text dateText;
     [SerializeField] float dayNightAnimSpeed;
+    [SerializeField] restScreenScript rSS;
     Animator anim;
+    public int restTime;
 
     //stuff needs to happen on the hour
     GameObject GOD;
@@ -31,6 +34,7 @@ public class skyboxBuddyScript : MonoBehaviour
     {
         RenderSettings.skybox.SetColor("_Tint", skyboxColour);
         RenderSettings.fogColor = fogColour;
+        RenderSettings.fogDensity = fogDensity;
         RenderSettings.ambientLight = ambientColour;
     }
 
@@ -49,5 +53,16 @@ public class skyboxBuddyScript : MonoBehaviour
             gPTT.pR.eatFood();
         }
         gPTT.tS.populateInventoryTab();
+        if (restTime > 0)
+        {
+            restTime--;
+
+            if (restTime == 0)
+            {
+                //set to negative one so it doesn't run every fricking frame
+                restTime = -1;
+                gPTT.rSS.stopResting();
+            }
+        }
     }
 }
