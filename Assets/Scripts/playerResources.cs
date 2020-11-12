@@ -23,6 +23,8 @@ public class playerResources : MonoBehaviour
     [SerializeField] Text creditsText, foodRationText, truckSpeedText;
     GameObject GOD;
     godPointToThing gPTT;
+    [System.NonSerialized]
+    public restStopData rSD;
 
     [System.Serializable]
     public struct InventoryEntry
@@ -71,18 +73,36 @@ public class playerResources : MonoBehaviour
         }
 
 
-        if(gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
-        {
-            if(getItemAmount(globalValuesData.itemType.FOOD) > 0)
+            if(resting == false && gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
             {
-                playerHealth = playerHealth - .25f * Time.deltaTime * foodRationValue;
+                if (getItemAmount(globalValuesData.itemType.FOOD) > 0)
+                {
+                    playerHealth = playerHealth - .25f * Time.deltaTime * foodRationValue;
+                }
+                else
+                {
+                    playerHealth = playerHealth - .25f * Time.deltaTime * 3.5f;
+                    foodRationText.text = "no food!!";
+                }
             }
-            else
+            if(resting == true)
             {
-                playerHealth = playerHealth - .25f * Time.deltaTime * 3.5f;
-                foodRationText.text = "no food!!";
+                switch (rSD.quality)
+                {
+                    case restQuality.BAD:
+                        playerHealth = playerHealth + .5f * Time.deltaTime * 2f;
+                        break;
+
+                    case restQuality.OKAY:
+                        playerHealth = playerHealth + 1f * Time.deltaTime * 2f;
+                        break;
+
+                    case restQuality.GOOD:
+                        playerHealth = playerHealth + 1.25f * Time.deltaTime * 2f;
+                        break;
+                }
             }
-        }
+
 
         if(playerHealth <= 0 && playerIsAlive)
         {

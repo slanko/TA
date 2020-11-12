@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2e7f4a88648ed4a9309d23495826c1, type: 3}
-  m_Name: Test Rest Stop
+  m_Name: good rest stop
   m_EditorClassIdentifier: 
-  stopName: zipp chanuff's test-while-u-rest
-  quality: 0
-  stopDesc: you're not too sure what they mean by "test-while-u-rest" but as dubious
-    as it sounds sleep is still very tempting. let's just hope zipp chanuff is a
-    trustworthy man and you don't wake up with any missing body parts.
-  restDesc: you were poked and prodded all night.
+  stopName: lookout guest area
+  quality: 2
+  stopDesc: 'you feel safer within lookout''s large walls than most other places
+    out there.
+
+
+    the fact they actually have beds to sleep in here puts it leagues
+    above your usual sleeping arrangements, and so it should be, considering how
+    hard it is to get out here.'
+  restDesc: a good night of sleep for once
   restImage: {fileID: 21300000, guid: 23b08df6a323b5549a04151738033936, type: 3}

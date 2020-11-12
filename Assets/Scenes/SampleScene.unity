@@ -6741,6 +6741,12 @@ PrefabInstance:
       propertyPath: cityMarker
       value: 
       objectReference: {fileID: 1478084324}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: rSD
+      value: 
+      objectReference: {fileID: 11400000, guid: d881324e7651bb048aeafd6d98465961,
+        type: 2}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12071,6 +12077,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 263885454434646146, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023316695265165730, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977356089456084, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_Camera
@@ -12135,6 +12151,17 @@ PrefabInstance:
       propertyPath: cityMarker
       value: 
       objectReference: {fileID: 1183164313}
+    - target: {fileID: 4161977357324515683, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: rSD
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b46c6c7aed8c414da21977711145170,
+        type: 2}
+    - target: {fileID: 4161977357324515684, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4161977357324515686, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12209,6 +12236,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136033224643760503, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995782856229897501, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 010347ce606a6e24aacfb2f227627ab4, type: 3}
@@ -24982,7 +25019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2057200531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 848758711}
+        m_TargetAssemblyTypeName: restScreenScript, Assembly-CSharp
+        m_MethodName: stopResting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2057200531
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,4 +26,6 @@ MonoBehaviour:
     blah
     de blah put more text here'
   cityActivitiesDescription: what you do?:??
-  cityActivities: []
+  cityActivities:
+  - {fileID: 7145350822238157349, guid: d2762e7c03a6ed8409838c70071cf8a3, type: 3}
+  - {fileID: 7145350822238157349, guid: 04005f2330b38f145a0bba323501ee83, type: 3}

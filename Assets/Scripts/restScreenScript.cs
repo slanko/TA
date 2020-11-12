@@ -64,33 +64,17 @@ public class restScreenScript : MonoBehaviour
         }
     }
 
-
-    //variables only used here to store old health tickdown rate
-    float tempFoodRationValue;
     public void startResting()
     {
-        tempFoodRationValue = gPTT.pR.foodRationValue;
-        switch (rSDMain.quality)
-        {
-            case restQuality.BAD:
-                gPTT.pR.foodRationValue = -0.5f;
-                break;
-
-            case restQuality.OKAY:
-                gPTT.pR.foodRationValue = -1f;
-                break;
-
-            case restQuality.GOOD:
-                gPTT.pR.foodRationValue = -1.25f;
-                break;
-        }
+        gPTT.pR.rSD = rSDMain;
+        gPTT.pR.resting = true;
         Time.timeScale = 50;
         gPTT.sBS.restTime = (int)sleepySlider.value;
     }
 
     public void stopResting()
     {
-        gPTT.pR.foodRationValue = tempFoodRationValue;
+        gPTT.pR.resting = false;
         Time.timeScale = 0;
         gPTT.dashBoard.SetActive(true);
         gPTT.popupCanvas.SetActive(true);
