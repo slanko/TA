@@ -33,17 +33,27 @@ public class tradeButtonScript : MonoBehaviour
         }
         if(type == buttonType.WINGAME)
         {
-            meButton.onClick.AddListener(delegate { gPTT.winScreenAnim.SetTrigger("die"); });
+            if (gPTT.pR.getItemAmount(globalValuesData.itemType.JUNK) >= 10)
+            {
+                meButton.onClick.AddListener(delegate { gPTT.winScreenAnim.SetTrigger("die"); });
+            }
+            else
+            {
+                meButton.onClick.AddListener(delegate { gPTT.setUniversalPopup("you don't have enough JUNK to get a ticket", "accept and move on"); });
+                Debug.Log("not enough stuff to leave!! set button to open popup instead.");
+            }
+
         }
         if(type == buttonType.REST)
         {
-            meButton.onClick.AddListener(delegate { 
-                gPTT.restScreen.SetActive(true); 
-                gPTT.cityCanvas.SetActive(false); 
-                gPTT.rSS.populateRestScreen(gPTT.PLAYER.currentCity.rSD);
-                gPTT.popupCanvas.SetActive(false);
-                gPTT.dashBoard.SetActive(false);
-            });
+                meButton.onClick.AddListener(delegate {
+                    gPTT.restScreen.SetActive(true);
+                    gPTT.cityCanvas.SetActive(false);
+                    gPTT.rSS.populateRestScreen(gPTT.PLAYER.currentCity.rSD);
+                    gPTT.popupCanvas.SetActive(false);
+                    gPTT.dashBoard.SetActive(false);
+                });
+
         }
     }
 }

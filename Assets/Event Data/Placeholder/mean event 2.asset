@@ -18,11 +18,12 @@ MonoBehaviour:
 
       as
       you attempt to get yourself back on the road, he stands in front of your truck
-      and yells "fuck i love this pipe!!!!"
+      and yells "god fricking damn i love this pipe!!!!"
 
 
-      as he mounts the front bumper
-      of your truck he then informs you he is going to "share the love" with you.'
+      as he mounts the
+      front bumper of your truck he then informs you he is going to "share the love"
+      with you.'
     characterSprite: {fileID: 21300000, guid: 74fa9ec11864f6a4b92256fddbdeb365, type: 3}
     possibleActions:
     - buttonName: beg for safety
@@ -34,7 +35,7 @@ MonoBehaviour:
       varToChange: 1
       changeAmount: 0.7
       endEvent: 0
-      nextBeat: 0
+      nextBeat: 3
   - beatText: '"what''s that????" he yells over the engine noise.
 
 

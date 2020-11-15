@@ -49,4 +49,14 @@ public class godPointToThing : MonoBehaviour
         public int minute, hour, day, month, year;
     }
     public timeStruct theTime;
+
+    //universal popup stuff
+    public GameObject uPopup;
+    public Text uPopupText, uPopupButtonText;
+    public void setUniversalPopup(string popupText, string popupButtonText)
+    {
+        uPopupText.text = popupText;
+        uPopupButtonText.text = popupButtonText;
+        uPopup.SetActive(true);
+    }
 }
