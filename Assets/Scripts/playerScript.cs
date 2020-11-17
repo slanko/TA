@@ -76,7 +76,7 @@ public class playerScript : MonoBehaviour
 
             if(nav.destination != null)
             {
-                if (Input.GetKeyDown(KeyCode.O))
+                if (Input.GetKey(KeyCode.O))
                 {
                 nav.nextPosition = nav.destination;
                 }

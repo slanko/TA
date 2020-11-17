@@ -55,5 +55,33 @@ public class tradeButtonScript : MonoBehaviour
                 });
 
         }
+
+        if (type == buttonType.SCROUNGE)
+        {
+            meButton.onClick.AddListener(delegate { scroungeFunction(); });
+            void scroungeFunction()
+            {
+                int randomChance = Random.Range(0, 100);
+                int amount = Random.Range(1, 5);
+                if (randomChance <= 65)
+                {
+                    gPTT.pR.giveItem(globalValuesData.itemType.STUFF, amount);
+                    string popupText = "you found " + amount.ToString() + " STUFF while scrounging around NOWHERE.";
+                    gPTT.setUniversalPopup(popupText, "sweet");
+                }
+                if (randomChance > 65 && randomChance <= 90)
+                {
+                    gPTT.pR.giveItem(globalValuesData.itemType.JUNK, amount);
+                    string popupText = "you found " + amount.ToString() + " JUNK, obviously thrown over the walls in an attempt to dispose of it.";
+                    gPTT.setUniversalPopup(popupText, "sweet");
+                }
+                if (randomChance > 90)
+                {
+                    gPTT.pR.giveItem(globalValuesData.itemType.TRASH, amount);
+                    string popupText = "you found " + amount.ToString() + " TRASH that you thought you might be able to find a use for.";
+                    gPTT.setUniversalPopup(popupText, "sweet");
+                }
+            }
+        }
     }
 }

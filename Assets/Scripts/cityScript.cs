@@ -7,7 +7,6 @@ public class cityScript : MonoBehaviour
 {
     public locationData cityLD;
     [SerializeField] Text myText;
-    public List<cityScript> adjacentCities;
     public GameObject cityMarker;
     public MeshRenderer markerRenderer;
     public restStopData rSD;
@@ -24,5 +23,9 @@ public class cityScript : MonoBehaviour
         //amen pt. 2
         myText.text = cityLD.cityName;
         markerRenderer = cityMarker.GetComponent<MeshRenderer>();   
+        if(cityLD.tradeArea != null)
+        {
+            cityLD.tradeArea.SetShopStock(cityLD.tradeArea.GetBaseShopStock());
+        }
     }
 }

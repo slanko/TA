@@ -7,10 +7,6 @@ public class dashboardScript : MonoBehaviour
 {
     [SerializeField] AudioSource aud;
     public Slider timeSlider;
-    void Start()
-    {
-
-    }
 
     public void playSound(AudioClip soundToPlay)
     {

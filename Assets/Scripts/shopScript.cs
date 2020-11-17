@@ -35,6 +35,7 @@ public class shopScript : MonoBehaviour
 
     public void populateShopScreen()
     {
+        //initialization
         currentShop = cDP.currentCity.cityLD.tradeArea;
         vendorNameText.text = currentShop.shopOwnerName;
         vendorNameText2.text = currentShop.shopOwnerName;
@@ -75,7 +76,7 @@ public class shopScript : MonoBehaviour
             }
         } 
 
-        foreach(stockItem stock in currentShop.shopStock)
+        foreach(stockItem stock in currentShop.GetShopStock())
         {
             if(stock.stockAmount > 0)
             {
@@ -109,8 +110,13 @@ public class shopScript : MonoBehaviour
 
             if(trade == true)
             {
-                pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
-                tIS.valueSlider.value = 0;
+                if(tIS.valueSlider.value != 0)
+                {
+                    pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
+                    changeStock(tIS.myType, (int)tIS.valueSlider.value, true);
+                    Debug.Log("changed " + tIS.myType + " by " + tIS.valueSlider.value);
+                    tIS.valueSlider.value = 0;
+                }
             }
         }
         foreach (tradeItemScript tIS in receiveTISList)
@@ -127,8 +133,13 @@ public class shopScript : MonoBehaviour
 
             if(trade == true)
             {
-                pR.giveItem(tIS.myType, tIS.valueSlider.value);
-                tIS.valueSlider.value = 0;
+                if(tIS.valueSlider.value != 0)
+                {
+                    pR.giveItem(tIS.myType, tIS.valueSlider.value);
+                    changeStock(tIS.myType, (int)tIS.valueSlider.value, false);
+                    Debug.Log("changed " + tIS.myType + " by " + tIS.valueSlider.value);
+                    tIS.valueSlider.value = 0;
+                }
             }
         }
 
@@ -175,6 +186,51 @@ public class shopScript : MonoBehaviour
     public void vendorChat()
     {
         shopDescription.text = currentShop.shopTalk[Random.Range(0, currentShop.shopTalk.Length)];
+    }
+
+    void changeStock(globalValuesData.itemType myType, int amount, bool addOrSubtract)
+    {
+        bool addNewStock = true;
+        if (addOrSubtract == false)
+        {
+            addNewStock = false;
+        }
+        var allStock = currentShop.GetShopStock();
+        var removedList = new List<stockItem>();
+        for (int i = 0; i < allStock.Count; i++)
+        {
+            stockItem stock = allStock[i];
+            if(stock.stockType == myType)
+            {
+                addNewStock = false;
+                Debug.Log("found stock of type " + myType);
+                if(addOrSubtract)
+                {
+                    stock.stockAmount = stock.stockAmount + amount;
+                }
+                else
+                {
+                    stock.stockAmount = stock.stockAmount - amount;
+                    Debug.Log(stock.stockType + " " + stock.stockAmount);
+                    if(stock.stockAmount <= 0)
+                    {
+                        removedList.Add(allStock[i]);
+                    }
+                }
+            }
+        }
+        foreach (var stock in removedList)
+        {
+            allStock.Remove(stock);
+        }
+        if (addNewStock == true)
+        {
+            stockItem newStock = new stockItem();
+            newStock.stockType = myType;
+            newStock.stockAmount = amount;
+            allStock.Add(newStock);
+        }
+        currentShop.SetShopStock(allStock);
     }
 
 }

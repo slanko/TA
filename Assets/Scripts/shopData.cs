@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -24,5 +25,23 @@ public class shopData : ScriptableObject
     [TextArea]
     public string[] shopTalk;
 
-    public List<stockItem> shopStock;
+    [SerializeField]
+    private List<stockItem> baseShopStock;
+    [SerializeField]
+    private List<stockItem> shopStock;
+
+    public List<stockItem> GetBaseShopStock()
+    {
+        return baseShopStock.ToList();
+    }
+
+    public List<stockItem> GetShopStock()
+    {
+        return shopStock.ToList();
+    }
+
+    public void SetShopStock (List<stockItem> stock)
+    {
+        shopStock = stock;
+    }
 }
