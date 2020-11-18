@@ -12,47 +12,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98937bb244e39748bf2c7dde88ddbee, type: 3}
   m_Name: Scurry Shop
   m_EditorClassIdentifier: 
-  faction: 1
+  faction: 2
   shopOwnerName: shopmin
-  shopDescription: 'this place sells stuff.
+  shopDescription: 'scurry''s trade area flourishes under the corporation''s watch.
 
 
-    what kind of stuff??
-
-    all kinds
-    of stuff. most of it is junk, though, and since this is the placeholder shop
-    you''re out of luck if you want to actually buy any of it.'
-  shopFlavourText: let's make a deal.
-  vendorSprite: {fileID: 21300000, guid: 35dfb9a23dc5b684fab514c094b12c4e, type: 3}
+    the
+    collection of booths and shops crammed into one small area is enough to get you
+    a little disoriented, so you decide to settle on "SHOPMIN''Z TRADE DEALZ" before
+    you have to sit down for a while.'
+  shopFlavourText: shopmin himself greets you with his signature line, "let's make
+    a deal."
   shopTalk:
-  - i lost my legs in a horrific trading accident
-  - you look kinda funny
-  - huh??
-  - yow
-  - shut up and buy something already
-  shopStock:
-  - stockType: 0
-    stockAmount: 20
-    stockValueMult: 1
-  - stockType: 1
-    stockAmount: 10
-    stockValueMult: 1.5
-  - stockType: 2
-    stockAmount: 4
-    stockValueMult: 5
-  - stockType: 3
-    stockAmount: 10
-    stockValueMult: 3
+  - '"SCURRY''s a nice enough place, if you don''t mind the drive out here." shopmin
+    tells you.
+
+
+    "if you frequent the bar enough, there''s a loyalty deal. you
+    can get your tenth drink for free!"'
+  - PLACEHOLDER TEXT
+  - PLACEHOLDER TEXT
+  friendlyShopDescription: 'the folk of scurry seem to welcome you, at least more
+    than some of the other folk that arrived when you did.
+
+
+    as you walk through
+    the trade area, everyone seems to want your attention, but your loyalty to "SHOPMIN''Z
+    TRADE DEALZ" remains steadfast.'
+  friendlyShopFlavourText: shopmin is always happy to make a deal with you.
+  friendlyShopTalk:
+  - fazool!!!!!
+  - PLACEHOLDER TEXT
+  unfriendlyShopDescription: PLACEHOLDER TEXT (UNFRIENDLY)
+  unfriendlyShopFlavourText: PLACEHOLDER TEXT
+  unfriendlyShopTalk:
+  - 'PLACEHOLDER TEXT
+
+'
+  vendorSprite: {fileID: 21300000, guid: 35dfb9a23dc5b684fab514c094b12c4e, type: 3}
   baseShopStock:
   - stockType: 0
-    stockAmount: 20
+    stockAmount: 10
     stockValueMult: 1
-  - stockType: 1
-    stockAmount: 10
-    stockValueMult: 1.5
   - stockType: 2
-    stockAmount: 4
-    stockValueMult: 5
-  - stockType: 3
     stockAmount: 10
-    stockValueMult: 3
+    stockValueMult: 1
+  - stockType: 5
+    stockAmount: 10
+    stockValueMult: 2
+  - stockType: 4
+    stockAmount: 15
+    stockValueMult: 1
+  shopStock:
+  - stockType: 2
+    stockAmount: 10
+    stockValueMult: 1
+  - stockType: 5
+    stockAmount: 10
+    stockValueMult: 2
+  - stockType: 4
+    stockAmount: 15
+    stockValueMult: 1

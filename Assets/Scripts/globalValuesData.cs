@@ -15,10 +15,18 @@ public class globalValuesData : ScriptableObject
 
     public enum itemType
     {
-        STUFF,
-        JUNK,
         TRASH,
-        FOOD
+        JUNK,
+        LUXURIES,
+        CORPCREDIT,
+        FOOD,
+        MEDSUPS,
+        DIESEL,
+        TOOLS,
+        CORPUNIFORM,
+        BANDUNIFORM,
+        DRUG,
+        WEAPONS
     }
     [System.Serializable]
     public struct valueDataEntry

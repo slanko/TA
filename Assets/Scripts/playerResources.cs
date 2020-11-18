@@ -125,7 +125,7 @@ public class playerResources : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            giveItem(globalValuesData.itemType.STUFF, 1);
+            giveItem(globalValuesData.itemType.LUXURIES, 1);
         }       
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

@@ -25,7 +25,7 @@ public class shopScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            populateShopScreen();
+            populateShopScreen(false);
         }
         if(currentShop != null)
         {
@@ -33,20 +33,22 @@ public class shopScript : MonoBehaviour
         }
     }
 
-    public void populateShopScreen()
+    public void populateShopScreen(bool resetText)
     {
         //initialization
         currentShop = cDP.currentCity.cityLD.tradeArea;
         vendorNameText.text = currentShop.shopOwnerName;
         vendorNameText2.text = currentShop.shopOwnerName;
-        shopDescription.text = currentShop.shopDescription;
-        shopFlavourText.text = currentShop.shopFlavourText;
-        vendorSprite.sprite = currentShop.vendorSprite;
+        if (resetText)
+        {
+            setShopTextBasedOnRep();
+        }
+
 
         //BUTTON STUFF OH GOD
 
         //player stuff section
-        if(entryList.Count != 0)
+        if (entryList.Count != 0)
         {
             foreach(GameObject entry in entryList)
             {
@@ -179,7 +181,7 @@ public class shopScript : MonoBehaviour
         if(trade == true)
         {
             pR.reputationChange((int)repChange, currentShop.faction);
-            populateShopScreen();
+            populateShopScreen(false);
         }
     }
 
@@ -231,6 +233,93 @@ public class shopScript : MonoBehaviour
             allStock.Add(newStock);
         }
         currentShop.SetShopStock(allStock);
+    }
+
+    void setShopTextBasedOnRep()
+    {
+        switch (currentShop.faction)
+        {
+            case globalValuesData.factionType.BANDIT:
+                if (pR.banditRep >= 150)
+                {
+                    shopDescription.text = currentShop.friendlyShopDescription;
+                    shopFlavourText.text = currentShop.friendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.banditRep < 150 && pR.banditRep > -150)
+                {
+                    shopDescription.text = currentShop.shopDescription;
+                    shopFlavourText.text = currentShop.shopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.banditRep <= -150)
+                {
+                    shopDescription.text = currentShop.unfriendlyShopDescription;
+                    shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                break;
+            case globalValuesData.factionType.CORPORATION:
+                if (pR.corporationRep >= 150)
+                {
+                    shopDescription.text = currentShop.friendlyShopDescription;
+                    shopFlavourText.text = currentShop.friendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.corporationRep < 150 && pR.corporationRep > -150)
+                {
+                    shopDescription.text = currentShop.shopDescription;
+                    shopFlavourText.text = currentShop.shopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.corporationRep <= -150)
+                {
+                    shopDescription.text = currentShop.unfriendlyShopDescription;
+                    shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                break;
+            case globalValuesData.factionType.FREETRADE:
+                if (pR.freeTradeRep >= 150)
+                {
+                    shopDescription.text = currentShop.friendlyShopDescription;
+                    shopFlavourText.text = currentShop.friendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.freeTradeRep < 150 && pR.freeTradeRep > -150)
+                {
+                    shopDescription.text = currentShop.shopDescription;
+                    shopFlavourText.text = currentShop.shopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.freeTradeRep <= -150)
+                {
+                    shopDescription.text = currentShop.unfriendlyShopDescription;
+                    shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                break;
+            case globalValuesData.factionType.FACTIONLESS:
+                if (pR.globalRep >= 150)
+                {
+                    shopDescription.text = currentShop.friendlyShopDescription;
+                    shopFlavourText.text = currentShop.friendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.globalRep < 150 && pR.globalRep > -150)
+                {
+                    shopDescription.text = currentShop.shopDescription;
+                    shopFlavourText.text = currentShop.shopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                if (pR.globalRep <= -150)
+                {
+                    shopDescription.text = currentShop.unfriendlyShopDescription;
+                    shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
+                    vendorSprite.sprite = currentShop.vendorSprite;
+                }
+                break;
+        }
     }
 
 }

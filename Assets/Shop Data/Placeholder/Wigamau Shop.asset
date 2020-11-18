@@ -27,7 +27,6 @@ MonoBehaviour:
     here to talk to me. you''ve gotta at least make some kind of transaction!! i''m
     BEGGING you!!!"'
   shopFlavourText: he looks really desperate.
-  vendorSprite: {fileID: 21300000, guid: 1210a4b2014fcb24387620f9da3f4d5f, type: 3}
   shopTalk:
   - 'trademin slams his hands on the desk desperately.
 
@@ -50,13 +49,80 @@ MonoBehaviour:
 
     "you do uh, have stuff to
     trade, right?"'
-  shopStock:
+  friendlyShopDescription: 'wigamau''s tradehouse is positively packed with people,
+    but just over the crowd you see a very excited trademin hopping about and waving
+    at you.
+
+
+    once you push your way through the crowd, he exclaims "it''s you!!!!!!
+    i wasn''t expecting to make a sale today, but now you''re here!!! sweet!!!!!"
+
+
+    now
+    that he mentions it, despite the massive crowd, all the shelves are still fully
+    stocked.'
+  friendlyShopFlavourText: trademin eagerly awaits your transactions.
+  friendlyShopTalk:
+  - '"you see all these people?" trademin asks you as he gestures around the room.
+
+
+    "most
+    of them aren''t even from wigamau, but they keep coming from around the crater
+    just to mingle!!"'
+  - PLACEHOLDER TEXT
+  - PLACEHOLDER TEXT
+  unfriendlyShopDescription: 'when you enter wigamau''s crowded tradehouse, the room
+    gets markedly quieter.
+
+
+    as you push through the crowd to reach the counter,
+    trademin, without looking up from the pile of junk he''s rifling through, remarks
+    "oh. it''s you."'
+  unfriendlyShopFlavourText: trademin seems apathetic.
+  unfriendlyShopTalk:
+  - trademin swivels his chair around a few times, seemingly ignoring your attempt
+    to make small talk.
+  - PLACEHOLDER TEXT
+  - PLACEHOLDER TEXT
+  vendorSprite: {fileID: 21300000, guid: 1210a4b2014fcb24387620f9da3f4d5f, type: 3}
+  baseShopStock:
   - stockType: 0
-    stockAmount: 5
+    stockAmount: 30
     stockValueMult: 1
   - stockType: 1
-    stockAmount: 3
+    stockAmount: 17
     stockValueMult: 1
   - stockType: 2
     stockAmount: 10
+    stockValueMult: 1
+  - stockType: 4
+    stockAmount: 6
+    stockValueMult: 1
+  - stockType: 7
+    stockAmount: 3
     stockValueMult: 2
+  - stockType: 10
+    stockAmount: 0
+    stockValueMult: 100
+  shopStock:
+  - stockType: 0
+    stockAmount: 30
+    stockValueMult: 1
+  - stockType: 1
+    stockAmount: 17
+    stockValueMult: 1
+  - stockType: 2
+    stockAmount: 10
+    stockValueMult: 1
+  - stockType: 4
+    stockAmount: 6
+    stockValueMult: 1
+  - stockType: 5
+    stockAmount: 5
+    stockValueMult: 2
+  - stockType: 7
+    stockAmount: 3
+    stockValueMult: 2
+  - stockType: 10
+    stockAmount: 0
+    stockValueMult: 100

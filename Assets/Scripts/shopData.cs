@@ -19,11 +19,20 @@ public class shopData : ScriptableObject
     public string shopOwnerName;
     [TextArea]
     public string shopDescription, shopFlavourText;
-
-    public Sprite vendorSprite;
-
     [TextArea]
     public string[] shopTalk;
+
+    [TextArea, Header("High Rep Text")]
+    public string friendlyShopDescription, friendlyShopFlavourText;
+    [TextArea]
+    public string[] friendlyShopTalk;
+
+    [TextArea, Header("Low Rep Text")]
+    public string unfriendlyShopDescription, unfriendlyShopFlavourText;
+    [TextArea]
+    public string[] unfriendlyShopTalk;
+
+    public Sprite vendorSprite;
 
     [SerializeField]
     private List<stockItem> baseShopStock;

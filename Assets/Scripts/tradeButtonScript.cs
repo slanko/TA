@@ -29,7 +29,7 @@ public class tradeButtonScript : MonoBehaviour
         {
             shopCanvas = gPTT.shopCanvas;
             sSc = shopCanvas.GetComponent<shopScript>();
-            meButton.onClick.AddListener(delegate { shopCanvas.SetActive(true); sSc.populateShopScreen(); });
+            meButton.onClick.AddListener(delegate { shopCanvas.SetActive(true); sSc.populateShopScreen(true); });
         }
         if(type == buttonType.WINGAME)
         {
@@ -65,7 +65,7 @@ public class tradeButtonScript : MonoBehaviour
                 int amount = Random.Range(1, 5);
                 if (randomChance <= 65)
                 {
-                    gPTT.pR.giveItem(globalValuesData.itemType.STUFF, amount);
+                    gPTT.pR.giveItem(globalValuesData.itemType.LUXURIES, amount);
                     string popupText = "you found " + amount.ToString() + " STUFF while scrounging around NOWHERE.";
                     gPTT.setUniversalPopup(popupText, "sweet");
                 }
@@ -83,5 +83,12 @@ public class tradeButtonScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void giveItemWithPopup(globalValuesData.itemType type, int amount, string popupTextStart, string popupTextEnd, string popupButtonText)
+    {
+        gPTT.pR.giveItem(type, amount);
+        string popupText = popupTextStart + amount.ToString() + popupTextEnd;
+        gPTT.setUniversalPopup(popupText, popupButtonText);
     }
 }
