@@ -33,6 +33,8 @@ public class globalValuesData : ScriptableObject
     {
         public itemType item;
         public int itemValue;
+        [TextArea]
+        public string description;
     }
 
     public float globalRepMult;

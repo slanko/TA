@@ -9,6 +9,7 @@ public class tradeItemScript : MonoBehaviour
     [SerializeField] Text valueText, minAmountText, maxAmountText;
     public Text itemName;
     public globalValuesData.itemType myType;
+    public string myDesc;
 
     // Update is called once per frame
     void Update()

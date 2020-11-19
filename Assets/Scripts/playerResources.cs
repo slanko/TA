@@ -39,7 +39,6 @@ public class playerResources : MonoBehaviour
     {
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
-        giveItem(globalValuesData.itemType.FOOD, 20);
     }
 
     // Update is called once per frame

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class shopScript : MonoBehaviour
 {
     shopData currentShop;
-    [SerializeField] globalValuesData globalValueFile;
+    public globalValuesData globalValueFile;
     [SerializeField] cityDataPassthrough cDP;
     [SerializeField] playerResources pR;
 

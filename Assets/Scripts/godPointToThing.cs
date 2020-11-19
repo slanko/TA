@@ -59,4 +59,8 @@ public class godPointToThing : MonoBehaviour
         uPopupButtonText.text = popupButtonText;
         uPopup.SetActive(true);
     }
+
+    //um tool tip transform
+    public RectTransform toolTipTransform;
+    public Text toolTipText;
 }

@@ -16,25 +16,38 @@ MonoBehaviour:
   globalValues:
   - item: 0
     itemValue: 1
+    description: worthless stuff, found pretty much anywhere.
   - item: 1
     itemValue: 2
+    description: slightly more useful worthless stuff.
   - item: 2
     itemValue: 10
+    description: luxuries are useful because people will steal them first.
   - item: 3
     itemValue: 1
+    description: corporation credits, because they'll bring capitalism anywhere.
   - item: 4
     itemValue: 15
+    description: you need this to live!!! try not to find yourself without it.
   - item: 5
     itemValue: 30
+    description: medical supplies. you feel like you'll need these often.
   - item: 6
     itemValue: 10
+    description: lovely, lovely diesel. without it you're going nowhere.
   - item: 7
     itemValue: 5
+    description: wrenches, sockets, screwdrivers and such.
   - item: 8
     itemValue: 3
+    description: corporation uniform, everybody gets one when they arrive.
   - item: 9
     itemValue: 6
+    description: bandit uniform, which is really just a modified corporation one.
   - item: 10
-    itemValue: 100
+    itemValue: 50
+    description: they say it makes you feel nothing at all.
   - item: 11
-    itemValue: 75
+    itemValue: 45
+    description: if you can hit someone over the head with it, it becomes a lot more
+      valuable around here.
