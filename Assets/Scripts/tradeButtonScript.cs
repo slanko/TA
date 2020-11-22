@@ -25,6 +25,7 @@ public class tradeButtonScript : MonoBehaviour
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
         meButton = GetComponent<Button>();
+        meButton.onClick.AddListener(delegate { killTooltip(); });
         if(type == buttonType.TRADE)
         {
             shopCanvas = gPTT.shopCanvas;
@@ -82,6 +83,7 @@ public class tradeButtonScript : MonoBehaviour
                     gPTT.setUniversalPopup(popupText, "sweet");
                 }
             }
+
         }
     }
 
@@ -90,5 +92,10 @@ public class tradeButtonScript : MonoBehaviour
         gPTT.pR.giveItem(type, amount);
         string popupText = popupTextStart + amount.ToString() + popupTextEnd;
         gPTT.setUniversalPopup(popupText, popupButtonText);
+    }
+
+    void killTooltip()
+    {
+        gPTT.toolTipTransform.gameObject.SetActive(false);
     }
 }

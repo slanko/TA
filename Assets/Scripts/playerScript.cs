@@ -74,6 +74,11 @@ public class playerScript : MonoBehaviour
                 }
             }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            startTravelling();
+        }
+
             if(nav.destination != null)
             {
                 if (Input.GetKey(KeyCode.O))
@@ -208,7 +213,7 @@ public class playerScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("no destinations no travel");
+            Debug.Log("no destinations no travel. open da atlas with A");
             currentState = playerState.STOPPED;
         }
     }

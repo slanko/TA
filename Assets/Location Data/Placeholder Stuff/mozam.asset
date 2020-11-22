@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: mozam
   m_EditorClassIdentifier: 
   cityName: mozambique (real)
+  affiliation: 0
   backgroundSprite: {fileID: 21300000, guid: df1a15ab6e374bc4fb04e6514ba245fe, type: 3}
+  tradeArea: {fileID: 0}
   cityDescription: the real mozambique?? how did you end up here???
   cityActivitiesDescription: 
-  cityActivities: []
+  cityActivities:
+  - {fileID: 7480398605240492043, guid: 34d0e4e2744cafd42a865e369b1432b4, type: 3}
+  - {fileID: 7145350822238157349, guid: 04005f2330b38f145a0bba323501ee83, type: 3}

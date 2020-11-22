@@ -63,4 +63,5 @@ public class godPointToThing : MonoBehaviour
     //um tool tip transform
     public RectTransform toolTipTransform;
     public Text toolTipText;
+    public Animator toolTipAnim;
 }

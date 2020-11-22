@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
+//THIS SCRIPT IS SPECIFICALLY FOR SHOPS!! i didn't know how flexible i *could* make it when i made it, so i'll be making a generic version of this script
+//that i can use on damn near anything.
 public class toolTipOnMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     godPointToThing gPTT;
@@ -24,6 +27,7 @@ public class toolTipOnMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if(mouseOn == false)
         {
+            gPTT.toolTipAnim.Play("toolTipFadeIn");
             gPTT.toolTipText.text = setMyDescription(tIS.myType);
             gPTT.toolTipTransform.gameObject.SetActive(true);
         }
@@ -41,7 +45,7 @@ public class toolTipOnMouseOver : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerExit(PointerEventData eventData)
     {
         mouseOn = false;
-        gPTT.toolTipTransform.gameObject.SetActive(false);
+        gPTT.toolTipAnim.Play("toolTipFadeOut");
     }
 
 
