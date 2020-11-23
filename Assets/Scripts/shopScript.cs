@@ -322,4 +322,37 @@ public class shopScript : MonoBehaviour
         }
     }
 
+
+    void restockShop()
+    {
+        var tempStockList = new List<stockItem>();
+
+        foreach(stockItem stock in currentShop.GetShopStock())
+        {
+            tempStockList.Add(stock);
+        }
+
+        foreach(stockItem baseStock in currentShop.GetBaseShopStock())
+        {
+            bool found = false;
+            foreach(stockItem tempStock in tempStockList)
+            {
+                if(tempStock.stockType == baseStock.stockType)
+                {
+                    found = true;
+                    if(tempStock.stockAmount < baseStock.stockAmount)
+                    {
+                        //we need to find a way to get a specific item from a list because you can';t fuck with foreach iteration variables
+                        //tempStock.stockAmount = baseStock.stockAmount;
+                    }
+                }
+            }
+            if (!found)
+            {
+
+            }
+        }
+
+
+    }
 }

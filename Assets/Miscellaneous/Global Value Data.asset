@@ -29,6 +29,10 @@ MonoBehaviour:
   - item: 4
     itemValue: 15
     description: you need this to live!!! try not to find yourself without it.
+  - item: 12
+    itemValue: 10
+    description: it might as well be dirty water, but drink enough and you'll stop
+      caring about that.
   - item: 5
     itemValue: 30
     description: medical supplies. you feel like you'll need these often.

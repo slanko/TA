@@ -26,7 +26,8 @@ public class globalValuesData : ScriptableObject
         CORPUNIFORM,
         BANDUNIFORM,
         DRUG,
-        WEAPONS
+        WEAPONS,
+        BOOZE
     }
     [System.Serializable]
     public struct valueDataEntry

@@ -49,6 +49,11 @@ public class shopData : ScriptableObject
         return shopStock.ToList();
     }
 
+    public stockItem GetSpecificShopStock(int i)
+    {
+        return shopStock[i];
+    }
+
     public void SetShopStock (List<stockItem> stock)
     {
         shopStock = stock;
