@@ -370,7 +370,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityLD: {fileID: 11400000, guid: f6ef35333ec643d47b9f3856cf2e4b20, type: 2}
   myText: {fileID: 4161977357141501253}
-  adjacentCities: []
   cityMarker: {fileID: 0}
   markerRenderer: {fileID: 0}
   rSD: {fileID: 0}

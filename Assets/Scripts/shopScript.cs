@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class shopScript : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class shopScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
+            populateShopScreen(false);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            restockShop();
             populateShopScreen(false);
         }
         if(currentShop != null)
@@ -115,7 +121,7 @@ public class shopScript : MonoBehaviour
                 if(tIS.valueSlider.value != 0)
                 {
                     pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
-                    changeStock(tIS.myType, (int)tIS.valueSlider.value, true);
+                    changeStock(tIS.myType, (int)tIS.valueSlider.value);
                     Debug.Log("changed " + tIS.myType + " by " + tIS.valueSlider.value);
                     tIS.valueSlider.value = 0;
                 }
@@ -138,7 +144,7 @@ public class shopScript : MonoBehaviour
                 if(tIS.valueSlider.value != 0)
                 {
                     pR.giveItem(tIS.myType, tIS.valueSlider.value);
-                    changeStock(tIS.myType, (int)tIS.valueSlider.value, false);
+                    changeStock(tIS.myType, (int)tIS.valueSlider.value * -1);
                     Debug.Log("changed " + tIS.myType + " by " + tIS.valueSlider.value);
                     tIS.valueSlider.value = 0;
                 }
@@ -190,10 +196,10 @@ public class shopScript : MonoBehaviour
         shopDescription.text = currentShop.shopTalk[Random.Range(0, currentShop.shopTalk.Length)];
     }
 
-    void changeStock(globalValuesData.itemType myType, int amount, bool addOrSubtract)
+    void changeStock(globalValuesData.itemType myType, int amount)
     {
         bool addNewStock = true;
-        if (addOrSubtract == false)
+        if (amount < 0)
         {
             addNewStock = false;
         }
@@ -206,19 +212,13 @@ public class shopScript : MonoBehaviour
             {
                 addNewStock = false;
                 Debug.Log("found stock of type " + myType);
-                if(addOrSubtract)
-                {
-                    stock.stockAmount = stock.stockAmount + amount;
-                }
-                else
-                {
-                    stock.stockAmount = stock.stockAmount - amount;
-                    Debug.Log(stock.stockType + " " + stock.stockAmount);
-                    if(stock.stockAmount <= 0)
+                stock.stockAmount = stock.stockAmount + amount;
+                Debug.Log(stock.stockType + " " + stock.stockAmount);
+                if (stock.stockAmount <= 0)
                     {
                         removedList.Add(allStock[i]);
                     }
-                }
+                allStock[i] = stock;
             }
         }
         foreach (var stock in removedList)
@@ -332,27 +332,37 @@ public class shopScript : MonoBehaviour
             tempStockList.Add(stock);
         }
 
+        var tempListArray = tempStockList.ToArray();
+        var missingStockTempList = new List<stockItem>();
+
         foreach(stockItem baseStock in currentShop.GetBaseShopStock())
         {
             bool found = false;
-            foreach(stockItem tempStock in tempStockList)
+            for(int i = 0; i < tempListArray.Length - 1; i++)
             {
+                var tempStock = tempListArray[i];
                 if(tempStock.stockType == baseStock.stockType)
                 {
                     found = true;
                     if(tempStock.stockAmount < baseStock.stockAmount)
                     {
-                        //we need to find a way to get a specific item from a list because you can';t fuck with foreach iteration variables
-                        //tempStock.stockAmount = baseStock.stockAmount;
+                        tempStock.stockAmount = baseStock.stockAmount;
                     }
                 }
             }
             if (!found)
             {
-
+                missingStockTempList.Add(baseStock);
             }
         }
+        //after that, take our array and set it to the temp list.
+        tempStockList = tempListArray.ToList<stockItem>();
 
+        foreach(stockItem missingStock in missingStockTempList)
+        {
+            tempStockList.Add(missingStock);
+        }
 
+        currentShop.SetShopStock(tempStockList);
     }
 }

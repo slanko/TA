@@ -56,6 +56,6 @@ public class shopData : ScriptableObject
 
     public void SetShopStock (List<stockItem> stock)
     {
-        shopStock = stock;
+        shopStock = stock.ToList();
     }
 }
