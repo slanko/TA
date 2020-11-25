@@ -10579,7 +10579,7 @@ Transform:
   m_LocalScale: {x: 0.10796104, y: 0.7236629, z: 0.10796104}
   m_Children: []
   m_Father: {fileID: 1372078245}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -2.179, z: 0}
 --- !u!65 &842287920
 BoxCollider:
@@ -12722,6 +12722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165531131858787646, guid: 010347ce606a6e24aacfb2f227627ab4,
+        type: 3}
+      propertyPath: daysBetweenRestock
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7995782856229897501, guid: 010347ce606a6e24aacfb2f227627ab4,
         type: 3}
@@ -21337,7 +21342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalValueFile: {fileID: 11400000, guid: fd0e04ea5124f704788c48e283a93795, type: 2}
   cDP: {fileID: 140506039}
-  pR: {fileID: 140506045}
   vendorNameText: {fileID: 1123518559}
   vendorNameText2: {fileID: 2001139317}
   shopDescription: {fileID: 2141705330}
@@ -25979,7 +25983,7 @@ Transform:
   m_LocalScale: {x: 0.03433809, y: 3.299508, z: 0.107961096}
   m_Children: []
   m_Father: {fileID: 1372078245}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -28.804, y: -2.179, z: 0}
 --- !u!65 &2022545597
 BoxCollider:

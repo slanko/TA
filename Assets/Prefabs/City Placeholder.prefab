@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 4161977357324515685}
   - component: {fileID: 4161977357324515684}
   - component: {fileID: 4161977357324515682}
+  - component: {fileID: 7165531131858787646}
   m_Layer: 0
   m_Name: City Placeholder
   m_TagString: City
@@ -435,6 +436,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7165531131858787646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4161977357324515681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df667afe0f4e91a4089805bca19b70ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  daysBetweenRestock: 3
 --- !u!1 &4318954232994339641
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,15 +722,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 6a14fff812f621a47bacca2a0c82fd09, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ee354f8b637d447a2962371ce728d5, type: 3}
---- !u!4 &9158880238618134662 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99ee354f8b637d447a2962371ce728d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 8687540920961249133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7655681389605730717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7877312682337757456, guid: 99ee354f8b637d447a2962371ce728d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8687540920961249133}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9158880238618134662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99ee354f8b637d447a2962371ce728d5,
     type: 3}
   m_PrefabInstance: {fileID: 8687540920961249133}
   m_PrefabAsset: {fileID: 0}

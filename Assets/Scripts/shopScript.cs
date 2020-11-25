@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
 
 public class shopScript : MonoBehaviour
 {
+    godPointToThing gPTT;
+
     shopData currentShop;
     public globalValuesData globalValueFile;
     [SerializeField] cityDataPassthrough cDP;
-    [SerializeField] playerResources pR;
 
     [SerializeField] Text vendorNameText, vendorNameText2, shopDescription, shopFlavourText;
     [SerializeField] Image vendorSprite;
@@ -21,6 +21,10 @@ public class shopScript : MonoBehaviour
 
     //list value checking stuff
     public List<tradeItemScript> giveTISList, receiveTISList;
+    private void Awake()
+    {
+        gPTT = GameObject.Find("GOD").GetComponent<godPointToThing>();
+    }
 
     private void Update()
     {
@@ -30,7 +34,7 @@ public class shopScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            restockShop();
+            gPTT.PLAYER.currentCity.restocker.restockShop();
             populateShopScreen(false);
         }
         if(currentShop != null)
@@ -70,7 +74,7 @@ public class shopScript : MonoBehaviour
         {
             receiveTISList.Clear();
         }
-        foreach(playerResources.InventoryEntry entry in pR.playerInventory)
+        foreach(playerResources.InventoryEntry entry in gPTT.pR.playerInventory)
         {
             if(entry.amountHeld > 0)
             {
@@ -120,7 +124,7 @@ public class shopScript : MonoBehaviour
             {
                 if(tIS.valueSlider.value != 0)
                 {
-                    pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
+                    gPTT.pR.giveItem(tIS.myType, tIS.valueSlider.value * -1);
                     changeStock(tIS.myType, (int)tIS.valueSlider.value);
                     Debug.Log("changed " + tIS.myType + " by " + tIS.valueSlider.value);
                     tIS.valueSlider.value = 0;
@@ -143,7 +147,7 @@ public class shopScript : MonoBehaviour
             {
                 if(tIS.valueSlider.value != 0)
                 {
-                    pR.giveItem(tIS.myType, tIS.valueSlider.value);
+                    gPTT.pR.giveItem(tIS.myType, tIS.valueSlider.value);
                     changeStock(tIS.myType, (int)tIS.valueSlider.value * -1);
                     Debug.Log("changed " + tIS.myType + " by " + tIS.valueSlider.value);
                     tIS.valueSlider.value = 0;
@@ -157,23 +161,23 @@ public class shopScript : MonoBehaviour
         switch (currentShop.faction)
         {
             case globalValuesData.factionType.BANDIT:
-                repSlider.value = pR.banditRep + repChange;
-                currentRepText.text = pR.banditRep.ToString();
+                repSlider.value = gPTT.pR.banditRep + repChange;
+                currentRepText.text = gPTT.pR.banditRep.ToString();
                 break;
 
             case globalValuesData.factionType.FREETRADE:
-                repSlider.value = pR.freeTradeRep + repChange;
-                currentRepText.text = pR.freeTradeRep.ToString();
+                repSlider.value = gPTT.pR.freeTradeRep + repChange;
+                currentRepText.text = gPTT.pR.freeTradeRep.ToString();
                 break;
 
             case globalValuesData.factionType.CORPORATION:
-                repSlider.value = pR.corporationRep + repChange;
-                currentRepText.text = pR.corporationRep.ToString();
+                repSlider.value = gPTT.pR.corporationRep + repChange;
+                currentRepText.text = gPTT.pR.corporationRep.ToString();
                 break;
 
             case globalValuesData.factionType.FACTIONLESS:
-                repSlider.value = pR.globalRep + repChange;
-                currentRepText.text = pR.globalRep.ToString();
+                repSlider.value = gPTT.pR.globalRep + repChange;
+                currentRepText.text = gPTT.pR.globalRep.ToString();
                 break;
         }
         if(repChange > 0)
@@ -186,7 +190,7 @@ public class shopScript : MonoBehaviour
         }
         if(trade == true)
         {
-            pR.reputationChange((int)repChange, currentShop.faction);
+            gPTT.pR.reputationChange((int)repChange, currentShop.faction);
             populateShopScreen(false);
         }
     }
@@ -240,19 +244,19 @@ public class shopScript : MonoBehaviour
         switch (currentShop.faction)
         {
             case globalValuesData.factionType.BANDIT:
-                if (pR.banditRep >= 150)
+                if (gPTT.pR.banditRep >= 150)
                 {
                     shopDescription.text = currentShop.friendlyShopDescription;
                     shopFlavourText.text = currentShop.friendlyShopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.banditRep < 150 && pR.banditRep > -150)
+                if (gPTT.pR.banditRep < 150 && gPTT.pR.banditRep > -150)
                 {
                     shopDescription.text = currentShop.shopDescription;
                     shopFlavourText.text = currentShop.shopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.banditRep <= -150)
+                if (gPTT.pR.banditRep <= -150)
                 {
                     shopDescription.text = currentShop.unfriendlyShopDescription;
                     shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
@@ -260,19 +264,19 @@ public class shopScript : MonoBehaviour
                 }
                 break;
             case globalValuesData.factionType.CORPORATION:
-                if (pR.corporationRep >= 150)
+                if (gPTT.pR.corporationRep >= 150)
                 {
                     shopDescription.text = currentShop.friendlyShopDescription;
                     shopFlavourText.text = currentShop.friendlyShopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.corporationRep < 150 && pR.corporationRep > -150)
+                if (gPTT.pR.corporationRep < 150 && gPTT.pR.corporationRep > -150)
                 {
                     shopDescription.text = currentShop.shopDescription;
                     shopFlavourText.text = currentShop.shopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.corporationRep <= -150)
+                if (gPTT.pR.corporationRep <= -150)
                 {
                     shopDescription.text = currentShop.unfriendlyShopDescription;
                     shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
@@ -280,19 +284,19 @@ public class shopScript : MonoBehaviour
                 }
                 break;
             case globalValuesData.factionType.FREETRADE:
-                if (pR.freeTradeRep >= 150)
+                if (gPTT.pR.freeTradeRep >= 150)
                 {
                     shopDescription.text = currentShop.friendlyShopDescription;
                     shopFlavourText.text = currentShop.friendlyShopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.freeTradeRep < 150 && pR.freeTradeRep > -150)
+                if (gPTT.pR.freeTradeRep < 150 && gPTT.pR.freeTradeRep > -150)
                 {
                     shopDescription.text = currentShop.shopDescription;
                     shopFlavourText.text = currentShop.shopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.freeTradeRep <= -150)
+                if (gPTT.pR.freeTradeRep <= -150)
                 {
                     shopDescription.text = currentShop.unfriendlyShopDescription;
                     shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
@@ -300,19 +304,19 @@ public class shopScript : MonoBehaviour
                 }
                 break;
             case globalValuesData.factionType.FACTIONLESS:
-                if (pR.globalRep >= 150)
+                if (gPTT.pR.globalRep >= 150)
                 {
                     shopDescription.text = currentShop.friendlyShopDescription;
                     shopFlavourText.text = currentShop.friendlyShopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.globalRep < 150 && pR.globalRep > -150)
+                if (gPTT.pR.globalRep < 150 && gPTT.pR.globalRep > -150)
                 {
                     shopDescription.text = currentShop.shopDescription;
                     shopFlavourText.text = currentShop.shopFlavourText;
                     vendorSprite.sprite = currentShop.vendorSprite;
                 }
-                if (pR.globalRep <= -150)
+                if (gPTT.pR.globalRep <= -150)
                 {
                     shopDescription.text = currentShop.unfriendlyShopDescription;
                     shopFlavourText.text = currentShop.unfriendlyShopFlavourText;
@@ -323,46 +327,4 @@ public class shopScript : MonoBehaviour
     }
 
 
-    void restockShop()
-    {
-        var tempStockList = new List<stockItem>();
-
-        foreach(stockItem stock in currentShop.GetShopStock())
-        {
-            tempStockList.Add(stock);
-        }
-
-        var tempListArray = tempStockList.ToArray();
-        var missingStockTempList = new List<stockItem>();
-
-        foreach(stockItem baseStock in currentShop.GetBaseShopStock())
-        {
-            bool found = false;
-            for(int i = 0; i < tempListArray.Length - 1; i++)
-            {
-                var tempStock = tempListArray[i];
-                if(tempStock.stockType == baseStock.stockType)
-                {
-                    found = true;
-                    if(tempStock.stockAmount < baseStock.stockAmount)
-                    {
-                        tempStock.stockAmount = baseStock.stockAmount;
-                    }
-                }
-            }
-            if (!found)
-            {
-                missingStockTempList.Add(baseStock);
-            }
-        }
-        //after that, take our array and set it to the temp list.
-        tempStockList = tempListArray.ToList<stockItem>();
-
-        foreach(stockItem missingStock in missingStockTempList)
-        {
-            tempStockList.Add(missingStock);
-        }
-
-        currentShop.SetShopStock(tempStockList);
-    }
 }

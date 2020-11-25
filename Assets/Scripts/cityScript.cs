@@ -11,16 +11,26 @@ public class cityScript : MonoBehaviour
     public MeshRenderer markerRenderer;
     public restStopData rSD;
 
+    [System.NonSerialized] 
+    public restockShopScript restocker;
+
     //prayers
     GameObject GOD;
     godPointToThing gPTT;
     //amen pt.1
+
+
     private void Start()
     {
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
         gPTT.cityNameTextList.Add(myText);
         //amen pt. 2
+        restocker = GetComponent<restockShopScript>();
+        if(cityLD.tradeArea == null)
+        {
+            restocker.enabled = false;
+        }
         myText.text = cityLD.cityName;
         markerRenderer = cityMarker.GetComponent<MeshRenderer>();   
         if(cityLD.tradeArea != null)

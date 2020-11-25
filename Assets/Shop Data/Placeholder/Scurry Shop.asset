@@ -64,8 +64,11 @@ MonoBehaviour:
     stockAmount: 15
     stockValueMult: 1
   shopStock:
-  - stockType: 2
+  - stockType: 0
     stockAmount: 10
+    stockValueMult: 1
+  - stockType: 2
+    stockAmount: 0
     stockValueMult: 1
   - stockType: 5
     stockAmount: 10
