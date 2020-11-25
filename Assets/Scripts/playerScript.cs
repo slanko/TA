@@ -118,7 +118,7 @@ public class playerScript : MonoBehaviour
                     }
 
                     populateRoutePlanner();
-                    Debug.Log("added " + selectedCity.cityLD.cityName + " to the travel plan");
+                    //bug.Log("added " + selectedCity.cityLD.cityName + " to the travel plan");
                 }
             }
         }
@@ -207,13 +207,13 @@ public class playerScript : MonoBehaviour
                         nav.SetDestination(roadPosArray[roadPosArray.Length - 1]);
                         roadInt = roadPosArray.Length - 2;
                     }
-                    Debug.Log("set destination to: " + rLS.allRoads[i].LR.name + " " + nav.destination);
+                    //Debug.Log("set destination to: " + rLS.allRoads[i].LR.name + " " + nav.destination);
                 }
             }
         }
         else
         {
-            Debug.Log("no destinations no travel. open da atlas with A");
+            //Debug.Log("no destinations no travel. open da atlas with A");
             currentState = playerState.STOPPED;
         }
     }
@@ -236,7 +236,7 @@ public class playerScript : MonoBehaviour
         {
             currentCity = destinationList[0];
             cDP.currentCity = currentCity;
-            Debug.Log("destination reached: " + destinationList[0].cityLD.cityName);
+            //Debug.Log("destination reached: " + destinationList[0].cityLD.cityName);
             arrivedAtCityText.text = "You have arrived at " + destinationList[0].cityLD.cityName + ". Would you like to stop here?";
             destinationList.Remove(destinationList[0]);
             Time.timeScale = 0;
