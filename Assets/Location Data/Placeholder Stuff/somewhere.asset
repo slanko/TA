@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: somewhere
   m_EditorClassIdentifier: 
   cityName: somewhere
-  affiliation: 0
+  affiliation: 1
   backgroundSprite: {fileID: 21300000, guid: f67647c03134d0a4e9b827f73540108f, type: 3}
-  tradeArea: {fileID: 0}
+  tradeArea: {fileID: 11400000, guid: c16f9135f862e804ba448d2b5e11f3ff, type: 2}
   cityDescription: somewhere hahaheehee
   cityActivitiesDescription: hahoo
-  cityActivities: []
+  cityActivities:
+  - {fileID: 7145350822238157349, guid: 04005f2330b38f145a0bba323501ee83, type: 3}

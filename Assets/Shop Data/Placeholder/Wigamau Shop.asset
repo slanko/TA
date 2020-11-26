@@ -94,16 +94,10 @@ MonoBehaviour:
     stockValueMult: 1
   - stockType: 2
     stockAmount: 10
-    stockValueMult: 1
-  - stockType: 4
-    stockAmount: 6
-    stockValueMult: 1
+    stockValueMult: 0.75
   - stockType: 7
-    stockAmount: 3
-    stockValueMult: 2
-  - stockType: 10
-    stockAmount: 0
-    stockValueMult: 100
+    stockAmount: 10
+    stockValueMult: 0.5
   shopStock:
   - stockType: 0
     stockAmount: 30
@@ -113,16 +107,10 @@ MonoBehaviour:
     stockValueMult: 1
   - stockType: 2
     stockAmount: 10
-    stockValueMult: 1
-  - stockType: 4
-    stockAmount: 6
-    stockValueMult: 1
-  - stockType: 5
-    stockAmount: 5
-    stockValueMult: 2
+    stockValueMult: 0.75
   - stockType: 7
-    stockAmount: 3
-    stockValueMult: 2
-  - stockType: 10
-    stockAmount: 0
-    stockValueMult: 100
+    stockAmount: 10
+    stockValueMult: 0.5
+  - stockType: 4
+    stockAmount: 30
+    stockValueMult: 0

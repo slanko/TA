@@ -12,12 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcd3f152dd8611449e3525b32a3f7dd, type: 3}
   m_Name: mozam
   m_EditorClassIdentifier: 
-  cityName: mozambique (real)
+  cityName: the mozam diner
   affiliation: 0
   backgroundSprite: {fileID: 21300000, guid: df1a15ab6e374bc4fb04e6514ba245fe, type: 3}
-  tradeArea: {fileID: 0}
-  cityDescription: the real mozambique?? how did you end up here???
-  cityActivitiesDescription: 
+  tradeArea: {fileID: 11400000, guid: c461a7c33dce6b6429a6461fab23aa3e, type: 2}
+  cityDescription: 'all the way out here, seemingly bereft of any other buildings
+    to keep it company, sits the MOZAM all night diner.
+
+
+    somehow, almost in
+    defiance of its remote placement, it sees a steady stream of visitors thanks
+    to it''s remarkably good food.'
+  cityActivitiesDescription: a diner's a great place to meet new people, or maybe
+    you can get some food to take with you.
   cityActivities:
   - {fileID: 7480398605240492043, guid: 34d0e4e2744cafd42a865e369b1432b4, type: 3}
   - {fileID: 7145350822238157349, guid: 04005f2330b38f145a0bba323501ee83, type: 3}

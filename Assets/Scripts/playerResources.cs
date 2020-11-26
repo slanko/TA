@@ -234,4 +234,24 @@ public class playerResources : MonoBehaviour
             }
         }
     }
+
+    public void healPlayer(float amount)
+    {
+        giveItem(globalValuesData.itemType.MEDSUPS, -1);
+        gPTT.tS.populateInventoryTab();
+        playerHealth = playerHealth + amount;
+        Debug.Log("healed player for " + amount + " health");
+    }
+
+    public bool checkForItem(globalValuesData.itemType item)
+    {
+        if (getItemAmount(item) > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

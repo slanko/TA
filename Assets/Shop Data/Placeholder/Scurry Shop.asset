@@ -51,28 +51,25 @@ MonoBehaviour:
 '
   vendorSprite: {fileID: 21300000, guid: 35dfb9a23dc5b684fab514c094b12c4e, type: 3}
   baseShopStock:
-  - stockType: 0
-    stockAmount: 10
-    stockValueMult: 1
-  - stockType: 2
-    stockAmount: 10
-    stockValueMult: 1
   - stockType: 5
-    stockAmount: 10
+    stockAmount: 2
     stockValueMult: 2
   - stockType: 4
     stockAmount: 15
     stockValueMult: 1
+  - stockType: 6
+    stockAmount: 15
+    stockValueMult: 0.5
   shopStock:
-  - stockType: 0
-    stockAmount: 10
-    stockValueMult: 1
-  - stockType: 2
-    stockAmount: 0
-    stockValueMult: 1
   - stockType: 5
-    stockAmount: 10
+    stockAmount: 1
     stockValueMult: 2
   - stockType: 4
     stockAmount: 15
     stockValueMult: 1
+  - stockType: 6
+    stockAmount: 15
+    stockValueMult: 0.5
+  - stockType: 7
+    stockAmount: 10
+    stockValueMult: 0

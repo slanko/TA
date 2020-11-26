@@ -18,6 +18,7 @@ public class shopScript : MonoBehaviour
     [SerializeField] List<GameObject> entryList;
     [SerializeField] Slider repSlider;
     [SerializeField] Text repChangeText, currentRepText;
+    int currentChatter = 0;
 
     //list value checking stuff
     public List<tradeItemScript> giveTISList, receiveTISList;
@@ -197,7 +198,15 @@ public class shopScript : MonoBehaviour
 
     public void vendorChat()
     {
-        shopDescription.text = currentShop.shopTalk[Random.Range(0, currentShop.shopTalk.Length)];
+        if (currentChatter < currentShop.shopTalk.Length)
+        {
+            shopDescription.text = currentShop.shopTalk[currentChatter];
+            currentChatter++;
+            if(currentChatter > currentShop.shopTalk.Length)
+            {
+                currentChatter = 0;
+            }
+        }
     }
 
     void changeStock(globalValuesData.itemType myType, int amount)

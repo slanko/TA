@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98937bb244e39748bf2c7dde88ddbee, type: 3}
+  m_Name: Mozam Shop
+  m_EditorClassIdentifier: 
+  faction: 1
+  shopOwnerName: foodmin
+  shopDescription: 'they take you out back, to where they keep all the frozen stuff.
+
+
+    you''re
+    surprised they don''t get more thefts, what with the freezer just sitting behind
+    the main building like that, but you guess there really is some goodwill to be
+    shared amongst your peers here.'
+  shopFlavourText: foodmin's waiting.
+  shopTalk:
+  - '"keep it quick if you don''t mind" foodmin says nonchalantly. "there''s some
+    mighty hungry folk in there."'
+  friendlyShopDescription: 'it''s not long before foodmin drags you out back himself,
+    in the hopes of trading with you again.
+
+
+    you get the feeling that whether
+    you like it or not these days you''ll be seeing a lot of this freezer, and even
+    more of it''s contents.'
+  friendlyShopFlavourText: foodmin's watching you eagerly.
+  friendlyShopTalk:
+  - PLACEHOLDER TEXT
+  unfriendlyShopDescription: it takes a lot of convincing to let them let you get
+    a look at the food out back. it'd honestly be easier to steal it at this point,
+    but you'd rather not ruin your good name here any more than you need to.
+  unfriendlyShopFlavourText: foodmin's got his eye on you.
+  unfriendlyShopTalk:
+  - foodmin doesn't want to speak to you. just hurry up and make a deal.
+  vendorSprite: {fileID: 21300000, guid: d5844b080464e56448cd4742c30494fa, type: 3}
+  baseShopStock:
+  - stockType: 4
+    stockAmount: 10
+    stockValueMult: 0.5
+  - stockType: 12
+    stockAmount: 5
+    stockValueMult: 0.75
+  shopStock:
+  - stockType: 4
+    stockAmount: 0
+    stockValueMult: 0.5
+  - stockType: 12
+    stockAmount: 5
+    stockValueMult: 0.75

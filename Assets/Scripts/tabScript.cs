@@ -21,6 +21,8 @@ public class tabScript : MonoBehaviour
     playerResources pR;
     GameObject GOD;
 
+    [SerializeField] Animator healthButtonAnim;
+
     private void Start()
     {
         GOD = GameObject.Find("GOD");
@@ -53,6 +55,16 @@ public class tabScript : MonoBehaviour
             
             iIS.entryAmount.text = "" + (int)entry.amountHeld;
             entryList.Add(iIS.gameObject);
+        }
+
+        //put the health button up or down if the player has or doesn't have med sups
+        if(pR.checkForItem(globalValuesData.itemType.MEDSUPS) == true)
+        {
+            healthButtonAnim.SetBool("state2", true);
+        }
+        else
+        {
+            healthButtonAnim.SetBool("state2", false);
         }
     }
 }

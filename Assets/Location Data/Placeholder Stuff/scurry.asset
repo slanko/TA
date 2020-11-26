@@ -40,4 +40,3 @@ MonoBehaviour:
   cityActivities:
   - {fileID: 7145350822238157349, guid: 04005f2330b38f145a0bba323501ee83, type: 3}
   - {fileID: 7480398605240492043, guid: 34d0e4e2744cafd42a865e369b1432b4, type: 3}
-  - {fileID: 7145350822238157349, guid: d2762e7c03a6ed8409838c70071cf8a3, type: 3}

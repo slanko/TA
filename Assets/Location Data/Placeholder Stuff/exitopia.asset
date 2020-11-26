@@ -16,7 +16,8 @@ MonoBehaviour:
   affiliation: 2
   backgroundSprite: {fileID: 21300000, guid: 476735b6f38b1ef4e874028f1ca02ff3, type: 3}
   tradeArea: {fileID: 0}
-  cityDescription: this is where you win the game
+  cityDescription: this is where you win the game. you can also sleep here
   cityActivitiesDescription: get out of here!!!
   cityActivities:
   - {fileID: 327249192387310950, guid: e78ea8718098481488457ebf2c1d1ebb, type: 3}
+  - {fileID: 7145350822238157349, guid: d2762e7c03a6ed8409838c70071cf8a3, type: 3}
