@@ -29,6 +29,7 @@ public class godPointToThing : MonoBehaviour
     //used for rest screen switching stuff
     public GameObject cityCanvas;
     public GameObject restScreen;
+    public GameObject repairScreen;
     public restScreenScript rSS;
     public GameObject popupCanvas;
     public GameObject dashBoard;

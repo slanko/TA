@@ -6,14 +6,14 @@ public class enterTownButtonScript : MonoBehaviour
 {
 
     godPointToThing gPTT;
-    Animator anim;
+    [SerializeField] Animator anim;
     [SerializeField] GameObject popup;
     // Start is called before the first frame update
     void Start()
     {
         gPTT = GameObject.Find("GOD").GetComponent<godPointToThing>();
         //amen
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
