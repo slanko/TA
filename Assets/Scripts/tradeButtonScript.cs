@@ -48,22 +48,22 @@ public class tradeButtonScript : MonoBehaviour
 
             case buttonType.REST:
                 meButton.onClick.AddListener(delegate {
+                    gPTT.popupCanvas.SetActive(false);
+                    gPTT.dashBoard.SetActive(false);
                     gPTT.restScreen.SetActive(true);
                     gPTT.cityCanvas.SetActive(false);
                     gPTT.rSS.populateRestScreen(gPTT.PLAYER.currentCity.rSD);
-                    gPTT.popupCanvas.SetActive(false);
-                    gPTT.dashBoard.SetActive(false);
                 });
                 break;
 
             case buttonType.REPAIR:
                 meButton.onClick.AddListener(delegate
                 {
-                    gPTT.repairScreen.SetActive(true);
-                    gPTT.cityCanvas.SetActive(false);
-                    gPTT.rSS.populateRestScreen(gPTT.PLAYER.currentCity.rSD);
                     gPTT.popupCanvas.SetActive(false);
                     gPTT.dashBoard.SetActive(false);
+                    gPTT.repairScreen.SetActive(true);
+                    gPTT.cityCanvas.SetActive(false);
+                    gPTT.repSS.populateRepairScreen();
                 });
                 break;
 

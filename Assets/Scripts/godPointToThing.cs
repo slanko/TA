@@ -31,6 +31,7 @@ public class godPointToThing : MonoBehaviour
     public GameObject restScreen;
     public GameObject repairScreen;
     public restScreenScript rSS;
+    public repairScreenScript repSS;
     public GameObject popupCanvas;
     public GameObject dashBoard;
 

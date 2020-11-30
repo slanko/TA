@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class playerResources : MonoBehaviour
 {
@@ -16,7 +17,11 @@ public class playerResources : MonoBehaviour
     public float foodRationValue = 1;
     public bool resting = false;
 
-    [SerializeField] Slider healthBar, truckSpeedSlider;
+    //truck speed nav stuff
+    NavMeshAgent nav;
+    float truckHealthDecreaseRate;
+
+    [SerializeField] Slider healthBar, truckSpeedSlider, truckHealthBar;
     public Slider foodRationSlider;
     bool playerIsAlive = true;
     [SerializeField] Animator deathScreen;
@@ -39,6 +44,7 @@ public class playerResources : MonoBehaviour
     {
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
+        nav = gPTT.PLAYER.GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -70,8 +76,6 @@ public class playerResources : MonoBehaviour
                     break;
             }
         }
-
-
             if(resting == false && gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
             {
                 if (getItemAmount(globalValuesData.itemType.FOOD) > 0)
@@ -102,6 +106,42 @@ public class playerResources : MonoBehaviour
                 }
             }
 
+        //truck speed stuff
+        switch (truckSpeedSlider.value)
+        {
+            case 0:
+                truckSpeedText.text = "slow";
+                nav.speed = 1.5f;
+                nav.acceleration = 1;
+                truckHealthDecreaseRate = 0.1f;
+                break;
+            case 1:
+                truckSpeedText.text = "normal";
+                nav.speed = 3.5f;
+                nav.acceleration = 1;
+                truckHealthDecreaseRate = .25f;
+                break;
+
+            case 2:
+                truckSpeedText.text = "fast";
+                nav.speed = 5f;
+                nav.acceleration = 5;
+                truckHealthDecreaseRate = .5f;
+                break;
+
+            case 3:
+                truckSpeedText.text = "extra fast";
+                nav.speed = 10f;
+                nav.acceleration = 10;
+                truckHealthDecreaseRate = 1.5f;
+                break;
+        }
+        if(gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
+        {
+            truckHealth = truckHealth - truckHealthDecreaseRate * Time.deltaTime;
+        }
+
+        truckHealthBar.value = truckHealth;
 
         if(playerHealth <= 0 && playerIsAlive)
         {

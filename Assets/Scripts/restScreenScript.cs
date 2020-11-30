@@ -19,7 +19,7 @@ public class restScreenScript : MonoBehaviour
 
     float restHealRate;
 
-    void Start()
+    void Awake()
     {
         GOD = GameObject.Find("GOD");
         dAT = GOD.GetComponent<datesAndTimes>();
@@ -43,8 +43,8 @@ public class restScreenScript : MonoBehaviour
         descriptionText.text = rSD.stopDesc;
         sleepySprite.sprite = rSD.restImage;
         toggleCityNames(false);
-        dateText1Time.text = dAT.getTime();
         dateText1DMY.text = dAT.getDate();
+        dateText1Time.text = dAT.getTime();
     }
 
     public void toggleCityNames(bool enableNames)
