@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class playerResources : MonoBehaviour
 {
     public float playerHealth, truckHealth, playerCredit, playerLuck;
+    public const float TruckMaxHealth = 1000;
 
     //FACTION REP
     public int banditRep, freeTradeRep, corporationRep, globalRep;
@@ -178,6 +179,10 @@ public class playerResources : MonoBehaviour
         {
             giveItem(globalValuesData.itemType.FOOD, 1);
         }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            truckHealth = truckHealth - 100;
+        }
     }
 
     public void giveItem(globalValuesData.itemType type, float amount)
@@ -221,6 +226,7 @@ public class playerResources : MonoBehaviour
             if (entry.entryType == type)
             {
                 entry = new InventoryEntry { };
+                entry.entryType = type;
                 entry.amountHeld = setAmount;
                 break;
             }
