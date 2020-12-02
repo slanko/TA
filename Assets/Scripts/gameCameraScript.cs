@@ -21,6 +21,7 @@ public class gameCameraScript : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, targetPosition.position, camLerpSpeed);
+        /*
         if (Input.GetKey(camLeftKey))
         {
             transform.Rotate(Vector3.up * camRotateSpeed);
@@ -30,7 +31,7 @@ public class gameCameraScript : MonoBehaviour
         {
             transform.Rotate(Vector3.up * -1 * camRotateSpeed);
         }
-
+        */
         if (Input.GetMouseButton(1))
         {
             myCamera.transform.Translate(new Vector3(Input.GetAxis("Mouse X") * mouseSensitivityX, Input.GetAxis("Mouse Y") * mouseSensitivityY, 0));

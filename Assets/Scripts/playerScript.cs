@@ -63,15 +63,7 @@ public class playerScript : MonoBehaviour
 
             if (Input.GetKeyDown(openAtlasKey))
             {
-                if (mapCam.gameObject.activeSelf)
-                {
-                    mapCam.gameObject.SetActive(false);
-                }
-                else
-                {
-                    mapCam.gameObject.SetActive(true);
-                    mLS.getCityConnectedRoads(currentCity, true);
-                }
+            toggleAtlas();
             }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -271,6 +263,21 @@ public class playerScript : MonoBehaviour
         {
             var currentText = Instantiate(routePlannerText, routePlannerTextHolder.transform);
             currentText.GetComponent<Text>().text = cS.cityLD.cityName;
+        }
+    }
+
+    //i am an idiot and did the atlas opening  stuff here. shut up
+
+    public void toggleAtlas()
+    {
+        if (mapCam.gameObject.activeSelf)
+        {
+            mapCam.gameObject.SetActive(false);
+        }
+        else
+        {
+            mapCam.gameObject.SetActive(true);
+            mLS.getCityConnectedRoads(currentCity, true);
         }
     }
 }

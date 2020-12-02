@@ -220,17 +220,21 @@ public class playerResources : MonoBehaviour
 
     public void setItemAmount(globalValuesData.itemType type, float setAmount)
     {
-        for (int i = 0; i < playerInventory.Count; i++)
+        List<InventoryEntry> tempList = new List<InventoryEntry>();
+        tempList = playerInventory;
+        for (int i = 0; i < tempList.Count; i++)
         {
-            var entry = playerInventory[i];
+            var entry = tempList[i];
             if (entry.entryType == type)
             {
                 entry = new InventoryEntry { };
                 entry.entryType = type;
                 entry.amountHeld = setAmount;
+                tempList[i] = entry;
                 break;
             }
         }
+        playerInventory = tempList;
     }
 
     public void reputationChange(int changeAmount, globalValuesData.factionType faction)
