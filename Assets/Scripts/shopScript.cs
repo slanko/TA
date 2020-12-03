@@ -18,6 +18,7 @@ public class shopScript : MonoBehaviour
     [SerializeField] List<GameObject> entryList;
     [SerializeField] Slider repSlider;
     [SerializeField] Text repChangeText, currentRepText;
+    [SerializeField] Button tradeButton;
     int currentChatter = 0;
 
     //list value checking stuff
@@ -50,6 +51,7 @@ public class shopScript : MonoBehaviour
         currentShop = cDP.currentCity.cityLD.tradeArea;
         vendorNameText.text = currentShop.shopOwnerName;
         vendorNameText2.text = currentShop.shopOwnerName;
+        tradeButton.interactable = true;
         if (resetText)
         {
             setShopTextBasedOnRep();
@@ -188,6 +190,14 @@ public class shopScript : MonoBehaviour
         else
         {
             repChangeText.text = repChange.ToString();
+        }
+        if(repChange < -10)
+        {
+            tradeButton.interactable = false;
+        }
+        else
+        {
+            tradeButton.interactable = true;
         }
         if(trade == true)
         {

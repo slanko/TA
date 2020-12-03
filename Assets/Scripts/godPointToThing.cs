@@ -66,4 +66,6 @@ public class godPointToThing : MonoBehaviour
     public RectTransform toolTipTransform;
     public Text toolTipText;
     public Animator toolTipAnim;
+
+    public float dailyScrounges, scroungeAmount;
 }

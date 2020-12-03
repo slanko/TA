@@ -73,24 +73,40 @@ public class tradeButtonScript : MonoBehaviour
                 {
                     int randomChance = Random.Range(0, 100);
                     int amount = Random.Range(1, 5);
-                    if (randomChance <= 65)
+                    if(gPTT.scroungeAmount < gPTT.dailyScrounges)
                     {
-                        gPTT.pR.giveItem(globalValuesData.itemType.LUXURIES, amount);
-                        string popupText = "you found " + amount.ToString() + " STUFF while scrounging around NOWHERE.";
-                        gPTT.setUniversalPopup(popupText, "sweet");
+                        if (randomChance <= 65)
+                        {
+                            gPTT.pR.giveItem(globalValuesData.itemType.JUNK, amount);
+                            string popupText = "you found " + amount.ToString() + " JUNK while scrounging around NOWHERE.";
+                            gPTT.setUniversalPopup(popupText, "sweet");
+                        }
+                        if (randomChance > 65 && randomChance <= 90)
+                        {
+                            gPTT.pR.giveItem(globalValuesData.itemType.TRASH, amount);
+                            string popupText = "you found " + amount.ToString() + " TRASH, obviously thrown over the walls in an attempt to dispose of it.";
+                            gPTT.setUniversalPopup(popupText, "sweet");
+                        }
+                        if (randomChance > 90 && randomChance <= 95)
+                        {
+                            gPTT.pR.giveItem(globalValuesData.itemType.LUXURIES, amount);
+                            string popupText = "you found " + amount.ToString() + " TRASH that you thought you might be able to find a use for.";
+                            gPTT.setUniversalPopup(popupText, "sweet");
+                        }
+                        if (randomChance > 95)
+                        {
+                            gPTT.pR.giveItem(globalValuesData.itemType.FOOD, amount);
+                            string popupText = "you found " + amount.ToString() + " FOOD that might actually be edible";
+                            gPTT.setUniversalPopup(popupText, "sweet");
+                        }
+                        gPTT.scroungeAmount++;
                     }
-                    if (randomChance > 65 && randomChance <= 90)
+                    else
                     {
-                        gPTT.pR.giveItem(globalValuesData.itemType.JUNK, amount);
-                        string popupText = "you found " + amount.ToString() + " JUNK, obviously thrown over the walls in an attempt to dispose of it.";
-                        gPTT.setUniversalPopup(popupText, "sweet");
+                        string popupText = "scrounge as you might, there is nothing left to be found.";
+                        gPTT.setUniversalPopup(popupText, "dang");
                     }
-                    if (randomChance > 90)
-                    {
-                        gPTT.pR.giveItem(globalValuesData.itemType.TRASH, amount);
-                        string popupText = "you found " + amount.ToString() + " TRASH that you thought you might be able to find a use for.";
-                        gPTT.setUniversalPopup(popupText, "sweet");
-                    }
+
                 }
                 break;
         }

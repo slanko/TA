@@ -78,7 +78,7 @@ MonoBehaviour:
     as you push through the crowd to reach the counter,
     trademin, without looking up from the pile of junk he''s rifling through, remarks
     "oh. it''s you."'
-  unfriendlyShopFlavourText: trademin seems apathetic.
+  unfriendlyShopFlavourText: trademin seems more stressed than usual.
   unfriendlyShopTalk:
   - trademin swivels his chair around a few times, seemingly ignoring your attempt
     to make small talk.
@@ -111,6 +111,3 @@ MonoBehaviour:
   - stockType: 7
     stockAmount: 10
     stockValueMult: 0.5
-  - stockType: 4
-    stockAmount: 30
-    stockValueMult: 0

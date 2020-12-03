@@ -22,6 +22,9 @@ public class datesAndTimes : MonoBehaviour
         {
             time.hour = 0;
             time.day++;
+            //scroungey stuff
+            gPTT.scroungeAmount = 0;
+            gPTT.dailyScrounges = (int)Random.Range(1, 5);
         }
         switch (time.month)
         {
