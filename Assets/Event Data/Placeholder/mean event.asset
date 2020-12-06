@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03535dd7cdd975418c11a1b56a155e8, type: 3}
   m_Name: mean event
   m_EditorClassIdentifier: 
+  priority: 1
   eventBeatList:
   - beatText: 'you find a barricade blocking your path. as you try to reverse, someone
       steps in your way, and you hear a clatter as nails are poured out behind your

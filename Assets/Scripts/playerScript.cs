@@ -24,7 +24,7 @@ public class playerScript : MonoBehaviour
     [SerializeField, Header("Route Planner")] GameObject routePlannerText;
     [SerializeField] GameObject routePlannerTextHolder, routeLineRenderer;
     List<GameObject> lineRendererList=new List<GameObject>();
-    [SerializeField] Text stateText, arrivedAtCityText;
+    [SerializeField] Text arrivedAtCityText;
 
     int roadInt;
     Vector3[] roadPosArray;
@@ -58,7 +58,6 @@ public class playerScript : MonoBehaviour
     // Update is called once per frame
     void Update()    
     {
-        stateText.text = "STATE: " + currentState.ToString();
         //map opening stuff
 
             if (Input.GetKeyDown(openAtlasKey))

@@ -11,12 +11,6 @@ public struct eventStruct
     public string entryName;
     public eventData eventMaster;
 }
-[System.Serializable]
-public struct effectStruct
-{
-    public string effectName;
-    public UnityEvent effect;
-}
 
 public class randomEventScript : MonoBehaviour
 {
@@ -40,7 +34,7 @@ public class randomEventScript : MonoBehaviour
     IEnumerator randomEvent(int seconds)
     {
         int counter = seconds;
-        while(counter > 0)
+        while (counter > 0)
         {
             yield return new WaitForSeconds(1);
             counter--;
@@ -63,12 +57,11 @@ public class randomEventScript : MonoBehaviour
 
     void randomEventFunction()
     {
-        if(pS.currentState == playerScript.playerState.TRAVELLING)
+        if (pS.currentState == playerScript.playerState.TRAVELLING)
         {
             eventPopup.SetActive(true);
             Time.timeScale = 0;
-            var ev = eventList[Random.Range(0, eventList.Count)];
-            currentEvent = ev.eventMaster;
+            currentEvent = pickRandomEvent().eventMaster;
             Debug.Log("random event happens: " + currentEvent);
             eventHeader.text = currentEvent.eventTitle;
             eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
@@ -82,7 +75,21 @@ public class randomEventScript : MonoBehaviour
             Debug.Log("random event failed due to player state: " + pS.currentState);
         }
     }
-
+    public eventStruct pickRandomEvent()
+    {
+        eventStruct currentEvent;
+        currentEvent = eventList[Random.Range(0, eventList.Count)];
+        eventStruct eventPicked = new eventStruct();
+        for (int i = 0; i < currentEvent.eventMaster.priority; i++)
+        {
+            eventPicked = eventList[Random.Range(0, eventList.Count)];
+            if ((eventPicked.eventMaster.priority - currentEvent.eventMaster.priority) <= 0)
+            {
+                break;
+            }
+        }
+        return eventPicked;
+    }
 
 
     void populateButtons(int beatNum)
@@ -108,7 +115,7 @@ public class randomEventScript : MonoBehaviour
                 switch (effect.varToChange)
                 {
                     case playerVariables.HEALTH:
-                        button.onClick.AddListener(delegate { changeHealth(effect.changeAmount); }); 
+                        button.onClick.AddListener(delegate { changeHealth(effect.changeAmount); });
                         break;
 
                     case playerVariables.HEALTHPERCENTAGE:
@@ -178,6 +185,7 @@ public class randomEventScript : MonoBehaviour
     {
         pR.giveItem(globalValuesData.itemType.JUNK, changeAmount);
     }
+    //we can do this BETTER
 
     public void endEvent()
     {
@@ -190,5 +198,5 @@ public class randomEventScript : MonoBehaviour
         eventText.text = currentEvent.eventBeatList[beatNum].beatText;
         populateButtons(beatNum);
     }
-    
+    //and we can do THIS BETTER
 }

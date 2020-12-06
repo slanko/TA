@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03535dd7cdd975418c11a1b56a155e8, type: 3}
   m_Name: repair event
   m_EditorClassIdentifier: 
+  priority: 3
   eventBeatList:
   - beatText: "your route takes you past a temporary repair shop.\nthe fella that
       you assume is the proprietor waves you down.\n\n\"hypothetically speaking...

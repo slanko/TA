@@ -36,6 +36,7 @@ public struct buttonData
 [CreateAssetMenu(fileName = "Event Data", menuName = "Trucker's Atlas/Event Data")]
 public class eventData : ScriptableObject
 {
+    public int priority;
     public List<eventStoryBeat> eventBeatList;
     public string eventTitle;
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03535dd7cdd975418c11a1b56a155e8, type: 3}
   m_Name: ears guy
   m_EditorClassIdentifier: 
+  priority: 2
   eventBeatList:
   - beatText: "you are stopped by a man standing in the middle of the road. \nas
       you stop he clambers up to your window to speak with you.\n\n\"hey there friend!

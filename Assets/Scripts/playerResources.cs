@@ -26,7 +26,7 @@ public class playerResources : MonoBehaviour
     public Slider foodRationSlider;
     bool playerIsAlive = true;
     [SerializeField] Animator deathScreen;
-    [SerializeField] Text creditsText, foodRationText, truckSpeedText;
+    [SerializeField] Text foodRationText, truckSpeedText;
     GameObject GOD;
     godPointToThing gPTT;
     [System.NonSerialized]
@@ -160,8 +160,6 @@ public class playerResources : MonoBehaviour
         {
             playerHealth = 0;
         }
-
-        creditsText.text = "CREDITS: $" + playerCredit.ToString();
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
