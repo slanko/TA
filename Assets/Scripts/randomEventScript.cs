@@ -21,6 +21,7 @@ public class randomEventScript : MonoBehaviour
     [SerializeField] playerResources pR;
     [SerializeField] playerScript pS;
     [SerializeField] Slider timeScaleSlider;
+    [SerializeField] eventStruct testEvent;
     public List<eventStruct> eventList;
     public eventData currentEvent;
     int eventCounter = 0;
@@ -47,6 +48,15 @@ public class randomEventScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             randomEventFunction();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            addEventFromSublist(testEvent);
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            removeEventFromEventlist(testEvent);
         }
     }
 
@@ -90,8 +100,6 @@ public class randomEventScript : MonoBehaviour
         }
         return eventPicked;
     }
-
-
     void populateButtons(int beatNum)
     {
         clearButtons();
@@ -199,4 +207,14 @@ public class randomEventScript : MonoBehaviour
         populateButtons(beatNum);
     }
     //and we can do THIS BETTER
+
+    public void addEventFromSublist(eventStruct eventToAdd)
+    {
+        eventList.Add(eventToAdd);
+    }
+    public void removeEventFromEventlist(eventStruct eventToRemove)
+    {
+        eventList.Remove(eventToRemove);
+    }
+
 }

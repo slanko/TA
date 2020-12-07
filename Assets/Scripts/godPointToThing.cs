@@ -68,4 +68,14 @@ public class godPointToThing : MonoBehaviour
     public Animator toolTipAnim;
 
     public float dailyScrounges, scroungeAmount;
+
+    //make it so i never have to reenable the death screens before a build because it sucks
+    public GameObject reallyImportantStuff;
+    private void Awake()
+    {
+        if(reallyImportantStuff.activeSelf == false)
+        {
+            reallyImportantStuff.SetActive(true);
+        }
+    }
 }
