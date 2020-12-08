@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03535dd7cdd975418c11a1b56a155e8, type: 3}
   m_Name: shut up
   m_EditorClassIdentifier: 
+  priority: 0
   eventBeatList:
-  - beatText: 'you see a man walking along the side of the road.
+  - beatText: 'you see a <<INSULTNAME>> walking along the side of the road.
 
 
-      as you drive
-      past, he shouts "BRO!! IS THAT FUCKER''S ATLAS???"
+      as
+      you drive past, he shouts "BRO!! IS THAT FUCKER''S ATLAS???"
 
 
-      you are compelled,
-      no, obliged to shout something back.'
+      you are
+      compelled, no, obliged to shout something back.'
     characterSprite: {fileID: 21300000, guid: deae3e78d28ec5e46af5a9359b6214a5, type: 3}
     possibleActions:
     - buttonName: SHUT UP

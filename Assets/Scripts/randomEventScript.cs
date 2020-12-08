@@ -22,6 +22,7 @@ public class randomEventScript : MonoBehaviour
     [SerializeField] playerScript pS;
     [SerializeField] Slider timeScaleSlider;
     [SerializeField] eventStruct testEvent;
+    wordReplacements wR;
     public List<eventStruct> eventList;
     public eventData currentEvent;
     int eventCounter = 0;
@@ -63,6 +64,7 @@ public class randomEventScript : MonoBehaviour
     private void Start()
     {
         StartCoroutine(randomEvent(Random.Range(randomEventTimeMin, randomEventTimeMax)));
+        wR = GetComponent<wordReplacements>();
     }
 
     void randomEventFunction()
@@ -77,6 +79,7 @@ public class randomEventScript : MonoBehaviour
             eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
             eventCounter = 0;
             eventText.text = currentEvent.eventBeatList[eventCounter].beatText;
+            eventText.text = eventText.text.Replace("<<INSULTNAME>>", wR.insultNames[Random.Range(0, wR.insultNames.Length)]);
             StartCoroutine(randomEvent(Random.Range(randomEventTimeMin, randomEventTimeMax)));
             populateButtons(0);
         }
@@ -210,7 +213,20 @@ public class randomEventScript : MonoBehaviour
 
     public void addEventFromSublist(eventStruct eventToAdd)
     {
-        eventList.Add(eventToAdd);
+        bool doubleUpEvent = false;
+        foreach(eventStruct ev in eventList)
+        {
+            if(eventToAdd.entryName == ev.entryName)
+            {
+                doubleUpEvent = true;
+                Debug.Log("found double up of " + ev.entryName);
+                break;
+            }
+        }
+        if(doubleUpEvent == false)
+        {
+            eventList.Add(eventToAdd);
+        }
     }
     public void removeEventFromEventlist(eventStruct eventToRemove)
     {

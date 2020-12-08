@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 7
   eventBeatList:
-  - beatText: 'hey there.
+  - beatText: 'hey there, <<INSULTNAME>>.
 
 
-      this event is only supposed to play if you have
-      majorly bad faction rep with the bandits. but i guess you''re just really really
-      unlucky, huh?
+      this event is only supposed to
+      play if you have majorly bad faction rep with the bandits. but i guess you''re
+      just really really unlucky, huh?
 
 
-      time for me to shank you, please stay still'
+      time for me to shank you, please stay
+      still'
     characterSprite: {fileID: 21300000, guid: 55fbc661109af684c9daccd6dc7bbe30, type: 3}
     possibleActions:
     - buttonName: uh oh
