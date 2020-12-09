@@ -302,4 +302,27 @@ public class playerResources : MonoBehaviour
             return false;
         }
     }
+    public float getFactionRep(globalValuesData.factionType faction)
+    {
+        float valueToReturn = 0;
+        switch (faction)
+        {
+            case globalValuesData.factionType.BANDIT:
+                valueToReturn = banditRep;
+                break;
+
+            case globalValuesData.factionType.CORPORATION:
+                valueToReturn = corporationRep;
+                break;
+
+            case globalValuesData.factionType.FREETRADE:
+                valueToReturn = freeTradeRep;
+                break;
+
+            case globalValuesData.factionType.FACTIONLESS:
+                valueToReturn = globalRep;
+                break;
+        }
+        return valueToReturn;
+    }
 }

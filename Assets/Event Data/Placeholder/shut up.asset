@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 0
   eventBeatList:
-  - beatText: 'you see a <<INSULTNAME>> walking along the side of the road.
+  - beatText: 'you see some <<INSULTNAME>> walking along the side of the road.
 
 
       as
