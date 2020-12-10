@@ -3287,6 +3287,7 @@ MonoBehaviour:
   - chumbo
   - dipweed
   - mouthbreather
+  - goof
   insultAdjectives:
   - bad
   - stupid
@@ -3307,7 +3308,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad152310f1339a546b6fca513c5c35b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  banditSublists: []
+  banditSublists:
+  - {fileID: 11400000, guid: b5752c8732d732d4f8913a9d155e63a8, type: 2}
+  - {fileID: 11400000, guid: 2b9260a4b1e077246860cde8db84fe0a, type: 2}
+  - {fileID: 11400000, guid: 89a36a761f309c94193e08d36111106f, type: 2}
+  - {fileID: 11400000, guid: c15e34b8109fbf249bf3b1fbf6ac0a77, type: 2}
+  - {fileID: 11400000, guid: 5dc01921256c5fd47a99e39b5a4d8523, type: 2}
+  - {fileID: 11400000, guid: f6f13de197ba63445811794b88bbdea0, type: 2}
   corporationSublists: []
   freeTradeSublists: []
   globalSublists: []

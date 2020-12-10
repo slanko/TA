@@ -59,7 +59,7 @@ public class factionRepEventLoader : MonoBehaviour
         //the good side of things
         if (factionRep >= 100 && previousFactionRep < 100)
         {
-            foreach(eventStruct ev in factionSublist[1].sublist)
+            foreach(eventStruct ev in factionSublist[0].sublist)
             {
                 rES.addEventFromSublist(ev);
             }
@@ -67,7 +67,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if(factionRep >= 250 && previousFactionRep < 250)
         {
-            foreach(eventStruct ev in factionSublist[2].sublist)
+            foreach(eventStruct ev in factionSublist[1].sublist)
             {
                 rES.addEventFromSublist(ev);
             }
@@ -75,7 +75,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if(factionRep >= 400 && previousFactionRep < 400)
         {
-            foreach(eventStruct ev in factionSublist[3].sublist)
+            foreach(eventStruct ev in factionSublist[2].sublist)
             {
                 rES.addEventFromSublist(ev);
             }
@@ -84,7 +84,7 @@ public class factionRepEventLoader : MonoBehaviour
         //the other side of the good side of things
         if(previousFactionRep >= 400 && factionRep < 400)
         {
-            foreach(eventStruct ev in factionSublist[3].sublist)
+            foreach(eventStruct ev in factionSublist[2].sublist)
             {
                 rES.removeEventFromEventlist(ev);
             }
@@ -92,7 +92,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if (previousFactionRep >= 250 && factionRep < 250)
         {
-            foreach (eventStruct ev in factionSublist[2].sublist)
+            foreach (eventStruct ev in factionSublist[1].sublist)
             {
                 rES.removeEventFromEventlist(ev);
             }
@@ -100,7 +100,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if (previousFactionRep >= 100 && factionRep < 100)
         {
-            foreach (eventStruct ev in factionSublist[1].sublist)
+            foreach (eventStruct ev in factionSublist[0].sublist)
             {
                 rES.removeEventFromEventlist(ev);
             }
@@ -110,7 +110,7 @@ public class factionRepEventLoader : MonoBehaviour
         //the BAD side of things
         if(factionRep <= -100 && previousFactionRep > -100)
         {
-            foreach (eventStruct ev in factionSublist[4].sublist)
+            foreach (eventStruct ev in factionSublist[3].sublist)
             {
                 rES.addEventFromSublist(ev);
             }
@@ -118,7 +118,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if(factionRep <= -250 && previousFactionRep > -250)
         {
-            foreach (eventStruct ev in factionSublist[5].sublist)
+            foreach (eventStruct ev in factionSublist[4].sublist)
             {
                 rES.addEventFromSublist(ev);
             }
@@ -126,7 +126,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if(factionRep <= -400 && previousFactionRep > -400)
         {
-            foreach (eventStruct ev in factionSublist[6].sublist)
+            foreach (eventStruct ev in factionSublist[5].sublist)
             {
                 rES.addEventFromSublist(ev);
             }
@@ -135,7 +135,7 @@ public class factionRepEventLoader : MonoBehaviour
         //the other side of the bad side of things
         if (factionRep > -400 && previousFactionRep <= -400)
         {
-            foreach (eventStruct ev in factionSublist[6].sublist)
+            foreach (eventStruct ev in factionSublist[5].sublist)
             {
                 rES.removeEventFromEventlist(ev);
             }
@@ -143,7 +143,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if (factionRep > -250 && previousFactionRep <= -250)
         {
-            foreach (eventStruct ev in factionSublist[5].sublist)
+            foreach (eventStruct ev in factionSublist[4].sublist)
             {
                 rES.removeEventFromEventlist(ev);
             }
@@ -151,7 +151,7 @@ public class factionRepEventLoader : MonoBehaviour
         }
         if (factionRep > -100 && previousFactionRep <= -100)
         {
-            foreach (eventStruct ev in factionSublist[4].sublist)
+            foreach (eventStruct ev in factionSublist[3].sublist)
             {
                 rES.removeEventFromEventlist(ev);
             }
