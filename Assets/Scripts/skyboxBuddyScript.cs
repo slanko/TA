@@ -11,6 +11,7 @@ public class skyboxBuddyScript : MonoBehaviour
     [SerializeField] Text dateText;
     [SerializeField] float dayNightAnimSpeed;
     [SerializeField] restScreenScript rSS;
+    public Color cityTextColour;
     Animator anim;
     public int restTime;
 

@@ -23,6 +23,10 @@ public class factionRepEventLoader : MonoBehaviour
         factionRepCheck(globalValuesData.factionType.CORPORATION);
         factionRepCheck(globalValuesData.factionType.FREETRADE);
         factionRepCheck(globalValuesData.factionType.FACTIONLESS);
+        previousBanditRep = pR.banditRep;
+        previousCorpRep = pR.corporationRep;
+        previousFreeTradeRep = pR.freeTradeRep;
+        previousGlobalRep = pR.globalRep;
     }
 
     public void factionRepCheck(globalValuesData.factionType faction)

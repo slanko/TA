@@ -10,6 +10,7 @@ public class cityScript : MonoBehaviour
     public GameObject cityMarker;
     public MeshRenderer markerRenderer;
     public restStopData rSD;
+    skyboxBuddyScript sBS;
 
     [System.NonSerialized] 
     public restockShopScript restocker;
@@ -24,6 +25,7 @@ public class cityScript : MonoBehaviour
     {
         GOD = GameObject.Find("GOD");
         gPTT = GOD.GetComponent<godPointToThing>();
+        sBS = GOD.GetComponentInChildren<skyboxBuddyScript>();
         gPTT.cityNameTextList.Add(myText);
         //amen pt. 2
         restocker = GetComponent<restockShopScript>();
@@ -37,5 +39,10 @@ public class cityScript : MonoBehaviour
         {
             cityLD.tradeArea.SetShopStock(cityLD.tradeArea.GetBaseShopStock());
         }
+    }
+
+    private void Update()
+    {
+        myText.color = sBS.cityTextColour;
     }
 }

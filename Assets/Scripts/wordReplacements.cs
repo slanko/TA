@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class wordReplacements : MonoBehaviour
 {
-    public string[] names, insultNames, insultAdjectives, positiveAdjectives;
+    public string[] names, insultNames, insultAdjectives, positiveNames, positiveAdjectives;
 }

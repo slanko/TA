@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class gameCameraScript : MonoBehaviour
 {
-    [SerializeField] KeyCode camLeftKey, camRightKey;
-    [SerializeField] float camLerpSpeed, camRotateSpeed, mouseSensitivityX, mouseSensitivityY, camZoomSpeed;
-    [SerializeField] Transform targetPosition, camLookAtTarget;
+    [SerializeField] float camLerpSpeed, mouseSensitivityX, mouseSensitivityY, camZoomSpeed;
+    [SerializeField] Transform targetPosition, camLookAtTarget, camZipTarget;
     [SerializeField] GameObject myCamera;
     float cam2TruckDist;
     Vector3 startCameraPos;
@@ -39,7 +38,7 @@ public class gameCameraScript : MonoBehaviour
 
         if (Input.GetMouseButton(2))
         {
-            myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, startCameraPos, .01f);
+            myCamera.transform.position = Vector3.Lerp(myCamera.transform.position, camZipTarget.transform.position, .01f);
         }
 
         if(Input.mouseScrollDelta.y != 0)

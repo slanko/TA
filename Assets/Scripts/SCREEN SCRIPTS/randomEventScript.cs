@@ -50,15 +50,6 @@ public class randomEventScript : MonoBehaviour
         {
             randomEventFunction();
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            addEventFromSublist(testEvent);
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            removeEventFromEventlist(testEvent);
-        }
     }
 
     private void Start()
@@ -79,6 +70,7 @@ public class randomEventScript : MonoBehaviour
             eventCharacter.sprite = currentEvent.eventBeatList[eventCounter].characterSprite;
             eventCounter = 0;
             eventText.text = currentEvent.eventBeatList[eventCounter].beatText;
+            //replace words section
             eventText.text = eventText.text.Replace("<<INSULTNAME>>", wR.insultNames[Random.Range(0, wR.insultNames.Length)]);
             StartCoroutine(randomEvent(Random.Range(randomEventTimeMin, randomEventTimeMax)));
             populateButtons(0);
