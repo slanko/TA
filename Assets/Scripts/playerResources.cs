@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class playerResources : MonoBehaviour
 {
@@ -52,7 +50,7 @@ public class playerResources : MonoBehaviour
     void Update()
     {
         healthBar.value = playerHealth;
-        if(resting == false)
+        if (resting == false)
         {
             switch (foodRationSlider.value)
             {
@@ -77,19 +75,21 @@ public class playerResources : MonoBehaviour
                     break;
             }
         }
-            if(resting == false && gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
+        if (resting == false && gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
+        {
+            if (getItemAmount(globalValuesData.itemType.FOOD) > 0)
             {
-                if (getItemAmount(globalValuesData.itemType.FOOD) > 0)
-                {
-                    playerHealth = playerHealth - .25f * Time.deltaTime * foodRationValue;
-                }
-                else
-                {
-                    playerHealth = playerHealth - .25f * Time.deltaTime * 3.5f;
-                    foodRationText.text = "no food!!";
-                }
+                playerHealth = playerHealth - .5f * Time.deltaTime * foodRationValue;
             }
-            if(resting == true)
+            else
+            {
+                playerHealth = playerHealth - .5f * Time.deltaTime * 5f;
+                foodRationText.text = "no food!!";
+            }
+        }
+        if (resting == true)
+        {
+            if (getItemAmount(globalValuesData.itemType.FOOD) > 0)
             {
                 switch (rSD.quality)
                 {
@@ -106,6 +106,25 @@ public class playerResources : MonoBehaviour
                         break;
                 }
             }
+            else
+            {
+                switch (rSD.quality)
+                {
+                    case restQuality.BAD:
+                        playerHealth = playerHealth + .5f * Time.deltaTime * -1f;
+                        break;
+
+                    case restQuality.OKAY:
+                        playerHealth = playerHealth + 1f * Time.deltaTime * .5f;
+                        break;
+
+                    case restQuality.GOOD:
+                        playerHealth = playerHealth + 1.25f * Time.deltaTime * -.25f;
+                        break;
+                }
+            }
+
+        }
 
         //truck speed stuff
         switch (truckSpeedSlider.value)
@@ -114,44 +133,44 @@ public class playerResources : MonoBehaviour
                 truckSpeedText.text = "slow";
                 nav.speed = 1.5f;
                 nav.acceleration = 1;
-                truckHealthDecreaseRate = 0.1f;
+                truckHealthDecreaseRate = .25f;
                 break;
             case 1:
                 truckSpeedText.text = "normal";
                 nav.speed = 3.5f;
                 nav.acceleration = 1;
-                truckHealthDecreaseRate = .25f;
+                truckHealthDecreaseRate = .5f;
                 break;
 
             case 2:
                 truckSpeedText.text = "fast";
                 nav.speed = 5f;
                 nav.acceleration = 5;
-                truckHealthDecreaseRate = .5f;
+                truckHealthDecreaseRate = 1f;
                 break;
 
             case 3:
                 truckSpeedText.text = "extra fast";
                 nav.speed = 10f;
                 nav.acceleration = 10;
-                truckHealthDecreaseRate = 1.5f;
+                truckHealthDecreaseRate = 2f;
                 break;
         }
-        if(gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
+        if (gPTT.PLAYER.currentState == playerScript.playerState.TRAVELLING)
         {
             truckHealth = truckHealth - truckHealthDecreaseRate * Time.deltaTime;
         }
 
         truckHealthBar.value = truckHealth;
 
-        if(playerHealth <= 0 && playerIsAlive)
+        if (playerHealth <= 0 && playerIsAlive)
         {
             //game OVERRRRRRRRRRRRR
             Debug.Log("you fricking died");
             deathScreen.SetTrigger("die");
             playerIsAlive = false;
         }
-        if(playerHealth > 1000)
+        if (playerHealth > 1000)
         {
             playerHealth = 1000;
         }
@@ -164,7 +183,7 @@ public class playerResources : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             giveItem(globalValuesData.itemType.LUXURIES, 1);
-        }       
+        }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             giveItem(globalValuesData.itemType.JUNK, 1);
@@ -185,7 +204,7 @@ public class playerResources : MonoBehaviour
 
     public void giveItem(globalValuesData.itemType type, float amount)
     {
-        if(amount != 0)
+        if (amount != 0)
         {
             bool foundItemType = false;
             for (int i = 0; i < playerInventory.Count; i++)
@@ -206,14 +225,14 @@ public class playerResources : MonoBehaviour
     public float getItemAmount(globalValuesData.itemType type)
     {
         float amountToReturn = 0;
-        foreach(InventoryEntry entry in playerInventory)
+        foreach (InventoryEntry entry in playerInventory)
         {
-            if(entry.entryType == type)
+            if (entry.entryType == type)
             {
                 amountToReturn = entry.amountHeld;
             }
         }
-            return amountToReturn;
+        return amountToReturn;
     }
 
     public void setItemAmount(globalValuesData.itemType type, float setAmount)
@@ -272,7 +291,7 @@ public class playerResources : MonoBehaviour
 
     public void eatFood()
     {
-        if(getItemAmount(globalValuesData.itemType.FOOD) > 0)
+        if (getItemAmount(globalValuesData.itemType.FOOD) > 0)
         {
             giveItem(globalValuesData.itemType.FOOD, gPTT.pR.foodRationSlider.value * gPTT.pR.playerEatRate);
 
